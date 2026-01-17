@@ -1,4 +1,3 @@
-
 /* Reset */
 *,
 *::before,
@@ -25,7 +24,7 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 2100; /* raised so header stays above overlay menu */
   background: #0f172a;
   color: #e5e7eb;
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.5);
@@ -36,6 +35,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0;
+  position: relative; /* so dropdown/overlay triggers align nicely */
 }
 
 .logo {
@@ -63,22 +63,117 @@ body {
   font-size: 1.05rem;
 }
 
+/* --- NAV / HAMBURGER OVERLAY (Desktop + Mobile) --- */
+
+/* Default desktop nav hidden (we'll use overlay everywhere) */
 .nav {
-  display: flex;
-  gap: 1rem;
-  font-size: 0.95rem;
+  display: none;
 }
 
-.nav a {
+/* Hamburger button always visible (desktop + mobile) */
+.hamburger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+  background: rgba(2, 6, 23, 0.35);
   color: #e5e7eb;
-  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1;
+}
+
+.hamburger:focus {
+  outline: 2px solid rgba(34, 195, 166, 0.7);
+  outline-offset: 2px;
+}
+
+/* 3-line icon (if you build it with spans) */
+.hamburger-lines {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hamburger-lines span {
+  width: 18px;
+  height: 2px;
+  background: #e5e7eb;
+  border-radius: 999px;
+}
+
+/* Optional label */
+.hamburger-label {
+  font-size: 0.9rem;
   opacity: 0.9;
 }
 
-.nav a:hover {
-  opacity: 1;
-  text-decoration: underline;
+/* Dark backdrop behind the menu */
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 6, 23, 0.55);
+  z-index: 1990;
+  display: none;
 }
+
+.menu-backdrop.open {
+  display: block;
+}
+
+/* The overlay menu panel itself */
+.nav-overlay {
+  position: fixed;
+  top: 60px;           /* adjust if your header is taller/shorter */
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  display: none;
+}
+
+/* When open */
+.nav-overlay.open {
+  display: block;
+}
+
+/* Menu panel styling */
+.nav-overlay .nav-panel {
+  background: #0f172a;
+  border-top: 1px solid rgba(226, 232, 240, 0.18);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.45);
+}
+
+.nav-overlay .nav-panel .container {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Links layout */
+.nav-overlay a {
+  display: block;
+  color: #e5e7eb;
+  text-decoration: none;
+  padding: 0.65rem 0.25rem;
+  border-radius: 0.5rem;
+  opacity: 0.95;
+}
+
+.nav-overlay a:hover {
+  background: rgba(226, 232, 240, 0.08);
+  opacity: 1;
+}
+
+/* Makes it feel like a "list" */
+.nav-overlay .nav-links {
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* --- End NAV / HAMBURGER OVERLAY --- */
+
 
 /* Hero */
 .hero {
@@ -630,5 +725,11 @@ body {
   .dental-dj-hero-footer {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  /* On small screens, keep overlay starting a bit lower
+     because header becomes taller when stacked */
+  .nav-overlay {
+    top: 96px; /* matches your stacked header height more closely */
   }
 }
