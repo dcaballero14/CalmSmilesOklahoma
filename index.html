@@ -2343,9 +2343,7 @@
         return;
       }
 
-      resultsCount.textContent = ${list.length} clinic${
-        list.length === 1 ? "" : "s"
-      } found;
+      resultsCount.textContent = `${list.length} clinic${list.length === 1 ? "" : "s"} found;
 
       list.forEach(clinic => {
         const card = document.createElement("article");
@@ -2507,4 +2505,5 @@
   </script>
 </body>
 </html>
+
 
