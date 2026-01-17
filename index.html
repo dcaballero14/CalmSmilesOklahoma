@@ -2424,11 +2424,11 @@
         details.style.display = "none";
 
         const phone = document.createElement("p");
-        phone.textContent = Phone: ${clinic.phone};
+        phone.textContent = `Phone: ${clinic.phone}`;
 
         const pops = document.createElement("p");
-        pops.textContent = Good for: ${clinic.populations.join(", ")};
-
+        pops.textContent = `Good for: ${clinic.populations.join(", ")}`;
+        
         const notesHeading = document.createElement("p");
         notesHeading.style.fontWeight = "600";
         notesHeading.textContent = "Notes:";
@@ -2443,7 +2443,7 @@
 
         if (clinic.costOptions && clinic.costOptions.length > 0) {
           const cost = document.createElement("p");
-          cost.textContent = Cost options: ${clinic.costOptions.join(", ")};
+          cost.textContent = `Cost options: ${clinic.costOptions.join(", ")}`;          
           details.appendChild(cost);
         }
 
@@ -2507,3 +2507,4 @@
   </script>
 </body>
 </html>
+
