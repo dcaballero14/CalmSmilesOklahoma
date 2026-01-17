@@ -8,22 +8,8 @@
     name="description"
     content="Calm Smiles Oklahoma is a free directory of Oklahoma dental clinics, including Tulsa and OKC, that welcome anxious patients. Filter by SoonerCare / Oklahoma Medicaid, major dental insurance, region, and comfort features like trauma-informed care, sensory-friendly options, and sedation."
   />
-
-  <link rel="icon" type="image/png" href="tooth.png" />
+  <link rel="icon" type="image/png" href="tooth.png">
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    .filters-intro,
-    .results-note {
-      margin: 0.4rem 0 0.9rem;
-      font-size: 0.95rem;
-      color: #4b5563;
-      max-width: 52rem;
-    }
-    .results-note {
-      font-size: 0.9rem;
-    }
-  </style>
 </head>
 
 <body>
@@ -111,10 +97,9 @@
     <section class="filters-section">
       <div class="container">
         <h2>Search anxiety-friendly clinics in Oklahoma</h2>
-        <p class="filters-intro">
-          Use the filters below to search Oklahoma dental clinics by region, insurance
-          (including SoonerCare / Oklahoma Medicaid), and comfort features such as
-          trauma-informed care, sensory-friendly options, and sedation.
+        <p class="helper-text">
+          Use filters to search by region, insurance (including SoonerCare / Oklahoma Medicaid),
+          and comfort features like trauma-informed care, sensory-friendly options, and sedation.
         </p>
 
         <form id="filtersForm" class="filters-grid">
@@ -137,65 +122,26 @@
           <div class="filter-group">
             <label>Insurance</label>
             <div class="chip-row">
-              <label class="chip-input">
-                <input type="checkbox" value="SoonerCare" class="insurance-checkbox" />
-                <span>SoonerCare</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="Delta Dental" class="insurance-checkbox" />
-                <span>Delta Dental</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="MetLife" class="insurance-checkbox" />
-                <span>MetLife</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="Cigna" class="insurance-checkbox" />
-                <span>Cigna</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="Aetna" class="insurance-checkbox" />
-                <span>Aetna</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="BCBS OK" class="insurance-checkbox" />
-                <span>BCBS OK</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="Humana" class="insurance-checkbox" />
-                <span>Humana</span>
-              </label>
+              <label class="chip-input"><input type="checkbox" value="SoonerCare" class="insurance-checkbox" /><span>SoonerCare</span></label>
+              <label class="chip-input"><input type="checkbox" value="Delta Dental" class="insurance-checkbox" /><span>Delta Dental</span></label>
+              <label class="chip-input"><input type="checkbox" value="MetLife" class="insurance-checkbox" /><span>MetLife</span></label>
+              <label class="chip-input"><input type="checkbox" value="Cigna" class="insurance-checkbox" /><span>Cigna</span></label>
+              <label class="chip-input"><input type="checkbox" value="Aetna" class="insurance-checkbox" /><span>Aetna</span></label>
+              <label class="chip-input"><input type="checkbox" value="BCBS OK" class="insurance-checkbox" /><span>BCBS OK</span></label>
+              <label class="chip-input"><input type="checkbox" value="Humana" class="insurance-checkbox" /><span>Humana</span></label>
             </div>
           </div>
 
-          <!-- Anxiety / comfort features -->
+          <!-- Comfort features -->
           <div class="filter-group">
             <label>Comfort features</label>
             <div class="chip-row">
-              <label class="chip-input">
-                <input type="checkbox" value="anxietyFocused" class="feature-checkbox" />
-                <span>Anxiety-focused</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="pediatric" class="feature-checkbox" />
-                <span>Pediatric</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="sedation" class="feature-checkbox" />
-                <span>Sedation / Nitrous</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="lowCost" class="feature-checkbox" />
-                <span>Low-cost / Sliding scale</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="traumaInformed" class="feature-checkbox" />
-                <span>Trauma-informed / No judgment</span>
-              </label>
-              <label class="chip-input">
-                <input type="checkbox" value="sensoryFriendly" class="feature-checkbox" />
-                <span>Sensory-friendly</span>
-              </label>
+              <label class="chip-input"><input type="checkbox" value="anxietyFocused" class="feature-checkbox" /><span>Anxiety-focused</span></label>
+              <label class="chip-input"><input type="checkbox" value="pediatric" class="feature-checkbox" /><span>Pediatric</span></label>
+              <label class="chip-input"><input type="checkbox" value="sedation" class="feature-checkbox" /><span>Sedation / Nitrous</span></label>
+              <label class="chip-input"><input type="checkbox" value="lowCost" class="feature-checkbox" /><span>Low-cost / Sliding scale</span></label>
+              <label class="chip-input"><input type="checkbox" value="traumaInformed" class="feature-checkbox" /><span>Trauma-informed</span></label>
+              <label class="chip-input"><input type="checkbox" value="sensoryFriendly" class="feature-checkbox" /><span>Sensory-friendly</span></label>
             </div>
           </div>
 
@@ -214,10 +160,10 @@
           <h2>Clinics</h2>
           <p id="resultsCount" class="results-count">Loading clinics…</p>
         </div>
-        <p class="results-note">
-          These Oklahoma dental clinics are gathered from publicly available information.
-          Always confirm insurance, SoonerCare / Medicaid coverage, and specific services
-          directly with the clinic before scheduling.
+
+        <p class="helper-text">
+          These clinics are gathered from publicly available information. Always confirm insurance,
+          SoonerCare / Medicaid coverage, and services directly with the clinic before scheduling.
         </p>
 
         <div id="resultsGrid" class="results-grid"></div>
@@ -231,41 +177,23 @@
         <div class="resources-grid">
           <article class="resource-card">
             <h3>“I haven’t seen a dentist in years.”</h3>
-            <p>
-              You’re not the only one. Learn what usually happens at a first visit, and how to ask for a gentle,
-              low-pressure appointment.
-            </p>
+            <p>What to expect at your first visit and how to ask for a gentle, low-pressure appointment.</p>
           </article>
           <article class="resource-card">
             <h3>What if I gag, panic, or need a break?</h3>
-            <p>
-              Many clinics are used to this. See simple phrases you can use to ask for a pause, more suction,
-              or a slower pace.
-            </p>
+            <p>Simple phrases to ask for a pause, more suction, or a slower pace.</p>
           </article>
           <article class="resource-card">
             <h3>How SoonerCare and dental insurance work</h3>
-            <p>
-              A plain-language overview of how SoonerCare, Medicaid, and major dental insurance plans usually
-              handle preventive and basic care.
-            </p>
+            <p>A plain-language overview of how coverage usually works for preventive/basic care.</p>
           </article>
           <article class="resource-card dental-dj-resource">
             <h3>Using music to lower anxiety</h3>
-            <p>
-              Some offices use Dental DJ to let patients help choose music in the operatory.
-              When you have a say in the sound, the whole visit can feel more in your control.
-            </p>
+            <p>Some offices use Dental DJ to let patients help choose music in the operatory.</p>
             <p class="dental-dj-resource-link">
               <a href="https://dental-dj.onrender.com/login" target="_blank" rel="noopener noreferrer">
-                Try Dental DJ for your office &rarr;
+                Try Dental DJ for your office →
               </a>
-            </p>
-          </article>
-          <article class="resource-card">
-            <h3>Simple calming exercises before your visit</h3>
-            <p>
-              Short breathing and grounding exercises you can do in your car or the waiting room to lower your heart rate.
             </p>
           </article>
         </div>
@@ -281,35 +209,10 @@
           to find dental care that feels safe, respectful, and affordable.
         </p>
         <ul class="about-list">
-          <li>Highlights clinics that openly welcome anxious or long-avoiding patients</li>
+          <li>Highlights clinics that welcome anxious or long-avoiding patients</li>
           <li>Shows insurance options, including SoonerCare and major PPO plans</li>
           <li>Shares simple tools to feel more in control before and during your visit</li>
         </ul>
-
-        <div class="dental-dj-about">
-          <div class="dental-dj-about-icon" aria-hidden="true">🎶</div>
-          <div class="dental-dj-about-content">
-            <details>
-              <summary>What is Dental DJ and how does it help with anxiety?</summary>
-              <p>
-                Dental DJ is a simple web tool some offices use to let patients queue songs
-                from Spotify in the waiting room or operatory. When you can hear music you
-                chose, it can:
-              </p>
-              <ul>
-                <li>Give you something to focus on besides the procedure</li>
-                <li>Make the room feel more familiar and less clinical</li>
-                <li>Help you communicate your mood without having to talk a lot</li>
-              </ul>
-              <p>
-                If you’d like your dentist to try it, you can share this link with them:
-                <a href="https://dental-dj.onrender.com/login" target="_blank" rel="noopener noreferrer">
-                  dental-dj.onrender.com
-                </a>
-              </p>
-            </details>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -317,13 +220,7 @@
     <section class="suggest-section" id="connect">
       <div class="container suggest-inner">
         <h2>Suggest a clinic / For dental offices</h2>
-        <p>
-          If you’re a patient, caregiver, or community member, you can suggest a clinic to be added to Calm Smiles Oklahoma.
-        </p>
-        <p>
-          If your clinic welcomes anxious patients and would like to be listed, please fill out our official Google Form.
-          Your responses help us keep our listings accurate, trustworthy, and up to date.
-        </p>
+        <p>If you’d like a clinic added, please submit the form below.</p>
 
         <p style="margin-top: 1rem;">
           <a
@@ -331,16 +228,14 @@
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary"
-            style="padding: 0.6rem 1.6rem; font-size: 0.95rem; font-weight: 600; display: inline-block;"
+            style="padding: 0.6rem 1.6rem; font-size: 0.95rem; font-weight: 700; display: inline-block;"
           >
-            Fill Out the Clinic Information Form &rarr;
+            Fill Out the Clinic Information Form →
           </a>
         </p>
 
-        <p class="small-note" style="margin-top: 0.75rem; max-width: 40rem;">
-          This form is hosted securely through Google Forms. Responses are sent directly to Calm Smiles Oklahoma.
-          If you have any additional questions, feel free to email
-          <a href="mailto:calmsmilesoklahoma@gmail.com">calmsmilesoklahoma@gmail.com</a>.
+        <p class="small-note" style="margin-top: 0.85rem; max-width: 42rem;">
+          Email: <a href="mailto:calmsmilesoklahoma@gmail.com">calmsmilesoklahoma@gmail.com</a>
         </p>
       </div>
     </section>
@@ -348,87 +243,16 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="yearSpan"></span> Calm Smiles Oklahoma. Please verify insurance and services directly with each clinic.</p>
+      <p>&copy; <span id="yearSpan"></span> Calm Smiles Oklahoma. Verify details with each clinic.</p>
     </div>
   </footer>
 
+  <!-- 1) Clinics list lives here -->
+  <script src="clinics.js"></script>
+
+  <!-- 2) App logic -->
   <script>
-    /***********************
-     * CLINIC DATA
-     * (Keep adding more here)
-     ***********************/
-    const clinics = [
-      {
-        id: 1,
-        name: "Dental Depot – Tulsa (Multiple Locations)",
-        city: "Tulsa",
-        region: "Tulsa Metro",
-        phone: "Phone not provided",
-        website: "https://dentaldepot.net",
-        anxietyFeatures: {
-          anxietyFocused: false,
-          pediatric: true,
-          sedation: false,
-          lowCost: false,
-          traumaInformed: false,
-          sensoryFriendly: false
-        },
-        insuranceAccepted: ["SoonerCare", "Medicaid", "Delta Dental", "MetLife", "Aetna", "Humana", "Cigna"],
-        costOptions: [],
-        populations: ["Adults", "Teens", "Children"],
-        summary: "Multi-location practice offering general and family dentistry. Accepts SoonerCare and major PPOs.",
-        notes: "Good option for families needing SoonerCare and multiple Tulsa locations."
-      },
-
-      {
-        id: 2,
-        name: "Sooner Dental Care",
-        city: "Tulsa",
-        region: "Tulsa Metro",
-        phone: "(918) 742-1480",
-        website: "https://soonerdentalcare.com",
-        anxietyFeatures: {
-          anxietyFocused: false,
-          pediatric: false,
-          sedation: false,
-          lowCost: false,
-          traumaInformed: false,
-          sensoryFriendly: false
-        },
-        insuranceAccepted: ["SoonerCare", "Medicaid", "All major insurance providers"],
-        costOptions: [],
-        populations: ["Adults", "Teens", "Children"],
-        summary: "General dental office accepting SoonerCare and most major insurance plans.",
-        notes: "Encourages patients to call to verify insurance benefits."
-      },
-
-      {
-        id: 3,
-        name: "Shortline Dental (Multiple Tulsa Offices)",
-        city: "Tulsa",
-        region: "Tulsa Metro",
-        phone: "Phone not provided",
-        website: "https://shortlinedental.com",
-        anxietyFeatures: {
-          anxietyFocused: false,
-          pediatric: true,
-          sedation: false,
-          lowCost: true,
-          traumaInformed: false,
-          sensoryFriendly: false
-        },
-        insuranceAccepted: ["SoonerCare", "Medicaid", "Most PPO plans"],
-        costOptions: ["Competitive pricing"],
-        populations: ["Adults", "Teens", "Children"],
-        summary: "Multi-office practice accepting Medicaid and SoonerCare, which is uncommon in Tulsa.",
-        notes: "Good for families needing Medicaid/SoonerCare acceptance."
-      }
-      // ✅ Add the rest of your clinics below this same format
-    ];
-
-    /***********************
-     * DOM
-     ***********************/
+    // ===== DOM refs =====
     const resultsGrid = document.getElementById("resultsGrid");
     const resultsCount = document.getElementById("resultsCount");
     const searchInput = document.getElementById("searchInput");
@@ -440,82 +264,85 @@
     const resetFiltersBtn = document.getElementById("resetFiltersBtn");
     const yearSpan = document.getElementById("yearSpan");
 
-    /***********************
-     * HELPERS
-     ***********************/
-    function makeBadge(text, variant) {
+    // ===== Guards =====
+    function safeArray(x) { return Array.isArray(x) ? x : []; }
+
+    function makeBadge(text, variant = "neutral") {
       const span = document.createElement("span");
-      span.className = "badge";
+      span.className = `badge badge-${variant}`;
       span.textContent = text;
-
-      if (variant === "primary") span.classList.add("badge-primary");
-      if (variant === "secondary") span.classList.add("badge-secondary");
-      if (variant === "neutral") span.classList.add("badge-neutral");
-
       return span;
     }
 
     function getActiveFilters() {
-      const searchText = searchInput.value.trim().toLowerCase();
-      const region = regionSelect.value;
+      const searchText = (searchInput?.value || "").trim().toLowerCase();
+      const region = regionSelect?.value || "";
 
-      const selectedInsurances = Array.from(insuranceCheckboxes)
+      const selectedInsurances = Array.from(insuranceCheckboxes || [])
         .filter(cb => cb.checked)
         .map(cb => cb.value);
 
-      const selectedFeatures = Array.from(featureCheckboxes)
+      const selectedFeatures = Array.from(featureCheckboxes || [])
         .filter(cb => cb.checked)
         .map(cb => cb.value);
 
       return { searchText, region, selectedInsurances, selectedFeatures };
     }
 
-    function clinicMatchesFilters(clinic, filters) {
-      const { searchText, region, selectedInsurances, selectedFeatures } = filters;
+    function filterClinics() {
+      const { searchText, region, selectedInsurances, selectedFeatures } = getActiveFilters();
 
-      // Text search
-      if (searchText) {
-        const combined = `${clinic.name} ${clinic.city} ${clinic.region}`.toLowerCase();
-        if (!combined.includes(searchText)) return false;
-      }
+      const filtered = safeArray(window.CLINICS).filter(clinic => {
+        const name = (clinic?.name || "");
+        const city = (clinic?.city || "");
+        const reg = (clinic?.region || "");
 
-      // Region filter
-      if (region && clinic.region !== region) return false;
+        // Text search
+        if (searchText) {
+          const combined = `${name} ${city} ${reg}`.toLowerCase();
+          if (!combined.includes(searchText)) return false;
+        }
 
-      // Insurance filter: must match ALL selected
-      if (selectedInsurances.length > 0) {
-        const acceptsAll = selectedInsurances.every(ins =>
-          (clinic.insuranceAccepted || []).some(acc =>
-            String(acc).toLowerCase().includes(ins.toLowerCase())
-          )
-        );
-        if (!acceptsAll) return false;
-      }
+        // Region
+        if (region && reg !== region) return false;
 
-      // Feature filter: must match ALL selected
-      if (selectedFeatures.length > 0) {
-        const features = clinic.anxietyFeatures || {};
-        const matchesAll = selectedFeatures.every(key => !!features[key]);
-        if (!matchesAll) return false;
-      }
+        // Insurance: must match ALL selected
+        if (selectedInsurances.length) {
+          const accepted = safeArray(clinic?.insuranceAccepted).map(s => String(s).toLowerCase());
+          const acceptsAll = selectedInsurances.every(ins =>
+            accepted.some(acc => acc.includes(String(ins).toLowerCase()))
+          );
+          if (!acceptsAll) return false;
+        }
 
-      return true;
+        // Features: must match ALL selected
+        if (selectedFeatures.length) {
+          const feats = clinic?.anxietyFeatures || {};
+          const matchesAll = selectedFeatures.every(key => !!feats[key]);
+          if (!matchesAll) return false;
+        }
+
+        return true;
+      });
+
+      renderClinics(filtered);
     }
 
-    /***********************
-     * RENDER
-     ***********************/
     function renderClinics(list) {
+      if (!resultsGrid || !resultsCount) return;
+
       resultsGrid.innerHTML = "";
 
-      if (!list || list.length === 0) {
-        resultsCount.textContent = "No clinics matched these filters. Try removing a filter or searching again.";
+      const safeList = safeArray(list);
+
+      if (!safeList.length) {
+        resultsCount.textContent = "No clinics matched these filters. Try removing a filter.";
         return;
       }
 
-      resultsCount.textContent = `${list.length} clinic${list.length === 1 ? "" : "s"} found`;
+      resultsCount.textContent = `${safeList.length} clinic${safeList.length === 1 ? "" : "s"} found`;
 
-      list.forEach(clinic => {
+      safeList.forEach(clinic => {
         const card = document.createElement("article");
         card.className = "clinic-card";
 
@@ -525,39 +352,40 @@
 
         const nameEl = document.createElement("div");
         nameEl.className = "clinic-name";
-        nameEl.textContent = clinic.name;
+        nameEl.textContent = clinic.name || "Clinic";
 
         const locEl = document.createElement("div");
         locEl.className = "clinic-location";
-        locEl.textContent = `${clinic.city} • ${clinic.region}`;
+        locEl.textContent = `${clinic.city || "Oklahoma"} • ${clinic.region || "Region not listed"}`;
 
         header.appendChild(nameEl);
         header.appendChild(locEl);
 
-        // Badges
+        // Badges (features)
         const badgesRow = document.createElement("div");
         badgesRow.className = "clinic-badges";
 
-        const features = clinic.anxietyFeatures || {};
-        for (const [key, value] of Object.entries(features)) {
-          if (!value) continue;
+        const feats = clinic.anxietyFeatures || {};
+        const labels = {
+          anxietyFocused: "Anxiety-focused",
+          pediatric: "Pediatric",
+          sedation: "Sedation / Nitrous",
+          lowCost: "Low-cost / sliding scale",
+          traumaInformed: "Trauma-informed",
+          sensoryFriendly: "Sensory-friendly"
+        };
 
-          let label = key;
-          if (key === "anxietyFocused") label = "Anxiety-focused";
-          if (key === "pediatric") label = "Pediatric";
-          if (key === "sedation") label = "Sedation / Nitrous";
-          if (key === "lowCost") label = "Low-cost / sliding scale";
-          if (key === "traumaInformed") label = "Trauma-informed";
-          if (key === "sensoryFriendly") label = "Sensory-friendly";
+        Object.keys(labels).forEach(key => {
+          if (feats[key]) {
+            const variant = (key === "pediatric" || key === "sensoryFriendly") ? "secondary" : "neutral";
+            badgesRow.appendChild(makeBadge(labels[key], variant));
+          }
+        });
 
-          const variant = (key === "pediatric" || key === "sensoryFriendly") ? "secondary" : "neutral";
-          badgesRow.appendChild(makeBadge(label, variant));
-        }
-
-        // Insurance row
+        // Insurance
         const insRow = document.createElement("div");
         insRow.className = "clinic-insurance";
-        (clinic.insuranceAccepted || []).forEach(ins => {
+        safeArray(clinic.insuranceAccepted).forEach(ins => {
           insRow.appendChild(makeBadge(ins, "neutral"));
         });
 
@@ -571,15 +399,15 @@
         actions.className = "clinic-actions";
 
         const detailsBtn = document.createElement("button");
-        detailsBtn.type = "button";
         detailsBtn.className = "btn btn-ghost clinic-toggle-btn";
+        detailsBtn.type = "button";
         detailsBtn.textContent = "View details";
 
         const websiteLink = document.createElement("a");
         websiteLink.href = clinic.website || "#";
         websiteLink.target = "_blank";
         websiteLink.rel = "noopener noreferrer";
-        websiteLink.textContent = (clinic.website === "#") ? "Website (call for link)" : "Website";
+        websiteLink.textContent = (clinic.website === "#" || !clinic.website) ? "Website (call for link)" : "Website";
 
         actions.appendChild(detailsBtn);
         actions.appendChild(websiteLink);
@@ -593,10 +421,10 @@
         phone.textContent = `Phone: ${clinic.phone || "Not provided"}`;
 
         const pops = document.createElement("p");
-        pops.textContent = `Good for: ${(clinic.populations || []).join(", ")}`;
+        pops.textContent = `Good for: ${safeArray(clinic.populations).join(", ") || "Not listed"}`;
 
         const notesHeading = document.createElement("p");
-        notesHeading.style.fontWeight = "600";
+        notesHeading.style.fontWeight = "700";
         notesHeading.textContent = "Notes:";
 
         const notes = document.createElement("p");
@@ -607,16 +435,16 @@
         details.appendChild(notesHeading);
         details.appendChild(notes);
 
-        if (clinic.costOptions && clinic.costOptions.length > 0) {
+        if (safeArray(clinic.costOptions).length) {
           const cost = document.createElement("p");
           cost.textContent = `Cost options: ${clinic.costOptions.join(", ")}`;
           details.appendChild(cost);
         }
 
         detailsBtn.addEventListener("click", () => {
-          const visible = details.style.display === "block";
-          details.style.display = visible ? "none" : "block";
-          detailsBtn.textContent = visible ? "View details" : "Hide details";
+          const open = details.style.display === "block";
+          details.style.display = open ? "none" : "block";
+          detailsBtn.textContent = open ? "View details" : "Hide details";
         });
 
         card.appendChild(header);
@@ -630,42 +458,36 @@
       });
     }
 
-    /***********************
-     * FILTER + EVENTS
-     ***********************/
-    function applyFiltersAndRender() {
-      const filters = getActiveFilters();
-      const filtered = clinics.filter(c => clinicMatchesFilters(c, filters));
-      renderClinics(filtered);
-    }
-
-    filtersForm.addEventListener("submit", (e) => {
+    // ===== Events =====
+    filtersForm?.addEventListener("submit", e => {
       e.preventDefault();
-      applyFiltersAndRender();
+      filterClinics();
     });
 
-    searchInput.addEventListener("input", applyFiltersAndRender);
+    searchInput?.addEventListener("input", filterClinics);
 
-    browseAllBtn.addEventListener("click", () => {
-      searchInput.value = "";
-      applyFiltersAndRender();
+    browseAllBtn?.addEventListener("click", () => {
+      if (searchInput) searchInput.value = "";
+      filterClinics();
     });
 
-    resetFiltersBtn.addEventListener("click", () => {
-      searchInput.value = "";
-      regionSelect.value = "";
-      insuranceCheckboxes.forEach(cb => cb.checked = false);
-      featureCheckboxes.forEach(cb => cb.checked = false);
-      applyFiltersAndRender();
+    resetFiltersBtn?.addEventListener("click", () => {
+      if (searchInput) searchInput.value = "";
+      if (regionSelect) regionSelect.value = "";
+      insuranceCheckboxes.forEach(cb => (cb.checked = false));
+      featureCheckboxes.forEach(cb => (cb.checked = false));
+      filterClinics();
     });
 
-    /***********************
-     * INIT
-     ***********************/
-    yearSpan.textContent = new Date().getFullYear();
+    // ===== Init =====
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
-    // If your JS runs, you will NEVER see "Loading clinics..." again.
-    renderClinics(clinics);
+    // Must exist in clinics.js
+    if (!Array.isArray(window.CLINICS)) {
+      resultsCount.textContent = "Clinics list failed to load. Make sure clinics.js is in the same folder as index.html.";
+    } else {
+      renderClinics(window.CLINICS);
+    }
   </script>
 </body>
 </html>
