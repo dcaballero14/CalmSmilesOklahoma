@@ -1,3 +1,8 @@
+/* =========================
+   Calm Smiles Oklahoma — style.css
+   Clean, modern, responsive
+   ========================= */
+
 /* Reset */
 *,
 *::before,
@@ -5,17 +10,44 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg: #f3f4f6;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+
+  --nav-bg: #0f172a;
+  --nav-text: #e5e7eb;
+
+  --brand: #22c3a6;
+  --brand-dark: #0f766e;
+
+  --accent: #facc6b;
+
+  --border: #e5e7eb;
+  --shadow: 0 1px 8px rgba(15, 23, 42, 0.06);
+
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: #111827;
-  background-color: #f3f4f6;
-  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
 }
 
+/* Layout */
 .container {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 1.25rem;
 }
@@ -24,54 +56,56 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
-  background: #0f172a;
-  color: #e5e7eb;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.5);
+  z-index: 50;
+  background: var(--nav-bg);
+  color: var(--nav-text);
+  box-shadow: 0 1px 6px rgba(15, 23, 42, 0.45);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  gap: 1rem;
+  padding: 0.85rem 0;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  user-select: none;
 }
 
 .logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  background: #22c3a6;
-  color: #0f172a;
-  font-weight: 700;
-  font-size: 0.9rem;
+  font-weight: 800;
+  background: var(--brand);
+  color: #052e2a;
+  letter-spacing: 0.02em;
 }
 
 .logo-text {
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .nav {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.95rem;
   font-size: 0.95rem;
 }
 
 .nav a {
-  color: #e5e7eb;
+  color: var(--nav-text);
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
 .nav a:hover {
@@ -81,54 +115,71 @@ body {
 
 /* Hero */
 .hero {
-  background: radial-gradient(circle at top left, #22c3a6 0, #0f172a 45%, #020617 100%);
+  background: radial-gradient(circle at top left, rgba(34,195,166,1) 0%, rgba(15,23,42,1) 48%, rgba(2,6,23,1) 100%);
   color: #e5e7eb;
-  padding: 3rem 0 3.5rem;
+  padding: 3rem 0 3.25rem;
 }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.2fr);
   gap: 2rem;
+  align-items: start;
 }
 
 .hero-text h1 {
-  font-size: 2.1rem;
   margin: 0 0 0.75rem;
+  font-size: clamp(1.8rem, 2.3vw, 2.35rem);
+  line-height: 1.15;
 }
 
 .hero-text p {
-  max-width: 32rem;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.35rem;
+  max-width: 44rem;
+  color: #e5e7eb;
+}
+
+.search-bar {
+  margin-top: 1rem;
 }
 
 .search-label {
   display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
+  font-size: 0.92rem;
+  margin-bottom: 0.35rem;
+  color: #e5e7eb;
+  opacity: 0.95;
 }
 
 .search-input-row {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
 }
 
 .search-input-row input {
-  flex: 1 1 190px;
-  padding: 0.55rem 0.7rem;
-  border-radius: 0.5rem;
-  border: none;
+  flex: 1 1 240px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(226, 232, 240, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+  color: #111827;
+  outline: none;
+}
+
+.search-input-row input:focus {
+  border-color: rgba(34,195,166,0.8);
+  box-shadow: 0 0 0 3px rgba(34,195,166,0.25);
 }
 
 /* Dental DJ hero card */
 .dental-dj-hero {
-  margin-bottom: 1.5rem;
-  padding: 0.9rem 1rem;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(226, 232, 240, 0.45);
-  background: radial-gradient(circle at top left, rgba(34, 195, 166, 0.25), rgba(15, 23, 42, 0.9));
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.6);
+  margin: 1.1rem 0 1.4rem;
+  padding: 0.95rem 1rem;
+  border-radius: 0.95rem;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+  background: radial-gradient(circle at top left, rgba(34,195,166,0.25), rgba(15,23,42,0.92));
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.55);
 }
 
 .dental-dj-hero-header {
@@ -142,23 +193,24 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(2, 6, 23, 0.65);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.9);
+  font-size: 1.25rem;
 }
 
 .dental-dj-hero h3 {
   margin: 0 0 0.25rem;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
+  color: #e5e7eb;
 }
 
 .dental-dj-hero p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
   color: #e5e7eb;
+  opacity: 0.96;
 }
 
 .dental-dj-hero-footer {
@@ -166,10 +218,10 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 
-/* Audio wave animation */
+/* Audio wave */
 .audio-wave {
   display: inline-flex;
   gap: 0.2rem;
@@ -180,95 +232,92 @@ body {
 .audio-wave span {
   width: 3px;
   border-radius: 999px;
-  background: #22c3a6;
+  background: var(--brand);
   animation: wave 1s infinite ease-in-out;
 }
 
-.audio-wave span:nth-child(2) {
-  animation-delay: 0.15s;
-}
-
-.audio-wave span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.audio-wave span:nth-child(4) {
-  animation-delay: 0.45s;
-}
+.audio-wave span:nth-child(2) { animation-delay: 0.15s; }
+.audio-wave span:nth-child(3) { animation-delay: 0.3s; }
+.audio-wave span:nth-child(4) { animation-delay: 0.45s; }
 
 @keyframes wave {
-  0%, 100% {
-    height: 4px;
-    opacity: 0.6;
-  }
-  50% {
-    height: 18px;
-    opacity: 1;
-  }
+  0%, 100% { height: 4px; opacity: 0.6; }
+  50% { height: 18px; opacity: 1; }
 }
 
 /* Hero side card */
 .hero-card {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(2, 6, 23, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.35);
   border-radius: 1.25rem;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.4);
+  padding: 1.4rem 1.25rem;
 }
 
 .hero-card h2 {
-  margin-top: 0;
+  margin: 0 0 0.55rem;
   font-size: 1.25rem;
+  color: #e5e7eb;
+}
+
+.hero-card-text {
+  margin: 0 0 0.75rem;
+  color: #e5e7eb;
+  opacity: 0.96;
 }
 
 .hero-list {
+  margin: 0;
   padding-left: 1.1rem;
-  font-size: 0.9rem;
+  color: #e5e7eb;
+  opacity: 0.96;
+  font-size: 0.92rem;
 }
 
 /* Buttons */
 .btn {
-  border-radius: 999px;
   border: none;
-  padding: 0.55rem 1.25rem;
-  font-size: 0.9rem;
+  border-radius: 999px;
+  padding: 0.58rem 1.2rem;
+  font-size: 0.92rem;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 650;
+  letter-spacing: 0.01em;
 }
 
 .btn-primary {
-  background: #22c3a6;
-  color: #0f172a;
+  background: var(--brand);
+  color: #052e2a;
 }
 
 .btn-primary:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.04);
 }
 
 .btn-secondary {
-  background: #facc6b;
-  color: #0f172a;
+  background: var(--accent);
+  color: #111827;
 }
 
 .btn-secondary:hover {
-  filter: brightness(1.05);
+  filter: brightness(1.04);
 }
 
 .btn-ghost {
   background: transparent;
-  color: #0f172a;
+  color: var(--text);
   border: 1px solid #cbd5e1;
 }
 
 .btn-ghost:hover {
-  background: #e5e7eb;
+  background: #eef2f7;
 }
 
-/* Dental DJ hero CTA button */
+/* Dental DJ hero CTA */
 .btn-dental-dj-hero {
-  background: #facc6b;
-  color: #0f172a;
-  padding: 0.45rem 1.1rem;
-  font-size: 0.85rem;
+  background: var(--accent);
+  color: #111827;
+  padding: 0.48rem 1.05rem;
+  font-size: 0.88rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -277,94 +326,128 @@ body {
 }
 
 .btn-dental-dj-hero:hover {
-  filter: brightness(1.07);
+  filter: brightness(1.05);
 }
 
 /* Filters */
 .filters-section {
-  padding: 1.75rem 0 1.25rem;
+  padding: 1.9rem 0 1.2rem;
 }
 
 .filters-section h2 {
-  margin-bottom: 1rem;
+  margin: 0 0 0.6rem;
 }
 
 .filters-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
   gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.45rem;
+}
+
+.filter-group label {
+  font-weight: 650;
+  font-size: 0.95rem;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 0.6rem 0.65rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  outline: none;
+}
+
+.filter-group select:focus {
+  border-color: rgba(34,195,166,0.8);
+  box-shadow: 0 0 0 3px rgba(34,195,166,0.18);
 }
 
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .chip-input {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.55rem;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem;
   border-radius: 999px;
   border: 1px solid #cbd5e1;
   background: #ffffff;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 .chip-input input {
-  accent-color: #22c3a6;
+  accent-color: var(--brand);
+  cursor: pointer;
 }
 
-/* Filter actions */
 .filter-actions {
   grid-column: 1 / -1;
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.2rem;
 }
 
 /* Results */
 .results-section {
-  padding: 0.5rem 0 2.5rem;
+  padding: 0.6rem 0 2.6rem;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.results-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .results-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .clinic-card {
-  background: #ffffff;
-  border-radius: 1rem;
-  padding: 1rem 0.9rem 0.9rem;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+  background: var(--panel);
+  border-radius: var(--radius-lg);
+  padding: 1rem 0.95rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
 }
 
 .clinic-header {
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
 }
 
 .clinic-name {
-  font-weight: 600;
+  font-weight: 750;
 }
 
 .clinic-location {
-  font-size: 0.8rem;
-  color: #6b7280;
+  font-size: 0.86rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
 }
 
 .clinic-badges,
@@ -372,13 +455,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-bottom: 0.35rem;
+  margin: 0.45rem 0;
 }
 
 .badge {
-  font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
+  font-size: 0.74rem;
+  padding: 0.16rem 0.5rem;
   border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.03);
 }
 
 .badge-primary {
@@ -397,31 +481,45 @@ body {
 }
 
 .clinic-description {
-  font-size: 0.86rem;
-  margin: 0.3rem 0;
+  font-size: 0.92rem;
+  margin: 0.4rem 0 0.65rem;
+  color: #1f2937;
 }
 
 .clinic-actions {
-  margin-top: 0.45rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
 }
 
 .clinic-actions a {
-  font-size: 0.85rem;
+  font-size: 0.92rem;
+  color: var(--brand-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.clinic-actions a:hover {
+  text-decoration: underline;
 }
 
 .clinic-details {
-  margin-top: 0.6rem;
-  border-top: 1px dashed #e5e7eb;
-  padding-top: 0.45rem;
-  font-size: 0.82rem;
+  margin-top: 0.7rem;
+  border-top: 1px dashed var(--border);
+  padding-top: 0.6rem;
+  font-size: 0.88rem;
+  color: #1f2937;
+}
+
+.clinic-details p {
+  margin: 0.35rem 0;
 }
 
 /* Resources */
 .resources-section {
-  padding: 2.5rem 0;
+  padding: 2.6rem 0;
   background: #ffffff;
 }
 
@@ -429,24 +527,29 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .resource-card {
   background: #f9fafb;
-  border-radius: 0.9rem;
+  border-radius: 0.95rem;
   padding: 1rem;
-  border: 1px solid #e5e7eb;
-  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 6px rgba(15, 23, 42, 0.04);
 }
 
-/* Dental DJ resource card tweaks */
+.resource-card h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.02rem;
+}
+
 .dental-dj-resource {
-  border-top: 3px solid #22c3a6;
+  border-top: 3px solid var(--brand);
 }
 
 .dental-dj-resource-link a {
-  color: #0f766e;
-  font-weight: 600;
+  color: var(--brand-dark);
+  font-weight: 800;
   text-decoration: none;
 }
 
@@ -456,20 +559,25 @@ body {
 
 /* About */
 .about-section {
-  padding: 2rem 0 2.5rem;
+  padding: 2rem 0 2.6rem;
+}
+
+.about-inner {
+  display: grid;
+  gap: 1rem;
 }
 
 .about-list {
+  margin: 0.2rem 0 0;
   padding-left: 1.2rem;
 }
 
-/* Dental DJ about blurb */
 .dental-dj-about {
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   padding: 1rem;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   background: #f0fdfa;
-  border-left: 4px solid #22c3a6;
+  border-left: 4px solid var(--brand);
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
@@ -486,148 +594,65 @@ body {
   font-size: 1.1rem;
 }
 
-.dental-dj-about-content details {
-  font-size: 0.9rem;
-}
-
 .dental-dj-about-content summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 0.4rem;
-}
-
-.dental-dj-about-content summary::-webkit-details-marker {
-  color: #0f766e;
-}
-
-.dental-dj-about-content p {
-  margin: 0.25rem 0;
-}
-
-.dental-dj-about-content ul {
-  margin: 0.25rem 0 0.5rem;
-  padding-left: 1.1rem;
 }
 
 /* Suggest */
 .suggest-section {
-  padding: 1.75rem 0 2.5rem;
-  background: #0f172a;
-  color: #e5e7eb;
+  padding: 1.85rem 0 2.6rem;
+  background: var(--nav-bg);
+  color: var(--nav-text);
 }
 
-.suggest-inner h2 {
-  margin-top: 0;
-}
-
-.suggest-note a {
-  color: #22c3a6;
-}
-
-/* Provider form */
-.provider-form {
-  background: #020617;
-  border-radius: 1rem;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  margin-top: 1.25rem;
-}
-
-.provider-form h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #e5e7eb;
-}
-
-.provider-form label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  color: #e5e7eb;
-}
-
-.provider-form input,
-.provider-form select,
-.provider-form textarea {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.4rem;
-  border: 1px solid #1f2937;
-  background: #020617;
-  color: #e5e7eb;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.provider-form textarea {
-  resize: vertical;
+.suggest-section a {
+  color: #a7f3d0;
 }
 
 .small-note {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #cbd5e1;
-  margin-top: 0;
-}
-
-/* Better readability for chips inside provider form */
-.provider-form .chip-row {
-  margin-bottom: 0.6rem;
-  gap: 0.55rem;
-}
-
-.provider-form .chip-input {
-  background: #020617;
-  border-color: #e5e7eb;
-  color: #e5e7eb;
-  font-size: 0.9rem;
-  padding: 0.35rem 0.9rem;
-}
-
-.provider-form .chip-input span {
-  color: #f9fafb;
-}
-
-.provider-form .chip-input input {
-  accent-color: #22c3a6;
-}
-
-.provider-form .chip-input:hover {
-  background: #020617;
-  border-color: #22c3a6;
 }
 
 /* Footer */
 .site-footer {
-  border-top: 1px solid #e5e7eb;
   background: #ffffff;
+  border-top: 1px solid var(--border);
 }
 
 .footer-inner {
-  padding: 0.75rem 0;
+  padding: 0.9rem 0;
   text-align: center;
-  font-size: 0.78rem;
-  color: #6b7280;
+  font-size: 0.85rem;
+  color: var(--muted);
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 840px) {
   .hero-inner {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 0.85rem;
   }
 
   .filters-grid {
     grid-template-columns: 1fr;
   }
 
-  .header-inner {
+  .clinic-actions {
     flex-direction: column;
-    gap: 0.4rem;
-  }
-
-  .dental-dj-hero-footer {
-    flex-direction: row;
-    justify-content: space-between;
+    align-items: flex-start;
   }
 }
