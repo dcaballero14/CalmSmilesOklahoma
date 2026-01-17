@@ -7,13 +7,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Calm Smiles Oklahoma is a free directory of anxiety-friendly dental clinics across Oklahoma. Filter by city, region, SoonerCare / Oklahoma Medicaid, major dental insurance, and comfort options like trauma-informed care, sensory-friendly support, and sedation."
+    content="Calm Smiles Oklahoma is a free directory of Oklahoma dental clinics, including Tulsa and OKC, that welcome anxious patients. Filter by SoonerCare / Oklahoma Medicaid, major dental insurance, region, and comfort features like trauma-informed care, sensory-friendly options, and sedation."
   />
 
   <link rel="icon" type="image/png" href="tooth.png">
-  <link rel="stylesheet" href="style.css" />
-</head>
 
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Extra small styles to improve legibility of helper text -->
+  <style>
+    .filters-intro,
+    .results-note {
+      margin: 0.4rem 0 0.9rem;
+      font-size: 0.95rem;
+      color: #4b5563;
+      max-width: 52rem;
+    }
+
+    .results-note {
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -21,10 +36,8 @@
         <span class="logo-mark">CS</span>
         <span class="logo-text">Calm Smiles Oklahoma</span>
       </div>
-
-      <nav class="nav" aria-label="Primary navigation">
+      <nav class="nav">
         <a href="#search">Search</a>
-        <a href="#trust">How it works</a>
         <a href="#resources">Resources</a>
         <a href="#about">About</a>
         <a href="#connect">Suggest a Clinic</a>
@@ -39,20 +52,18 @@
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Find a dentist who understands your anxiety.</h1>
-
-          <p class="hero-subheadline">
-            A free, Oklahoma-based directory of anxiety-friendly dental clinics — filter by city,
-            insurance, and comfort options to find care that feels safe.
-          </p>
-
-          <p class="hero-support">
-            Built for patients who feel nervous, overwhelmed, or have avoided the dentist for years.
+          <p>
+            Calm Smiles Oklahoma helps Oklahomans find dental clinics that are
+            anxiety-friendly, insurance-compatible, and focused on gentle,
+            non-judgmental care.
           </p>
 
           <!-- Dental DJ hero blurb -->
           <div class="dental-dj-hero">
             <div class="dental-dj-hero-header">
-              <div class="dental-dj-icon" aria-hidden="true">🎧</div>
+              <div class="dental-dj-icon" aria-hidden="true">
+                🎧
+              </div>
               <div>
                 <h3>Dental DJ: Calm the room before your visit</h3>
                 <p>
@@ -80,15 +91,8 @@
           <div class="search-bar">
             <label for="searchInput" class="search-label">Search by city or clinic name</label>
             <div class="search-input-row">
-              <input
-                id="searchInput"
-                type="text"
-                placeholder="e.g. Tulsa, Norman, pediatric, dentures..."
-                autocomplete="off"
-              />
-              <button id="browseAllBtn" class="btn btn-secondary" type="button">
-                Browse all
-              </button>
+              <input id="searchInput" type="text" placeholder="e.g. Tulsa, Norman, pediatric, dentures..." />
+              <button id="browseAllBtn" class="btn btn-secondary" type="button">Browse all</button>
             </div>
           </div>
         </div>
@@ -208,34 +212,6 @@
       </div>
     </section>
 
-    <!-- Trust / Transparency -->
-    <section class="trust-section" id="trust">
-      <div class="container trust-inner">
-        <h2>How Calm Smiles Oklahoma works</h2>
-
-        <p class="trust-lead">
-          Calm Smiles Oklahoma is an independent, patient-first dental directory focused on helping people with dental anxiety find care they can trust.
-        </p>
-
-        <ul class="trust-list">
-          <li><strong>Clinics are manually reviewed</strong> before being listed to ensure they offer patient-centered, anxiety-aware care.</li>
-          <li><strong>We do not accept paid placements or sponsored rankings.</strong> Clinics cannot pay to appear higher in results.</li>
-          <li>
-            Built by someone involved in the Oklahoma dental community, with volunteer experience through:
-            <ul class="trust-sublist">
-              <li>Oklahoma Mission of Mercy</li>
-              <li>Catholic Charities Dental Clinics</li>
-              <li>The University of Oklahoma dental community</li>
-            </ul>
-          </li>
-        </ul>
-
-        <p class="trust-disclaimer">
-          Calm Smiles Oklahoma is an independent project and is not officially affiliated with the organizations listed above.
-        </p>
-      </div>
-    </section>
-
     <!-- Results -->
     <section class="results-section">
       <div class="container">
@@ -281,7 +257,7 @@
           <article class="resource-card dental-dj-resource">
             <h3>Using music to lower anxiety</h3>
             <p>
-              Some offices use Dental DJ to let patients help choose music in the operatory.
+              Some offices use Dental DJ to let patients help choose music in the operatory. 
               When you have a say in the sound, the whole visit can feel more in your control.
             </p>
             <p class="dental-dj-resource-link">
@@ -305,7 +281,7 @@
       <div class="container about-inner">
         <h2>About Calm Smiles Oklahoma</h2>
         <p>
-          Calm Smiles Oklahoma is a public resource created to make it easier for anxious Oklahomans
+          Calm Smiles Oklahoma is a public resource created to make it easier for anxious Oklahomans 
           to find dental care that feels safe, respectful, and affordable.
         </p>
         <ul class="about-list">
@@ -316,7 +292,9 @@
 
         <!-- Dental DJ about blurb -->
         <div class="dental-dj-about">
-          <div class="dental-dj-about-icon" aria-hidden="true">🎶</div>
+          <div class="dental-dj-about-icon" aria-hidden="true">
+            🎶
+          </div>
           <div class="dental-dj-about-content">
             <details>
               <summary>What is Dental DJ and how does it help with anxiety?</summary>
@@ -381,12 +359,11 @@
     </div>
   </footer>
 
+  <!-- Inline JS so we don't depend on an external script.js file -->
   <script>
     // ===============================
     // Master clinic list for Calm Smiles Oklahoma
     // ===============================
-
-  
 
     const clinics = [
       {
@@ -2266,7 +2243,7 @@
         notes:
           "Call to confirm coverage and ask about pacing, explanations, and other supports if starting braces feels overwhelming."
       }
-
+    ];
 
     // ===============================
     // DOM references
@@ -2304,12 +2281,14 @@
     // Filtering logic
     // ===============================
     function filterClinics() {
-      const { searchText, region, selectedInsurances, selectedFeatures } = getActiveFilters();
+      const { searchText, region, selectedInsurances, selectedFeatures } =
+        getActiveFilters();
 
       const filtered = clinics.filter(clinic => {
         // Text search
         if (searchText) {
-          const combined = (clinic.name + " " + clinic.city + " " + clinic.region).toLowerCase();
+          const combined =
+            (clinic.name + " " + clinic.city + " " + clinic.region).toLowerCase();
           if (!combined.includes(searchText)) return false;
         }
 
@@ -2319,7 +2298,9 @@
         // Insurance filter: must match ALL selected insurance chips
         if (selectedInsurances.length > 0) {
           const acceptsAll = selectedInsurances.every(ins =>
-            clinic.insuranceAccepted.some(acc => acc.toLowerCase().includes(ins.toLowerCase()))
+            clinic.insuranceAccepted.some(acc =>
+              acc.toLowerCase().includes(ins.toLowerCase())
+            )
           );
           if (!acceptsAll) return false;
         }
@@ -2363,7 +2344,9 @@
         return;
       }
 
-      resultsCount.textContent = `${list.length} clinic${list.length === 1 ? "" : "s"} found`;
+      resultsCount.textContent = `${list.length} clinic${
+        list.length === 1 ? "" : "s"
+      } found`;
 
       list.forEach(clinic => {
         const card = document.createElement("article");
@@ -2390,7 +2373,6 @@
 
         for (const [key, value] of Object.entries(clinic.anxietyFeatures)) {
           if (!value) continue;
-
           let label = "";
           if (key === "anxietyFocused") label = "Anxiety-focused";
           if (key === "pediatric") label = "Pediatric";
@@ -2399,7 +2381,11 @@
           if (key === "traumaInformed") label = "Trauma-informed";
           if (key === "sensoryFriendly") label = "Sensory-friendly";
 
-          const variant = (key === "pediatric" || key === "sensoryFriendly") ? "secondary" : "neutral";
+          const variant =
+            key === "pediatric" || key === "sensoryFriendly"
+              ? "secondary"
+              : "neutral";
+
           badgesRow.appendChild(makeBadge(label, variant));
         }
 
@@ -2421,14 +2407,14 @@
 
         const detailsBtn = document.createElement("button");
         detailsBtn.className = "btn btn-ghost clinic-toggle-btn";
-        detailsBtn.type = "button";
         detailsBtn.textContent = "View details";
 
         const websiteLink = document.createElement("a");
         websiteLink.href = clinic.website;
         websiteLink.target = "_blank";
         websiteLink.rel = "noopener noreferrer";
-        websiteLink.textContent = clinic.website === "#" ? "Website (call for link)" : "Website";
+        websiteLink.textContent =
+          clinic.website === "#" ? "Website (call for link)" : "Website";
 
         actions.appendChild(detailsBtn);
         actions.appendChild(websiteLink);
@@ -2522,4 +2508,3 @@
   </script>
 </body>
 </html>
-
