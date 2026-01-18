@@ -1,17 +1,35 @@
+/* ==========================================================
+   Calm Smiles Oklahoma — style.css (NEW)
+   Works with the NEW index.html I generated (hamburger nav,
+   helper text, skip link, updated classes).
+   ========================================================== */
 
-/* Reset */
+/* Reset + base */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: #111827;
-  background-color: #f3f4f6;
+  background: #f3f4f6;
   line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
 }
 
 .container {
@@ -21,50 +39,79 @@ body {
   padding: 0 1.25rem;
 }
 
-/* Header */
+/* Accessibility */
+.skip-link {
+  position: absolute;
+  left: 0.75rem;
+  top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.6rem;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  color: #0f172a;
+  text-decoration: none;
+  transform: translateY(-140%);
+  transition: transform 160ms ease;
+  z-index: 999;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  outline: 2px solid #22c3a6;
+  outline-offset: 2px;
+}
+
+/* ==========================================================
+   Header + nav
+   ========================================================== */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 50;
   background: #0f172a;
   color: #e5e7eb;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.5);
+  box-shadow: 0 1px 6px rgba(2, 6, 23, 0.45);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
   padding: 0.75rem 0;
 }
 
 .logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  text-decoration: none;
+  color: #e5e7eb;
 }
 
 .logo-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
   background: #22c3a6;
   color: #0f172a;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.9rem;
 }
 
 .logo-text {
-  font-weight: 600;
+  font-weight: 650;
   letter-spacing: 0.02em;
   font-size: 1.05rem;
 }
 
+/* Desktop nav */
 .nav {
   display: flex;
+  align-items: center;
   gap: 1rem;
   font-size: 0.95rem;
 }
@@ -72,15 +119,68 @@ body {
 .nav a {
   color: #e5e7eb;
   text-decoration: none;
-  opacity: 0.9;
+  opacity: 0.92;
+  padding: 0.25rem 0.15rem;
 }
 
 .nav a:hover {
   opacity: 1;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* Hero */
+/* Hamburger button (hidden on desktop) */
+.nav-toggle {
+  display: none;
+  border: 1px solid rgba(226, 232, 240, 0.25);
+  background: rgba(2, 6, 23, 0.25);
+  color: #e5e7eb;
+  border-radius: 0.85rem;
+  padding: 0.55rem 0.65rem;
+  cursor: pointer;
+}
+
+.nav-toggle:focus {
+  outline: 2px solid #22c3a6;
+  outline-offset: 2px;
+}
+
+.nav-toggle-bars {
+  display: inline-block;
+  width: 20px;
+  height: 14px;
+  position: relative;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after,
+.nav-toggle-bars {
+  background: transparent;
+}
+
+.nav-toggle-bars::before,
+.nav-toggle-bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.nav-toggle-bars::before {
+  top: 1px;
+  box-shadow: 0 5px 0 #e5e7eb, 0 10px 0 #e5e7eb;
+}
+
+.nav-toggle-bars::after {
+  display: none;
+}
+
+/* ==========================================================
+   Hero
+   ========================================================== */
 .hero {
   background: radial-gradient(circle at top left, #22c3a6 0, #0f172a 45%, #020617 100%);
   color: #e5e7eb;
@@ -89,47 +189,32 @@ body {
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.35fr);
   gap: 2rem;
+  align-items: start;
 }
 
 .hero-text h1 {
-  font-size: 2.1rem;
+  font-size: 2.15rem;
   margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
 }
 
-.hero-text p {
-  max-width: 32rem;
-  margin: 0 0 1.5rem;
-}
-
-.search-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-}
-
-.search-input-row {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.search-input-row input {
-  flex: 1 1 190px;
-  padding: 0.55rem 0.7rem;
-  border-radius: 0.5rem;
-  border: none;
+.hero-text .lead {
+  max-width: 34rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  color: rgba(229, 231, 235, 0.92);
 }
 
 /* Dental DJ hero card */
 .dental-dj-hero {
-  margin-bottom: 1.5rem;
-  padding: 0.9rem 1rem;
-  border-radius: 0.9rem;
+  margin: 0 0 1.25rem;
+  padding: 0.95rem 1rem;
+  border-radius: 1rem;
   border: 1px solid rgba(226, 232, 240, 0.45);
-  background: radial-gradient(circle at top left, rgba(34, 195, 166, 0.25), rgba(15, 23, 42, 0.9));
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.6);
+  background: radial-gradient(circle at top left, rgba(34, 195, 166, 0.25), rgba(15, 23, 42, 0.92));
+  box-shadow: 0 10px 26px rgba(2, 6, 23, 0.55);
 }
 
 .dental-dj-hero-header {
@@ -143,12 +228,12 @@ body {
   width: 40px;
   height: 40px;
   border-radius: 999px;
-  background: rgba(15, 23, 42, 0.9);
+  background: rgba(15, 23, 42, 0.92);
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.9);
+  font-size: 1.25rem;
+  box-shadow: 0 4px 12px rgba(2, 6, 23, 0.6);
 }
 
 .dental-dj-hero h3 {
@@ -158,8 +243,8 @@ body {
 
 .dental-dj-hero p {
   margin: 0;
-  font-size: 0.9rem;
-  color: #e5e7eb;
+  font-size: 0.92rem;
+  color: rgba(229, 231, 235, 0.95);
 }
 
 .dental-dj-hero-footer {
@@ -185,55 +270,97 @@ body {
   animation: wave 1s infinite ease-in-out;
 }
 
-.audio-wave span:nth-child(2) {
-  animation-delay: 0.15s;
-}
-
-.audio-wave span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-.audio-wave span:nth-child(4) {
-  animation-delay: 0.45s;
-}
+.audio-wave span:nth-child(2) { animation-delay: 0.15s; }
+.audio-wave span:nth-child(3) { animation-delay: 0.3s; }
+.audio-wave span:nth-child(4) { animation-delay: 0.45s; }
 
 @keyframes wave {
-  0%, 100% {
-    height: 4px;
-    opacity: 0.6;
-  }
-  50% {
-    height: 18px;
-    opacity: 1;
-  }
+  0%, 100% { height: 4px; opacity: 0.6; }
+  50% { height: 18px; opacity: 1; }
+}
+
+/* Search */
+.search-bar {
+  margin-top: 0.5rem;
+}
+
+.search-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.search-input-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-input-row input {
+  flex: 1 1 210px;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.7rem;
+  border: none;
+  outline: none;
+}
+
+.search-input-row input:focus {
+  outline: 2px solid rgba(34, 195, 166, 0.8);
+  outline-offset: 2px;
+}
+
+.helper-text {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  color: rgba(229, 231, 235, 0.78);
+  max-width: 52rem;
 }
 
 /* Hero side card */
 .hero-card {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15, 23, 42, 0.88);
   border-radius: 1.25rem;
   padding: 1.5rem 1.25rem;
   border: 1px solid rgba(148, 163, 184, 0.4);
 }
 
 .hero-card h2 {
-  margin-top: 0;
+  margin: 0 0 0.5rem;
   font-size: 1.25rem;
+}
+
+.hero-card-text {
+  margin: 0 0 0.85rem;
+  color: rgba(229, 231, 235, 0.92);
 }
 
 .hero-list {
   padding-left: 1.1rem;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
+  color: rgba(229, 231, 235, 0.92);
 }
 
-/* Buttons */
+/* ==========================================================
+   Buttons
+   ========================================================== */
 .btn {
   border-radius: 999px;
   border: none;
-  padding: 0.55rem 1.25rem;
+  padding: 0.58rem 1.25rem;
   font-size: 0.9rem;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 2px solid rgba(34, 195, 166, 0.8);
+  outline-offset: 2px;
 }
 
 .btn-primary {
@@ -264,16 +391,11 @@ body {
   background: #e5e7eb;
 }
 
-/* Dental DJ hero CTA button */
 .btn-dental-dj-hero {
   background: #facc6b;
   color: #0f172a;
-  padding: 0.45rem 1.1rem;
-  font-size: 0.85rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 0.86rem;
   white-space: nowrap;
 }
 
@@ -281,13 +403,22 @@ body {
   filter: brightness(1.07);
 }
 
-/* Filters */
+/* ==========================================================
+   Filters
+   ========================================================== */
 .filters-section {
-  padding: 1.75rem 0 1.25rem;
+  padding: 1.9rem 0 1.2rem;
 }
 
 .filters-section h2 {
-  margin-bottom: 1rem;
+  margin: 0 0 0.75rem;
+}
+
+.filters-intro {
+  margin: 0.25rem 0 1.05rem;
+  font-size: 0.95rem;
+  color: #4b5563;
+  max-width: 52rem;
 }
 
 .filters-grid {
@@ -299,24 +430,54 @@ body {
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.45rem;
+}
+
+.filter-group label,
+.filter-group legend {
+  font-weight: 650;
+  font-size: 0.92rem;
+}
+
+.filter-group legend {
+  padding: 0;
+}
+
+.filter-group select {
+  padding: 0.55rem 0.65rem;
+  border-radius: 0.7rem;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  font-family: inherit;
+}
+
+.filter-group select:focus {
+  outline: 2px solid rgba(34, 195, 166, 0.55);
+  outline-offset: 2px;
+}
+
+fieldset.filter-group {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .chip-input {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  padding: 0.25rem 0.55rem;
+  gap: 0.35rem;
+  padding: 0.28rem 0.6rem;
   border-radius: 999px;
   border: 1px solid #cbd5e1;
   background: #ffffff;
-  font-size: 0.78rem;
+  font-size: 0.8rem;
+  user-select: none;
 }
 
 .chip-input input {
@@ -327,18 +488,36 @@ body {
 .filter-actions {
   grid-column: 1 / -1;
   display: flex;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.55rem;
 }
 
-/* Results */
+/* ==========================================================
+   Results
+   ========================================================== */
 .results-section {
-  padding: 0.5rem 0 2.5rem;
+  padding: 0.5rem 0 2.65rem;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.results-count {
+  margin: 0;
+  color: #374151;
+  font-size: 0.95rem;
+}
+
+.results-note {
+  margin: 0.4rem 0 0.9rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+  max-width: 52rem;
 }
 
 .results-grid {
@@ -350,9 +529,9 @@ body {
 .clinic-card {
   background: #ffffff;
   border-radius: 1rem;
-  padding: 1rem 0.9rem 0.9rem;
+  padding: 1rem 0.95rem 0.9rem;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+  box-shadow: 0 1px 6px rgba(2, 6, 23, 0.04);
 }
 
 .clinic-header {
@@ -360,11 +539,14 @@ body {
 }
 
 .clinic-name {
-  font-weight: 600;
+  margin: 0;
+  font-weight: 750;
+  font-size: 1.02rem;
 }
 
 .clinic-location {
-  font-size: 0.8rem;
+  margin: 0.2rem 0 0;
+  font-size: 0.84rem;
   color: #6b7280;
 }
 
@@ -373,13 +555,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
-  margin-bottom: 0.35rem;
+  margin: 0.5rem 0 0.35rem;
 }
 
 .badge {
-  font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
+  font-size: 0.72rem;
+  padding: 0.16rem 0.5rem;
   border-radius: 999px;
+  border: 1px solid rgba(226, 232, 240, 0.6);
 }
 
 .badge-primary {
@@ -398,31 +581,48 @@ body {
 }
 
 .clinic-description {
-  font-size: 0.86rem;
-  margin: 0.3rem 0;
+  font-size: 0.9rem;
+  margin: 0.35rem 0;
+  color: #111827;
 }
 
 .clinic-actions {
-  margin-top: 0.45rem;
+  margin-top: 0.55rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 0.75rem;
 }
 
-.clinic-actions a {
-  font-size: 0.85rem;
+.clinic-link {
+  font-size: 0.9rem;
+  color: #0f766e;
+  text-decoration: none;
+  font-weight: 650;
+}
+
+.clinic-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .clinic-details {
-  margin-top: 0.6rem;
+  margin-top: 0.7rem;
   border-top: 1px dashed #e5e7eb;
-  padding-top: 0.45rem;
-  font-size: 0.82rem;
+  padding-top: 0.55rem;
+  font-size: 0.86rem;
+  color: #374151;
 }
 
-/* Resources */
+.clinic-details-heading {
+  margin-bottom: 0.15rem;
+}
+
+/* ==========================================================
+   Resources
+   ========================================================== */
 .resources-section {
-  padding: 2.5rem 0;
+  padding: 2.6rem 0;
   background: #ffffff;
 }
 
@@ -434,41 +634,51 @@ body {
 
 .resource-card {
   background: #f9fafb;
-  border-radius: 0.9rem;
+  border-radius: 0.95rem;
   padding: 1rem;
   border: 1px solid #e5e7eb;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
-/* Dental DJ resource card tweaks */
+.resource-card h3 {
+  margin: 0 0 0.4rem;
+}
+
 .dental-dj-resource {
   border-top: 3px solid #22c3a6;
 }
 
 .dental-dj-resource-link a {
   color: #0f766e;
-  font-weight: 600;
+  font-weight: 750;
   text-decoration: none;
 }
 
 .dental-dj-resource-link a:hover {
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/* About */
+/* ==========================================================
+   About
+   ========================================================== */
 .about-section {
-  padding: 2rem 0 2.5rem;
+  padding: 2rem 0 2.6rem;
+}
+
+.about-inner h2 {
+  margin-top: 0;
 }
 
 .about-list {
   padding-left: 1.2rem;
 }
 
-/* Dental DJ about blurb */
+/* Dental DJ about callout */
 .dental-dj-about {
   margin-top: 1.5rem;
   padding: 1rem;
-  border-radius: 0.75rem;
+  border-radius: 0.85rem;
   background: #f0fdfa;
   border-left: 4px solid #22c3a6;
   display: flex;
@@ -488,17 +698,18 @@ body {
 }
 
 .dental-dj-about-content details {
-  font-size: 0.9rem;
+  font-size: 0.95rem;
 }
 
 .dental-dj-about-content summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 750;
   margin-bottom: 0.4rem;
 }
 
-.dental-dj-about-content summary::-webkit-details-marker {
-  color: #0f766e;
+.dental-dj-about-content summary:focus {
+  outline: 2px solid rgba(34, 195, 166, 0.65);
+  outline-offset: 2px;
 }
 
 .dental-dj-about-content p {
@@ -506,13 +717,15 @@ body {
 }
 
 .dental-dj-about-content ul {
-  margin: 0.25rem 0 0.5rem;
+  margin: 0.25rem 0 0.6rem;
   padding-left: 1.1rem;
 }
 
-/* Suggest */
+/* ==========================================================
+   Suggest / Connect
+   ========================================================== */
 .suggest-section {
-  padding: 1.75rem 0 2.5rem;
+  padding: 1.9rem 0 2.6rem;
   background: #0f172a;
   color: #e5e7eb;
 }
@@ -521,99 +734,84 @@ body {
   margin-top: 0;
 }
 
-.suggest-note a {
-  color: #22c3a6;
-}
-
-/* Provider form */
-.provider-form {
-  background: #020617;
-  border-radius: 1rem;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  margin-top: 1.25rem;
-}
-
-.provider-form h3 {
+.suggest-cta {
   margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #e5e7eb;
-}
-
-.provider-form label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  color: #e5e7eb;
-}
-
-.provider-form input,
-.provider-form select,
-.provider-form textarea {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.4rem;
-  border: 1px solid #1f2937;
-  background: #020617;
-  color: #e5e7eb;
-  font-family: inherit;
-  font-size: 0.9rem;
-}
-
-.provider-form textarea {
-  resize: vertical;
 }
 
 .small-note {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: #cbd5e1;
-  margin-top: 0;
+  margin: 0.75rem 0 0;
+  max-width: 44rem;
 }
 
-/* Better readability for chips inside provider form */
-.provider-form .chip-row {
-  margin-bottom: 0.6rem;
-  gap: 0.55rem;
+.small-note a {
+  color: #22c3a6;
+  text-decoration: none;
+  font-weight: 650;
 }
 
-.provider-form .chip-input {
-  background: #020617;
-  border-color: #e5e7eb;
-  color: #e5e7eb;
-  font-size: 0.9rem;
-  padding: 0.35rem 0.9rem;
+.small-note a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.provider-form .chip-input span {
-  color: #f9fafb;
-}
-
-.provider-form .chip-input input {
-  accent-color: #22c3a6;
-}
-
-.provider-form .chip-input:hover {
-  background: #020617;
-  border-color: #22c3a6;
-}
-
-/* Footer */
+/* ==========================================================
+   Footer
+   ========================================================== */
 .site-footer {
   border-top: 1px solid #e5e7eb;
   background: #ffffff;
 }
 
 .footer-inner {
-  padding: 0.75rem 0;
+  padding: 0.85rem 0;
   text-align: center;
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   color: #6b7280;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* ==========================================================
+   Responsive + mobile nav behavior
+   ========================================================== */
+@media (max-width: 860px) {
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* turn nav into a dropdown panel */
+  .nav {
+    position: absolute;
+    top: 62px;
+    right: 1.25rem;
+    left: 1.25rem;
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.75rem;
+    border-radius: 1rem;
+    background: rgba(2, 6, 23, 0.96);
+    border: 1px solid rgba(226, 232, 240, 0.18);
+    box-shadow: 0 16px 40px rgba(2, 6, 23, 0.55);
+  }
+
+  .nav a {
+    padding: 0.6rem 0.6rem;
+    border-radius: 0.75rem;
+    opacity: 1;
+  }
+
+  .nav a:hover {
+    background: rgba(148, 163, 184, 0.12);
+    text-decoration: none;
+  }
+
+  .nav.nav-open {
+    display: flex;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
   }
@@ -623,12 +821,43 @@ body {
   }
 
   .header-inner {
-    flex-direction: column;
-    gap: 0.4rem;
+    position: relative;
   }
 
   .dental-dj-hero-footer {
     flex-direction: row;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-text h1 {
+    font-size: 1.9rem;
+  }
+
+  .search-input-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-input-row input,
+  .search-input-row button {
+    width: 100%;
+  }
+
+  .clinic-actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  .audio-wave span {
+    animation: none;
   }
 }
