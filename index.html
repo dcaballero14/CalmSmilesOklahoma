@@ -1,209 +1,72 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
   <title>Oklahoma Dental Clinics for Anxious Patients | Calm Smiles Oklahoma</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta
     name="description"
-    content="Calm Smiles Oklahoma is a public directory of anxiety-friendly dental clinics across Oklahoma. Filter by SoonerCare / Oklahoma Medicaid, major dental insurance, region, and comfort options like trauma-informed care, sensory-friendly support, and sedation."
+    content="Calm Smiles Oklahoma is a free directory of Oklahoma dental clinics, including Tulsa and OKC, that welcome anxious patients. Filter by SoonerCare / Oklahoma Medicaid, major dental insurance, region, and comfort features like trauma-informed care, sensory-friendly options, and sedation."
   />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-  <meta name="theme-color" content="#0f172a" />
-  <meta name="color-scheme" content="light dark" />
 
-  <!-- Canonical (update to your real URL) -->
-  <link rel="canonical" href="https://example.com/" />
+  <link rel="icon" type="image/png" href="tooth.png">
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Calm Smiles Oklahoma" />
-  <meta property="og:title" content="Calm Smiles Oklahoma — Anxiety-Friendly Dental Clinics" />
-  <meta
-    property="og:description"
-    content="Find anxiety-friendly dental clinics in Oklahoma. Filter by SoonerCare/Medicaid, insurance, region, and comfort features."
-  />
-  <meta property="og:url" content="https://example.com/" />
-  <!-- If you later host an image, replace with a real URL -->
-  <meta property="og:image" content="https://example.com/og-image.png" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Calm Smiles Oklahoma — Anxiety-Friendly Dental Clinics" />
-  <meta
-    name="twitter:description"
-    content="Filter Oklahoma clinics by SoonerCare/Medicaid, insurance, region, and comfort features."
-  />
-  <meta name="twitter:image" content="https://example.com/og-image.png" />
-
-  <link rel="icon" type="image/png" href="tooth.png" />
   <link rel="stylesheet" href="style.css" />
 
-  <!-- JSON-LD: Organization + WebSite + FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://example.com/#org",
-        "name": "Calm Smiles Oklahoma",
-        "url": "https://example.com/",
-        "email": "calmsmilesoklahoma@gmail.com",
-        "description": "A public directory to help Oklahomans find anxiety-friendly dental clinics and understand insurance options like SoonerCare/Medicaid.",
-        "sameAs": [
-          "https://dental-dj.onrender.com/login"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://example.com/#website",
-        "url": "https://example.com/",
-        "name": "Calm Smiles Oklahoma",
-        "publisher": { "@id": "https://example.com/#org" },
-        "potentialAction": {
-          "@type": "SearchAction",
-          "target": "https://example.com/?q={search_term_string}",
-          "query-input": "required name=search_term_string"
-        }
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://example.com/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What should I say when I call a dentist if I have anxiety?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Tell them you feel nervous about dental visits and ask for a slower-paced appointment, clear explanations, and permission to take breaks. You can also ask if they have experience with anxious or long-avoiding patients."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does SoonerCare (Oklahoma Medicaid) cover dental care?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Coverage depends on age and program rules. Many clinics can help you verify benefits and eligibility. Always call the clinic and your plan to confirm what services are covered and whether the clinic is in-network."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How do I verify if a clinic accepts my insurance?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Ask the clinic if they are in-network with your specific plan name and group. Then call the number on your insurance card to confirm the clinic’s network status and your estimated costs."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What comfort options can help with dental anxiety?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Common supports include longer appointments, step-by-step explanations, breaks on request, distraction (music), sensory-friendly options, trauma-informed communication, and in some cases nitrous or sedation."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "What if I haven’t been to a dentist in years?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "You’re not alone. Many clinics routinely help patients returning after long gaps. You can request a low-pressure visit focused on evaluation, listening, and a simple plan—without doing everything at once."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can I request breaks or a stop signal during treatment?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Ask your provider to agree on a clear stop signal (like raising your hand) so you can pause whenever you need to breathe, swallow, or regroup."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Are the listings on Calm Smiles Oklahoma official?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Listings are compiled from publicly available information and community suggestions. Always confirm insurance acceptance, pricing, and services directly with the clinic before scheduling."
-            }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
+  <!-- Extra small styles to improve legibility of helper text -->
+  <style>
+    .filters-intro,
+    .results-note {
+      margin: 0.4rem 0 0.9rem;
+      font-size: 0.95rem;
+      color: #4b5563;
+      max-width: 52rem;
+    }
+
+    .results-note {
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-
 <body>
-  <!-- Skip link for keyboard users -->
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#search" aria-label="Calm Smiles Oklahoma home">
-        <span class="logo-mark" aria-hidden="true">CS</span>
+      <div class="logo">
+        <span class="logo-mark">CS</span>
         <span class="logo-text">Calm Smiles Oklahoma</span>
-      </a>
-
-      <!-- Progressive-enhanced nav: details-based hamburger on mobile, no JS required -->
-      <nav class="nav" aria-label="Primary">
-        <details class="nav-disclosure">
-          <summary class="nav-summary">
-            <span class="nav-summary-icon" aria-hidden="true">
-              <!-- inline SVG "menu" icon -->
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </span>
-            Menu
-          </summary>
-          <div class="nav-panel">
-            <a href="#search">Search</a>
-            <a href="#clinics">Clinics</a>
-            <a href="#resources">Resources</a>
-            <a href="#faq">FAQ</a>
-            <a href="#about">About</a>
-            <a href="#connect">Suggest / For offices</a>
-          </div>
-        </details>
-
-        <!-- Desktop links -->
-        <div class="nav-links" aria-label="Primary navigation links">
-          <a href="#search">Search</a>
-          <a href="#clinics">Clinics</a>
-          <a href="#resources">Resources</a>
-          <a href="#faq">FAQ</a>
-          <a href="#about">About</a>
-          <a href="#connect" class="nav-cta">Suggest a clinic</a>
-        </div>
+      </div>
+      <nav class="nav">
+        <a href="#search">Search</a>
+        <a href="#resources">Resources</a>
+        <a href="#about">About</a>
+        <a href="#connect">Suggest a Clinic</a>
+        <a href="#connect">For Dental Offices</a>
       </nav>
     </div>
   </header>
 
-  <main id="main" tabindex="-1">
+  <main>
     <!-- Hero -->
-    <section class="hero" id="search" aria-labelledby="heroTitle">
+    <section class="hero" id="search">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow">Oklahoma • Anxiety-friendly dental care</p>
-          <h1 id="heroTitle">Find a dentist who understands your anxiety.</h1>
-
-          <p class="hero-subtitle">
-            Search clinics that welcome anxious or long-avoiding patients. Filter by
-            SoonerCare / Oklahoma Medicaid, major insurance, region, and comfort supports.
+          <h1>Find a dentist who understands your anxiety.</h1>
+          <p>
+            Calm Smiles Oklahoma helps Oklahomans find dental clinics that are
+            anxiety-friendly, insurance-compatible, and focused on gentle,
+            non-judgmental care.
           </p>
 
-          <div class="hero-ctas" role="group" aria-label="Primary actions">
-            <a class="btn btn-primary" href="#clinics">Browse clinics</a>
-            <a class="btn btn-secondary" href="#connect">Suggest a clinic</a>
-          </div>
-
-          <!-- Dental DJ hero blurb (kept intact, only minor structural classes) -->
-          <div class="dental-dj-hero" aria-label="Dental DJ feature">
+          <!-- Dental DJ hero blurb -->
+          <div class="dental-dj-hero">
             <div class="dental-dj-hero-header">
-              <div class="dental-dj-icon" aria-hidden="true">🎧</div>
+              <div class="dental-dj-icon" aria-hidden="true">
+                🎧
+              </div>
               <div>
                 <h3>Dental DJ: Calm the room before your visit</h3>
                 <p>
@@ -228,54 +91,41 @@
             </div>
           </div>
 
-          <div class="search-bar" role="search" aria-label="Search clinics">
+          <div class="search-bar">
             <label for="searchInput" class="search-label">Search by city or clinic name</label>
             <div class="search-input-row">
-              <input
-                id="searchInput"
-                type="text"
-                inputmode="search"
-                autocomplete="off"
-                placeholder="e.g. Tulsa, Norman, pediatric, dentures..."
-              />
-              <button id="browseAllBtn" class="btn btn-ghost" type="button">Browse all</button>
+              <input id="searchInput" type="text" placeholder="e.g. Tulsa, Norman, pediatric, dentures..." />
+              <button id="browseAllBtn" class="btn btn-secondary" type="button">Browse all</button>
             </div>
-
-            <p class="helper-text">
-              Tip: Start with <strong>SoonerCare</strong> if insurance is your biggest blocker.
-            </p>
           </div>
         </div>
 
-        <aside class="hero-card" aria-label="Why this exists">
+        <div class="hero-card">
           <h2>You’re not alone.</h2>
           <p class="hero-card-text">
-            Dental anxiety is common. This directory is built to help you find care that listens,
-            explains, and moves at your pace.
+            Dental anxiety is common. This site is here to help you find a clinic
+            that listens, explains, and moves at your pace.
           </p>
           <ul class="hero-list">
             <li>Filter by SoonerCare and major dental insurances</li>
-            <li>See which clinics mention low-cost or reduced-fee options</li>
+            <li>See which clinics offer low-cost or reduced-fee options</li>
             <li>Find pediatric and family offices that fit your situation</li>
           </ul>
-
-          <div class="trust-mini" aria-label="Trust note">
-            <p><strong>Reminder:</strong> Always confirm insurance and services directly with the clinic.</p>
-          </div>
-        </aside>
+        </div>
       </div>
     </section>
 
     <!-- Filters -->
-    <section class="filters-section" aria-labelledby="filtersTitle">
+    <section class="filters-section">
       <div class="container">
-        <h2 id="filtersTitle">Search anxiety-friendly clinics in Oklahoma</h2>
+        <h2>Search anxiety-friendly clinics in Oklahoma</h2>
         <p class="filters-intro">
-          Use filters for region, insurance (including SoonerCare / Oklahoma Medicaid), and comfort features like
+          Use the filters below to search Oklahoma dental clinics by region, insurance
+          (including SoonerCare / Oklahoma Medicaid), and comfort features such as
           trauma-informed care, sensory-friendly options, and sedation.
         </p>
 
-        <form id="filtersForm" class="filters-grid" aria-label="Clinic filters">
+        <form id="filtersForm" class="filters-grid">
           <!-- Region -->
           <div class="filter-group">
             <label for="regionSelect">Region</label>
@@ -294,7 +144,7 @@
           <!-- Insurance -->
           <div class="filter-group">
             <label>Insurance</label>
-            <div class="chip-row" role="group" aria-label="Insurance filters">
+            <div class="chip-row">
               <label class="chip-input">
                 <input type="checkbox" value="SoonerCare" class="insurance-checkbox" />
                 <span>SoonerCare</span>
@@ -326,10 +176,10 @@
             </div>
           </div>
 
-          <!-- Comfort features -->
+          <!-- Anxiety / comfort features -->
           <div class="filter-group">
             <label>Comfort features</label>
-            <div class="chip-row" role="group" aria-label="Comfort feature filters">
+            <div class="chip-row">
               <label class="chip-input">
                 <input type="checkbox" value="anxietyFocused" class="feature-checkbox" />
                 <span>Anxiety-focused</span>
@@ -365,85 +215,26 @@
       </div>
     </section>
 
-    <!-- Trust + verify mini-block (CRO / E-E-A-T) -->
-    <section class="trust-section" aria-labelledby="trustTitle">
-      <div class="container">
-        <h2 id="trustTitle">Before you book: trust & verification</h2>
-        <div class="trust-grid">
-          <article class="trust-card">
-            <h3>How listings are sourced</h3>
-            <p>
-              Clinics are gathered from publicly available information (clinic websites, directories) and community suggestions.
-              We do our best to keep details current, but availability, networks, and policies can change.
-            </p>
-          </article>
-          <article class="trust-card">
-            <h3>How to verify insurance (fast)</h3>
-            <ol>
-              <li>Ask the clinic: “Are you <strong>in-network</strong> for my exact plan name?”</li>
-              <li>Call the number on your insurance card to confirm network + benefits.</li>
-              <li>Ask for an estimate before treatment if cost uncertainty increases anxiety.</li>
-            </ol>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Results -->
-    <section class="results-section" id="clinics" aria-labelledby="clinicsTitle">
+    <section class="results-section">
       <div class="container">
         <div class="results-header">
-          <h2 id="clinicsTitle">Clinics</h2>
-          <p id="resultsCount" class="results-count" aria-live="polite">Loading clinics…</p>
+          <h2>Clinics</h2>
+          <p id="resultsCount" class="results-count">Loading clinics…</p>
         </div>
-
         <p class="results-note">
           These Oklahoma dental clinics are gathered from publicly available information.
           Always confirm insurance, SoonerCare / Medicaid coverage, and specific services
           directly with the clinic before scheduling.
         </p>
-
-        <div id="resultsGrid" class="results-grid" aria-label="Clinic results"></div>
-      </div>
-    </section>
-
-    <!-- Optional testimonials (placeholders) -->
-    <section class="testimonials-section" aria-labelledby="testimonialsTitle">
-      <div class="container">
-        <h2 id="testimonialsTitle">What people look for (placeholder examples)</h2>
-        <p class="section-subtitle">
-          These are clearly labeled placeholders so you can replace them with real quotes later.
-        </p>
-
-        <div class="testimonials-grid">
-          <figure class="testimonial">
-            <blockquote>
-              “I asked for a slower appointment and a stop signal. Having a plan made it feel manageable.”
-            </blockquote>
-            <figcaption>— Placeholder patient quote</figcaption>
-          </figure>
-
-          <figure class="testimonial">
-            <blockquote>
-              “They helped me understand my insurance and gave estimates up front. That reduced a lot of stress.”
-            </blockquote>
-            <figcaption>— Placeholder caregiver quote</figcaption>
-          </figure>
-
-          <figure class="testimonial">
-            <blockquote>
-              “Small comforts (music, breaks, clear explanations) made a bigger difference than I expected.”
-            </blockquote>
-            <figcaption>— Placeholder patient quote</figcaption>
-          </figure>
-        </div>
+        <div id="resultsGrid" class="results-grid"></div>
       </div>
     </section>
 
     <!-- Resources -->
-    <section class="resources-section" id="resources" aria-labelledby="resourcesTitle">
+    <section class="resources-section" id="resources">
       <div class="container">
-        <h2 id="resourcesTitle">Resources for dental anxiety</h2>
+        <h2>Resources for dental anxiety</h2>
         <div class="resources-grid">
           <article class="resource-card">
             <h3>“I haven’t seen a dentist in years.”</h3>
@@ -452,7 +243,6 @@
               low-pressure appointment.
             </p>
           </article>
-
           <article class="resource-card">
             <h3>What if I gag, panic, or need a break?</h3>
             <p>
@@ -460,7 +250,6 @@
               or a slower pace.
             </p>
           </article>
-
           <article class="resource-card">
             <h3>How SoonerCare and dental insurance work</h3>
             <p>
@@ -468,11 +257,10 @@
               handle preventive and basic care.
             </p>
           </article>
-
           <article class="resource-card dental-dj-resource">
             <h3>Using music to lower anxiety</h3>
             <p>
-              Some offices use Dental DJ to let patients help choose music in the operatory.
+              Some offices use Dental DJ to let patients help choose music in the operatory. 
               When you have a say in the sound, the whole visit can feel more in your control.
             </p>
             <p class="dental-dj-resource-link">
@@ -481,7 +269,6 @@
               </a>
             </p>
           </article>
-
           <article class="resource-card">
             <h3>Simple calming exercises before your visit</h3>
             <p>
@@ -492,119 +279,25 @@
       </div>
     </section>
 
-    <!-- FAQ (AEO-friendly) -->
-    <section class="faq-section" id="faq" aria-labelledby="faqTitle">
-      <div class="container">
-        <h2 id="faqTitle">FAQ</h2>
-        <p class="section-subtitle">
-          Quick answers for anxious patients, caregivers, and anyone using SoonerCare/Medicaid or dental insurance.
-        </p>
-
-        <div class="faq-grid">
-          <details class="faq-item">
-            <summary>What should I say when I call if I have anxiety?</summary>
-            <div class="faq-body">
-              <p>
-                Try: “I get anxious at the dentist. Can we schedule a slower-paced visit with clear explanations and breaks?”
-                You can also ask if they’re comfortable seeing long-avoiding patients.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Does SoonerCare (Oklahoma Medicaid) cover dental visits?</summary>
-            <div class="faq-body">
-              <p>
-                Coverage depends on age and program rules. Always call the clinic and your plan to confirm covered services,
-                eligibility, and whether the clinic is in-network.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>How do I verify if a clinic accepts my insurance?</summary>
-            <div class="faq-body">
-              <p>
-                Ask the clinic if they’re in-network for your exact plan name. Then call the number on your insurance card to
-                confirm network status and estimated costs.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>What comfort features actually help?</summary>
-            <div class="faq-body">
-              <p>
-                Common supports include longer appointments, step-by-step explanations, breaks on request, distraction (music),
-                sensory-friendly options, trauma-informed communication, and sometimes nitrous or sedation.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>What if I haven’t been to a dentist in years?</summary>
-            <div class="faq-body">
-              <p>
-                You’re not alone. You can request a low-pressure first visit focused on evaluation, listening, and a simple plan—
-                without doing everything at once.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Can I ask for a stop signal during treatment?</summary>
-            <div class="faq-body">
-              <p>
-                Yes. Agree on a stop signal (like raising your hand) so you can pause anytime you need to breathe, swallow, or regroup.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq-item">
-            <summary>Are these listings official or guaranteed?</summary>
-            <div class="faq-body">
-              <p>
-                No. Listings are compiled from public sources and suggestions. Always confirm insurance acceptance, pricing, and services
-                directly with the clinic before scheduling.
-              </p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
     <!-- About -->
-    <section class="about-section" id="about" aria-labelledby="aboutTitle">
+    <section class="about-section" id="about">
       <div class="container about-inner">
-        <h2 id="aboutTitle">About Calm Smiles Oklahoma</h2>
+        <h2>About Calm Smiles Oklahoma</h2>
         <p>
-          Calm Smiles Oklahoma is a public resource created to make it easier for anxious Oklahomans
+          Calm Smiles Oklahoma is a public resource created to make it easier for anxious Oklahomans 
           to find dental care that feels safe, respectful, and affordable.
         </p>
-
         <ul class="about-list">
           <li>Highlights clinics that openly welcome anxious or long-avoiding patients</li>
           <li>Shows insurance options, including SoonerCare and major PPO plans</li>
           <li>Shares simple tools to feel more in control before and during your visit</li>
         </ul>
 
-        <!-- E-E-A-T: About the creator -->
-        <div class="creator-card" aria-labelledby="creatorTitle">
-          <h3 id="creatorTitle">About the creator</h3>
-          <p>
-            Calm Smiles Oklahoma is maintained by an Oklahoma-based dental professional-in-training and clinic team member
-            who cares about making dental care feel more approachable for anxious patients.
-            This site does not provide medical advice and does not replace a clinician’s guidance — it’s a starting point to help
-            you find offices that may be a good fit and to ask better questions when you call.
-          </p>
-          <p class="creator-meta">
-            Want to update a listing or suggest an office? Head to <a href="#connect">Suggest / For offices</a>.
-          </p>
-        </div>
-
-        <!-- Dental DJ about blurb (kept; slight a11y polish) -->
+        <!-- Dental DJ about blurb -->
         <div class="dental-dj-about">
-          <div class="dental-dj-about-icon" aria-hidden="true">🎶</div>
+          <div class="dental-dj-about-icon" aria-hidden="true">
+            🎶
+          </div>
           <div class="dental-dj-about-content">
             <details>
               <summary>What is Dental DJ and how does it help with anxiety?</summary>
@@ -631,9 +324,9 @@
     </section>
 
     <!-- Combined "Suggest / Join" section -->
-    <section class="suggest-section" id="connect" aria-labelledby="connectTitle">
+    <section class="suggest-section" id="connect">
       <div class="container suggest-inner">
-        <h2 id="connectTitle">Suggest a clinic / For dental offices</h2>
+        <h2>Suggest a clinic / For dental offices</h2>
         <p>
           If you’re a patient, caregiver, or community member, you can suggest a clinic to be added to Calm Smiles Oklahoma.
         </p>
@@ -642,41 +335,38 @@
           Your responses help us keep our listings accurate, trustworthy, and up to date.
         </p>
 
-        <div class="connect-ctas" role="group" aria-label="Connect actions">
+        <p style="margin-top: 1rem;">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScU4FBIgJOHbRVovSsieGoDETbQ8ujHNv0FFpbjEd0BV27vHA/viewform?usp=header"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-primary"
+            style="padding: 0.6rem 1.6rem; font-size: 0.95rem; font-weight: 600; display: inline-block;"
           >
             Fill Out the Clinic Information Form &rarr;
           </a>
+        </p>
 
-          <a class="btn btn-ghost btn-dark" href="mailto:calmsmilesoklahoma@gmail.com">
-            Email questions
-          </a>
-        </div>
-
-        <p class="small-note">
-          This form is hosted through Google Forms. Responses are sent to Calm Smiles Oklahoma.
-          If you have additional questions, email
+        <p class="small-note" style="margin-top: 0.75rem; max-width: 40rem;">
+          This form is hosted securely through Google Forms. Responses are sent directly to Calm Smiles Oklahoma.
+          If you have any additional questions, feel free to email
           <a href="mailto:calmsmilesoklahoma@gmail.com">calmsmilesoklahoma@gmail.com</a>.
         </p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer" role="contentinfo">
+  <footer class="site-footer">
     <div class="container footer-inner">
-      <p>
-        &copy; <span id="yearSpan"></span> Calm Smiles Oklahoma.
-        Please verify insurance and services directly with each clinic.
-      </p>
-      <p class="footer-links">
-        <a href="#search">Back to top</a>
-      </p>
+      <p>&copy; <span id="yearSpan"></span> Calm Smiles Oklahoma. Please verify insurance and services directly with each clinic.</p>
     </div>
   </footer>
+
+  <!-- Inline JS so we don't depend on an external script.js file -->
+  <script>
+    // ===============================
+    // Master clinic list for Calm Smiles Oklahoma
+    // ===============================
 
     const clinics = [
       {
@@ -2821,4 +2511,3 @@
   </script>
 </body>
 </html>
-
