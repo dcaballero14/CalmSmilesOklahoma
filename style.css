@@ -1,52 +1,21 @@
-/* =========================
-   Base Reset + Variables
-========================= */
-:root {
-  --bg: #f3f4f6;
-  --surface: #ffffff;
-  --ink: #111827;
-  --muted: #6b7280;
-  --brand: #22c3a6;
-  --brand-dark: #0f766e;
-  --accent: #facc6b;
-  --border: #e5e7eb;
-  --focus: #2563eb;
-}
 
+
+
+/* Reset */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  color: var(--ink);
-  background-color: var(--bg);
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  color: #111827;
+  background-color: #f3f4f6;
+  line-height: 1.5;
 }
 
-img,
-svg {
-  max-width: 100%;
-  display: block;
-}
-
-:focus-visible {
-  outline: 3px solid var(--focus);
-  outline-offset: 2px;
-}
-
-/* =========================
-   Layout Helpers
-========================= */
 .container {
   width: 100%;
   max-width: 1100px;
@@ -54,13 +23,11 @@ svg {
   padding: 0 1.25rem;
 }
 
-/* =========================
-   Header + Nav
-========================= */
+/* Header */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 20;
+  z-index: 10;
   background: #0f172a;
   color: #e5e7eb;
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.5);
@@ -71,7 +38,6 @@ svg {
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 0;
-  gap: 0.75rem;
 }
 
 .logo {
@@ -84,10 +50,10 @@ svg {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 999px;
-  background: var(--brand);
+  background: #22c3a6;
   color: #0f172a;
   font-weight: 700;
   font-size: 0.9rem;
@@ -103,7 +69,6 @@ svg {
   display: flex;
   gap: 1rem;
   font-size: 0.95rem;
-  flex-wrap: wrap;
 }
 
 .nav a {
@@ -112,19 +77,16 @@ svg {
   opacity: 0.9;
 }
 
-.nav a:hover,
-.nav a:focus-visible {
+.nav a:hover {
   opacity: 1;
   text-decoration: underline;
 }
 
-/* =========================
-   Hero
-========================= */
+/* Hero */
 .hero {
   background: radial-gradient(circle at top left, #22c3a6 0, #0f172a 45%, #020617 100%);
   color: #e5e7eb;
-  padding: 2.75rem 0 3.25rem;
+  padding: 3rem 0 3.5rem;
 }
 
 .hero-inner {
@@ -134,21 +96,19 @@ svg {
 }
 
 .hero-text h1 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-size: 2.1rem;
   margin: 0 0 0.75rem;
-  letter-spacing: -0.01em;
 }
 
 .hero-text p {
-  max-width: 34rem;
-  margin: 0 0 1.25rem;
-  color: #e5e7eb;
+  max-width: 32rem;
+  margin: 0 0 1.5rem;
 }
 
 .search-label {
   display: block;
   font-size: 0.9rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 }
 
 .search-input-row {
@@ -158,23 +118,20 @@ svg {
 }
 
 .search-input-row input {
-  flex: 1 1 200px;
-  padding: 0.6rem 0.75rem;
-  border-radius: 0.6rem;
+  flex: 1 1 190px;
+  padding: 0.55rem 0.7rem;
+  border-radius: 0.5rem;
   border: none;
-  font-size: 0.95rem;
 }
 
-/* =========================
-   Dental DJ Hero Card
-========================= */
+/* Dental DJ hero card */
 .dental-dj-hero {
-  margin-bottom: 1.3rem;
+  margin-bottom: 1.5rem;
   padding: 0.9rem 1rem;
   border-radius: 0.9rem;
   border: 1px solid rgba(226, 232, 240, 0.45);
-  background: radial-gradient(circle at top left, rgba(34,195,166,0.25), rgba(15,23,42,0.9));
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.5);
+  background: radial-gradient(circle at top left, rgba(34, 195, 166, 0.25), rgba(15, 23, 42, 0.9));
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.6);
 }
 
 .dental-dj-hero-header {
@@ -193,16 +150,18 @@ svg {
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.9);
 }
 
 .dental-dj-hero h3 {
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.25rem;
   font-size: 1.02rem;
 }
 
 .dental-dj-hero p {
   margin: 0;
   font-size: 0.9rem;
+  color: #e5e7eb;
 }
 
 .dental-dj-hero-footer {
@@ -210,9 +169,10 @@ svg {
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
-/* Audio wave */
+/* Audio wave animation */
 .audio-wave {
   display: inline-flex;
   gap: 0.2rem;
@@ -223,29 +183,34 @@ svg {
 .audio-wave span {
   width: 3px;
   border-radius: 999px;
-  background: var(--brand);
+  background: #22c3a6;
   animation: wave 1s infinite ease-in-out;
 }
 
-.audio-wave span:nth-child(2) { animation-delay: .15s; }
-.audio-wave span:nth-child(3) { animation-delay: .3s; }
-.audio-wave span:nth-child(4) { animation-delay: .45s; }
-
-@keyframes wave {
-  0%,100% { height: 4px; opacity: .6; }
-  50% { height: 18px; opacity: 1; }
+.audio-wave span:nth-child(2) {
+  animation-delay: 0.15s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .audio-wave span {
-    animation: none;
-    height: 10px;
+.audio-wave span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.audio-wave span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes wave {
+  0%, 100% {
+    height: 4px;
+    opacity: 0.6;
+  }
+  50% {
+    height: 18px;
+    opacity: 1;
   }
 }
 
-/* =========================
-   Hero Side Card
-========================= */
+/* Hero side card */
 .hero-card {
   background: rgba(15, 23, 42, 0.85);
   border-radius: 1.25rem;
@@ -263,60 +228,68 @@ svg {
   font-size: 0.9rem;
 }
 
-/* =========================
-   Buttons
-========================= */
+/* Buttons */
 .btn {
   border-radius: 999px;
   border: none;
-  padding: 0.6rem 1.35rem;
+  padding: 0.55rem 1.25rem;
   font-size: 0.9rem;
   cursor: pointer;
-  font-weight: 600;
-  transition: background-color .15s ease, transform .05s ease;
-}
-
-.btn:active {
-  transform: translateY(1px);
+  font-weight: 500;
 }
 
 .btn-primary {
-  background: var(--brand);
+  background: #22c3a6;
   color: #0f172a;
 }
 
-.btn-primary:hover { filter: brightness(1.05); }
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
 
 .btn-secondary {
-  background: var(--accent);
+  background: #facc6b;
   color: #0f172a;
 }
 
-.btn-secondary:hover { filter: brightness(1.05); }
+.btn-secondary:hover {
+  filter: brightness(1.05);
+}
 
 .btn-ghost {
   background: transparent;
-  color: var(--ink);
+  color: #0f172a;
   border: 1px solid #cbd5e1;
 }
 
-.btn-ghost:hover { background: #e5e7eb; }
+.btn-ghost:hover {
+  background: #e5e7eb;
+}
 
+/* Dental DJ hero CTA button */
 .btn-dental-dj-hero {
-  background: var(--accent);
+  background: #facc6b;
   color: #0f172a;
   padding: 0.45rem 1.1rem;
   font-size: 0.85rem;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
+  gap: 0.3rem;
+  white-space: nowrap;
 }
 
-/* =========================
-   Filters
-========================= */
+.btn-dental-dj-hero:hover {
+  filter: brightness(1.07);
+}
+
+/* Filters */
 .filters-section {
   padding: 1.75rem 0 1.25rem;
+}
+
+.filters-section h2 {
+  margin-bottom: 1rem;
 }
 
 .filters-grid {
@@ -328,20 +301,20 @@ svg {
 .filter-group {
   display: flex;
   flex-direction: column;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .chip-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.4rem;
 }
 
 .chip-input {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.3rem 0.6rem;
+  gap: 0.3rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 999px;
   border: 1px solid #cbd5e1;
   background: #ffffff;
@@ -349,18 +322,17 @@ svg {
 }
 
 .chip-input input {
-  accent-color: var(--brand);
+  accent-color: #22c3a6;
 }
 
+/* Filter actions */
 .filter-actions {
   grid-column: 1 / -1;
   display: flex;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
-/* =========================
-   Results
-========================= */
+/* Results */
 .results-section {
   padding: 0.5rem 0 2.5rem;
 }
@@ -378,18 +350,24 @@ svg {
 }
 
 .clinic-card {
-  background: var(--surface);
+  background: #ffffff;
   border-radius: 1rem;
   padding: 1rem 0.9rem 0.9rem;
-  border: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.04);
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
-.clinic-name { font-weight: 600; }
+.clinic-header {
+  margin-bottom: 0.45rem;
+}
+
+.clinic-name {
+  font-weight: 600;
+}
 
 .clinic-location {
   font-size: 0.8rem;
-  color: var(--muted);
+  color: #6b7280;
 }
 
 .clinic-badges,
@@ -406,9 +384,20 @@ svg {
   border-radius: 999px;
 }
 
-.badge-primary { background: #e0fdf7; color: #065f46; }
-.badge-secondary { background: #eef2ff; color: #4338ca; }
-.badge-neutral { background: #f3f4f6; color: #374151; }
+.badge-primary {
+  background: #e0fdf7;
+  color: #065f46;
+}
+
+.badge-secondary {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.badge-neutral {
+  background: #f3f4f6;
+  color: #374151;
+}
 
 .clinic-description {
   font-size: 0.86rem;
@@ -422,21 +411,21 @@ svg {
   align-items: center;
 }
 
-.clinic-actions a { font-size: 0.85rem; }
+.clinic-actions a {
+  font-size: 0.85rem;
+}
 
 .clinic-details {
   margin-top: 0.6rem;
-  border-top: 1px dashed var(--border);
+  border-top: 1px dashed #e5e7eb;
   padding-top: 0.45rem;
   font-size: 0.82rem;
 }
 
-/* =========================
-   Resources
-========================= */
+/* Resources */
 .resources-section {
   padding: 2.5rem 0;
-  background: var(--surface);
+  background: #ffffff;
 }
 
 .resources-grid {
@@ -449,35 +438,44 @@ svg {
   background: #f9fafb;
   border-radius: 0.9rem;
   padding: 1rem;
-  border: 1px solid var(--border);
+  border: 1px solid #e5e7eb;
   font-size: 0.9rem;
 }
 
-.dental-dj-resource { border-top: 3px solid var(--brand); }
+/* Dental DJ resource card tweaks */
+.dental-dj-resource {
+  border-top: 3px solid #22c3a6;
+}
 
 .dental-dj-resource-link a {
-  color: var(--brand-dark);
+  color: #0f766e;
   font-weight: 600;
   text-decoration: none;
 }
 
-.dental-dj-resource-link a:hover { text-decoration: underline; }
+.dental-dj-resource-link a:hover {
+  text-decoration: underline;
+}
 
-/* =========================
-   About
-========================= */
-.about-section { padding: 2rem 0 2.5rem; }
+/* About */
+.about-section {
+  padding: 2rem 0 2.5rem;
+}
 
-.about-list { padding-left: 1.2rem; }
+.about-list {
+  padding-left: 1.2rem;
+}
 
+/* Dental DJ about blurb */
 .dental-dj-about {
   margin-top: 1.5rem;
   padding: 1rem;
   border-radius: 0.75rem;
   background: #f0fdfa;
-  border-left: 4px solid var(--brand);
+  border-left: 4px solid #22c3a6;
   display: flex;
   gap: 0.75rem;
+  align-items: flex-start;
 }
 
 .dental-dj-about-icon {
@@ -491,40 +489,148 @@ svg {
   font-size: 1.1rem;
 }
 
-/* =========================
-   Suggest / CTA
-========================= */
+.dental-dj-about-content details {
+  font-size: 0.9rem;
+}
+
+.dental-dj-about-content summary {
+  cursor: pointer;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.dental-dj-about-content summary::-webkit-details-marker {
+  color: #0f766e;
+}
+
+.dental-dj-about-content p {
+  margin: 0.25rem 0;
+}
+
+.dental-dj-about-content ul {
+  margin: 0.25rem 0 0.5rem;
+  padding-left: 1.1rem;
+}
+
+/* Suggest */
 .suggest-section {
   padding: 1.75rem 0 2.5rem;
   background: #0f172a;
   color: #e5e7eb;
 }
 
+.suggest-inner h2 {
+  margin-top: 0;
+}
+
+.suggest-note a {
+  color: #22c3a6;
+}
+
+/* Provider form */
+.provider-form {
+  background: #020617;
+  border-radius: 1rem;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  margin-top: 1.25rem;
+}
+
+.provider-form h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+
+.provider-form label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.6rem;
+  color: #e5e7eb;
+}
+
+.provider-form input,
+.provider-form select,
+.provider-form textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.45rem 0.55rem;
+  border-radius: 0.4rem;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.provider-form textarea {
+  resize: vertical;
+}
+
 .small-note {
   font-size: 0.8rem;
   color: #cbd5e1;
+  margin-top: 0;
 }
 
-/* =========================
-   Footer
-========================= */
+/* Better readability for chips inside provider form */
+.provider-form .chip-row {
+  margin-bottom: 0.6rem;
+  gap: 0.55rem;
+}
+
+.provider-form .chip-input {
+  background: #020617;
+  border-color: #e5e7eb;
+  color: #e5e7eb;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.9rem;
+}
+
+.provider-form .chip-input span {
+  color: #f9fafb;
+}
+
+.provider-form .chip-input input {
+  accent-color: #22c3a6;
+}
+
+.provider-form .chip-input:hover {
+  background: #020617;
+  border-color: #22c3a6;
+}
+
+/* Footer */
 .site-footer {
-  border-top: 1px solid var(--border);
-  background: var(--surface);
+  border-top: 1px solid #e5e7eb;
+  background: #ffffff;
 }
 
 .footer-inner {
   padding: 0.75rem 0;
   text-align: center;
   font-size: 0.78rem;
-  color: var(--muted);
+  color: #6b7280;
 }
 
-/* =========================
-   Responsive
-========================= */
+/* Responsive */
 @media (max-width: 768px) {
-  .hero-inner { grid-template-columns: 1fr; }
-  .filters-grid { grid-template-columns: 1fr; }
-  .header-inner { flex-direction: column; }
+  .hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .dental-dj-hero-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
