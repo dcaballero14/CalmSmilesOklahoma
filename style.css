@@ -168,26 +168,20 @@ a {
 /* Calm path module (new) */
 .calm-path{
   margin: 0.75rem 0 1.25rem;
-  padding: 1rem 1.05rem;
-  border-radius: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
 
-  /* stronger readability */
-  background: rgba(2, 6, 23, 0.58);           /* darker overlay */
-  border: 1px solid rgba(226, 232, 240, 0.22);
-  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+  /* match site colorway */
+  background: linear-gradient(
+    to bottom right,
+    rgba(34, 195, 166, 0.18),
+    rgba(15, 23, 42, 0.75)
+  );
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(34, 195, 166, 0.45);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45);
 
   max-width: 44rem;
-}
-
-.calm-path h3{
-  margin: 0 0 0.45rem;
-  font-size: 1.02rem;
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.01em;
 }
 
 .calm-steps{
@@ -752,4 +746,5 @@ a {
     justify-content: space-between;
   }
 }
+
 
