@@ -165,36 +165,6 @@ a {
   color: #e5e7eb;
 }
 
-/* Calm path module (new) */
-/* FORCE Calm Path styling (prevents white-box overrides) */
-.hero .calm-path{
-  background: linear-gradient(
-    to bottom right,
-    rgba(34, 195, 166, 0.18),
-    rgba(15, 23, 42, 0.75)
-  ) !important;
-
-  border: 1px solid rgba(34, 195, 166, 0.45) !important;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45) !important;
-
-  color: #e5e7eb !important;
-  border-radius: 0.9rem;
-}
-
-.hero .calm-path h3{
-  color: #e6fffb !important;
-}
-
-.hero .calm-path .calm-steps{
-  color: #e5e7eb !important;
-}
-
-.hero .calm-path .calm-steps li::marker{
-  color: #facc6b !important;
-  font-weight: 700;
-}
-
-
 .calm-steps{
   margin: 0;
   padding-left: 1.15rem;
@@ -757,6 +727,7 @@ a {
     justify-content: space-between;
   }
 }
+
 
 
 
