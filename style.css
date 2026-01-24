@@ -166,20 +166,47 @@ a {
 }
 
 /* Calm path module (new) */
-.calm-path {
+.calm-path{
   margin: 0.75rem 0 1.25rem;
-  padding: 0.9rem 1rem;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.10);
-  border: 1px solid rgba(226, 232, 240, 0.25);
-  max-width: 42rem;
-  backdrop-filter: blur(8px);
+  padding: 1rem 1.05rem;
+  border-radius: 1rem;
+
+  /* stronger readability */
+  background: rgba(2, 6, 23, 0.58);           /* darker overlay */
+  border: 1px solid rgba(226, 232, 240, 0.22);
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.35);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  max-width: 44rem;
 }
 
-.calm-path h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1rem;
+.calm-path h3{
+  margin: 0 0 0.45rem;
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.01em;
 }
+
+.calm-steps{
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.calm-steps li{
+  margin: 0.35rem 0;
+}
+
+.calm-steps li::marker{
+  color: rgba(250, 204, 107, 0.95); /* your accent */
+  font-weight: 800;
+}
+
 
 .calm-steps {
   margin: 0;
@@ -725,3 +752,4 @@ a {
     justify-content: space-between;
   }
 }
+
