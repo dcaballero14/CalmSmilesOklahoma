@@ -1,4 +1,4 @@
-/* Reset */
+ /* Reset */
 *,
 *::before,
 *::after {
@@ -756,9 +756,3 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
-
-
-
-
-
-
