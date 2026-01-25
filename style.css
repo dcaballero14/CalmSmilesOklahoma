@@ -1,5 +1,4 @@
-
- /* Reset */
+/* Reset */
 *,
 *::before,
 *::after {
@@ -39,7 +38,7 @@ body {
   color: var(--text);
   background-color: var(--bg);
   line-height: 1.65;
-  font-size: 16px; /* calmer, more readable */
+  font-size: 16px;
 }
 
 /* Better default focus */
@@ -49,9 +48,7 @@ body {
   border-radius: 10px;
 }
 
-a {
-  color: inherit;
-}
+a { color: inherit; }
 
 /* Container */
 .container {
@@ -135,59 +132,10 @@ a {
   text-decoration: none;
   opacity: 0.9;
 }
-
 .nav a:hover {
   opacity: 1;
   text-decoration: underline;
 }
-
-.calm-steps{
-  margin: 0;
-  padding-left: 1.15rem;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.calm-steps li{
-  margin: 0.35rem 0;
-}
-
-.calm-steps li::marker{
-  color: rgba(250, 204, 107, 0.95); /* your accent */
-  font-weight: 800;
-}
-
-
-.calm-steps {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: #e2e8f0;
-  font-size: 0.95rem;
-}
-.calm-steps li { margin: 0.25rem 0; }
-
-/* Search bar */
-.search-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  color: #e2e8f0;
-}
-
-.search-input-row {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.search-input-row input {
-  flex: 1 1 190px;
-  padding: 0.6rem 0.75rem;
-  border-radius: 0.65rem;
-  border: none;
-}
-
 
 /* Hero */
 .hero {
@@ -214,6 +162,69 @@ a {
   color: #e5e7eb;
 }
 
+/* Calm Path */
+.calm-path {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(
+    to bottom right,
+    rgba(34, 195, 166, 0.18),
+    rgba(15, 23, 42, 0.75)
+  );
+  border: 1px solid rgba(34, 195, 166, 0.45);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45);
+  max-width: 42rem;
+}
+
+.calm-path h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  color: #e6fffb;
+}
+
+.calm-steps {
+  margin: 0;
+  padding-left: 1.15rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.calm-steps li { margin: 0.35rem 0; }
+.calm-steps li::marker {
+  color: rgba(250, 204, 107, 0.95);
+  font-weight: 800;
+}
+
+/* Search bar */
+.search-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #e2e8f0;
+}
+
+.search-input-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input-row input {
+  flex: 1 1 190px;
+  padding: 0.65rem 0.85rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(226, 232, 240, 0.35);
+  background: rgba(255,255,255,0.95);
+  color: var(--ink);
+}
+.search-input-row input::placeholder {
+  color: rgba(15, 23, 42, 0.55);
+}
+.search-input-row input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
 
 /* Dental DJ hero card */
 .dental-dj-hero {
@@ -277,7 +288,6 @@ a {
   background: var(--brand);
   animation: wave 1s infinite ease-in-out;
 }
-
 .audio-wave span:nth-child(2) { animation-delay: 0.15s; }
 .audio-wave span:nth-child(3) { animation-delay: 0.3s; }
 .audio-wave span:nth-child(4) { animation-delay: 0.45s; }
@@ -300,9 +310,7 @@ a {
   font-size: 1.25rem;
 }
 
-.hero-card-text {
-  color: #e2e8f0;
-}
+.hero-card-text { color: #e2e8f0; }
 
 .hero-list {
   padding-left: 1.1rem;
@@ -324,23 +332,21 @@ a {
   background: var(--brand);
   color: var(--ink);
 }
-
 .btn-primary:hover { filter: brightness(1.05); }
 
 .btn-secondary {
   background: var(--accent);
   color: var(--ink);
 }
-
 .btn-secondary:hover { filter: brightness(1.05); }
 
+/* IMPORTANT: ghost buttons must be visible on dark hero background */
 .btn-ghost {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--border-strong);
+  background: rgba(255,255,255,0.08);
+  color: #e5e7eb;
+  border: 1px solid rgba(226, 232, 240, 0.35);
 }
-
-.btn-ghost:hover { background: #e5e7eb; }
+.btn-ghost:hover { background: rgba(255,255,255,0.14); }
 
 /* Dental DJ hero CTA button */
 .btn-dental-dj-hero {
@@ -362,20 +368,26 @@ a {
   padding: 1.75rem 0 1.25rem;
 }
 
-.filters-section h2 {
-  margin-bottom: 0.75rem;
-}
+.filters-section h2 { margin-bottom: 0.75rem; }
 
 .filters-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 2fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
 }
 
 .filter-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
+}
+
+.filter-group select {
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .chip-row {
@@ -402,7 +414,6 @@ a {
 }
 .chip-input input { accent-color: var(--brand); }
 
-/* Make SoonerCare visually “primary” */
 .chip-input.soonercare {
   border-color: rgba(34, 195, 166, 0.75);
   background: rgba(224, 253, 247, 0.7);
@@ -414,6 +425,7 @@ a {
   grid-column: 1 / -1;
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 /* Results */
@@ -429,9 +441,7 @@ a {
   flex-wrap: wrap;
 }
 
-.results-count {
-  color: var(--muted);
-}
+.results-count { color: var(--muted); }
 
 /* Results grid */
 .results-grid {
@@ -461,7 +471,6 @@ a {
   color: var(--muted-2);
 }
 
-/* NEW: verification row */
 .verify-row {
   display: flex;
   flex-wrap: wrap;
@@ -514,7 +523,7 @@ a {
   color: #0f172a;
 }
 
-/* IMPORTANT FIX: actions should wrap nicely (no space-between) */
+/* Actions */
 .clinic-actions {
   margin-top: 0.6rem;
   display: flex;
@@ -523,13 +532,8 @@ a {
   align-items: center;
 }
 
-/* Make links look like buttons inside clinic actions */
-.clinic-actions a {
-  text-decoration: none;
-  font-weight: 750;
-}
+.clinic-actions a { text-decoration: none; font-weight: 750; }
 
-/* “Button-like” links used by the new index.html */
 .btnlike {
   display: inline-flex;
   align-items: center;
@@ -579,10 +583,7 @@ a {
   font-size: 0.95rem;
 }
 
-/* Dental DJ resource card tweaks */
-.dental-dj-resource {
-  border-top: 3px solid var(--brand);
-}
+.dental-dj-resource { border-top: 3px solid var(--brand); }
 
 .dental-dj-resource-link a {
   color: #0f766e;
@@ -592,10 +593,7 @@ a {
 .dental-dj-resource-link a:hover { text-decoration: underline; }
 
 /* About */
-.about-section {
-  padding: 2rem 0 2.5rem;
-}
-
+.about-section { padding: 2rem 0 2.5rem; }
 .about-list { padding-left: 1.2rem; }
 
 /* Dental DJ about blurb */
@@ -629,65 +627,14 @@ a {
   margin-bottom: 0.4rem;
 }
 
-.dental-dj-about-content summary::-webkit-details-marker { color: #0f766e; }
-
-.dental-dj-about-content p { margin: 0.25rem 0; }
-
-.dental-dj-about-content ul {
-  margin: 0.25rem 0 0.5rem;
-  padding-left: 1.1rem;
-}
-
-/* Suggest */
+/* Suggest / Join */
 .suggest-section {
   padding: 1.75rem 0 2.5rem;
   background: var(--ink);
   color: #e5e7eb;
 }
-
-.suggest-inner h2 { margin-top: 0; }
-
 .suggest-section a { color: #e2e8f0; }
 .suggest-section a:hover { color: #ffffff; }
-
-/* Provider form (you have styles, keeping them) */
-.provider-form {
-  background: #020617;
-  border-radius: 1rem;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  margin-top: 1.25rem;
-}
-
-.provider-form h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #e5e7eb;
-}
-
-.provider-form label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  color: #e5e7eb;
-}
-
-.provider-form input,
-.provider-form select,
-.provider-form textarea {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.4rem;
-  border: 1px solid #1f2937;
-  background: #020617;
-  color: #e5e7eb;
-  font-family: inherit;
-  font-size: 0.95rem;
-}
-
-.provider-form textarea { resize: vertical; }
 
 .small-note {
   font-size: 0.85rem;
@@ -710,7 +657,6 @@ a {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  * { scroll-behavior: auto !important; }
   .audio-wave span { animation: none; }
   .chip-input { transition: none; }
 }
@@ -724,36 +670,4 @@ a {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  .dental-dj-hero-footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-/* FORCE Calm Path styling (prevents white-box overrides) */
-.hero .calm-path{
-  background: linear-gradient(
-    to bottom right,
-    rgba(34, 195, 166, 0.18),
-    rgba(15, 23, 42, 0.75)
-  ) !important;
-
-  border: 1px solid rgba(34, 195, 166, 0.45) !important;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45) !important;
-
-  color: #e5e7eb !important;
-  border-radius: 0.9rem;
-}
-
-.hero .calm-path h3{
-  color: #e6fffb !important;
-}
-
-.hero .calm-path .calm-steps{
-  color: #e5e7eb !important;
-}
-
-.hero .calm-path .calm-steps li::marker{
-  color: #facc6b !important;
-  font-weight: 700;
 }
