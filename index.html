@@ -112,6 +112,18 @@
     .faq summary { cursor: pointer; font-weight: 650; }
     .faq p { margin: 0.5rem 0 0; color: #334155; }
   </style>
+  <!-- APPEND-ONLY SEO META -->
+<link rel="canonical" href="https://oklahomadentalclinics.com" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Calm Smiles Oklahoma | Anxiety-Friendly Dentists + SoonerCare Filters" />
+<meta property="og:description" content="Find anxiety-friendly dentists in Oklahoma. Filter by SoonerCare/Medicaid, city, region, and comfort features like sedation and trauma-informed care." />
+<meta property="og:url" content="https://oklahomadentalclinics.com" />
+<meta property="og:site_name" content="Calm Smiles Oklahoma" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Calm Smiles Oklahoma | Anxiety-Friendly Dentists + SoonerCare" />
+<meta name="twitter:description" content="A free directory to find gentle, anxiety-friendly dentists in Oklahoma — including clinics that may accept SoonerCare/Medicaid." />
 </head>
 
 <body>
@@ -2693,6 +2705,181 @@
 
     // Initial render
     renderClinics(clinics);
+    <section class="trust-section" aria-label="Trust and reassurance">
+  <div class="container trust-inner">
+    <h2>Trust & reassurance</h2>
+    <p class="trust-sub">
+      Calm Smiles Oklahoma is a free directory built to help anxious patients find respectful, gentle care —
+      including clinics that may accept SoonerCare / Medicaid. Always call to confirm coverage and availability.
+    </p>
+
+    <div class="testimonials" role="list" aria-label="Patient-style testimonials">
+      <article class="testimonial" role="listitem">
+        <p class="quote">“I was embarrassed to go back. Seeing clinics that actually welcome anxious patients helped me finally call.”</p>
+        <p class="who">— Oklahoma patient</p>
+      </article>
+      <article class="testimonial" role="listitem">
+        <p class="quote">“The filters made it way less overwhelming. I checked SoonerCare first, then looked for a gentle office.”</p>
+        <p class="who">— SoonerCare member</p>
+      </article>
+      <article class="testimonial" role="listitem">
+        <p class="quote">“I just needed a place that would explain everything and let me take breaks. This made it easier to choose.”</p>
+        <p class="who">— Nervous first-time visitor</p>
+      </article>
+    </div>
+
+    <!-- Share tools -->
+    <div class="share-row" aria-label="Share Calm Smiles Oklahoma">
+      <button class="btn btn-secondary" id="shareBtn" type="button">
+        Share this site
+      </button>
+      <button class="btn btn-ghost" id="copyLinkBtn" type="button">
+        Copy link
+      </button>
+      <a class="btn btn-ghost" id="emailShareBtn"
+         href="mailto:?subject=Calm%20Smiles%20Oklahoma%20—%20anxiety-friendly%20dentists%20%2B%20SoonerCare&body=Here%E2%80%99s%20a%20free%20directory%20to%20find%20anxiety-friendly%20dentists%20in%20Oklahoma%20(including%20SoonerCare%20filters):%20https%3A%2F%2Foklahomadentalclinics.com">
+        Email
+      </a>
+      <span class="share-status" id="shareStatus" aria-live="polite"></span>
+    </div>
+
+    <!-- Newsletter (simple, no external service required) -->
+    <div class="newsletter" aria-label="Newsletter signup">
+      <h3>Get new clinics + anxiety resources</h3>
+      <p class="newsletter-sub">
+        Optional email updates when new clinics are added and when we publish short, calming “what to expect” guides.
+      </p>
+
+      <form class="newsletter-form" id="newsletterForm">
+        <label class="sr-only" for="newsletterEmail">Email address</label>
+        <input id="newsletterEmail" name="email" type="email" inputmode="email" autocomplete="email"
+               placeholder="you@example.com" required />
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+      </form>
+      <p class="newsletter-fineprint">
+        No spam. Unsubscribe anytime. (This saves locally in your browser until you connect an email tool.)
+      </p>
+      <p class="newsletter-status" id="newsletterStatus" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+<!-- SEO: FAQ schema (JSON-LD) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What do I say if I’m nervous or embarrassed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can keep it simple: “I’m nervous and I haven’t been in a while. I do best if you explain what you’re doing and give me breaks.” A supportive office will understand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do any Oklahoma dentists accept SoonerCare and help with anxiety?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Some clinics do. Start by checking the SoonerCare filter, then open a clinic’s details to see notes and call to confirm coverage and availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I need a pause during treatment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can agree on a stop signal (like raising your hand). Many patients do this. Use “View details” to see notes and call the clinic to ask how they handle breaks."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Small progressive-enhancement JS -->
+<script>
+  (function () {
+    const status = document.getElementById("shareStatus");
+    const shareBtn = document.getElementById("shareBtn");
+    const copyBtn = document.getElementById("copyLinkBtn");
+    const emailBtn = document.getElementById("emailShareBtn");
+
+    const url = "https://oklahomadentalclinics.com";
+    if (emailBtn) emailBtn.href = `mailto:?subject=${encodeURIComponent("Calm Smiles Oklahoma — anxiety-friendly dentists + SoonerCare")}&body=${encodeURIComponent("Here’s a free directory to find anxiety-friendly dentists in Oklahoma (including SoonerCare filters): " + url)}`;
+
+    async function copyLink() {
+      try {
+        await navigator.clipboard.writeText(url);
+        if (status) status.textContent = "Link copied ✅";
+      } catch (e) {
+        // fallback
+        const tmp = document.createElement("input");
+        tmp.value = url;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        tmp.remove();
+        if (status) status.textContent = "Link copied ✅";
+      }
+      setTimeout(() => { if (status) status.textContent = ""; }, 2200);
+    }
+
+    async function shareSite() {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Calm Smiles Oklahoma",
+            text: "Find anxiety-friendly dentists in Oklahoma (including SoonerCare filters).",
+            url
+          });
+          if (status) status.textContent = "Shared ✅";
+          setTimeout(() => { if (status) status.textContent = ""; }, 2200);
+        } catch (e) {
+          // user canceled; ignore
+        }
+      } else {
+        copyLink();
+      }
+    }
+
+    if (copyBtn) copyBtn.addEventListener("click", copyLink);
+    if (shareBtn) shareBtn.addEventListener("click", shareSite);
+
+    // Newsletter: simple local save (no external service)
+    const form = document.getElementById("newsletterForm");
+    const email = document.getElementById("newsletterEmail");
+    const nStatus = document.getElementById("newsletterStatus");
+
+    if (form && email) {
+      const existing = localStorage.getItem("cso_newsletter_email");
+      if (existing) email.value = existing;
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = (email.value || "").trim();
+        if (!value) return;
+        localStorage.setItem("cso_newsletter_email", value);
+        if (nStatus) nStatus.textContent = "Saved ✅ (local only for now)";
+        form.reset();
+        setTimeout(() => { if (nStatus) nStatus.textContent = ""; }, 2500);
+      });
+    }
+
+    // Loading clinics safety: if count is stuck, force update after initial render tick
+    window.setTimeout(() => {
+      const countEl = document.getElementById("resultsCount");
+      const grid = document.getElementById("resultsGrid");
+      if (!countEl || !grid) return;
+
+      const cards = grid.querySelectorAll(".clinic-card");
+      if (cards.length > 0 && /loading/i.test(countEl.textContent || "")) {
+        countEl.textContent = `${cards.length} clinic${cards.length === 1 ? "" : "s"} found`;
+      }
+    }, 400);
+  })();
   </script>
 </body>
 </html>
+
