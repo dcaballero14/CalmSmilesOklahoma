@@ -1,4 +1,6 @@
- /* Reset */
+/* =========================
+   RESET & VARIABLES
+========================= */
 *,
 *::before,
 *::after {
@@ -6,7 +8,6 @@
 }
 
 :root {
-  /* Calm palette */
   --ink: #0f172a;
   --text: #111827;
   --muted: #475569;
@@ -24,35 +25,36 @@
   --border: #e5e7eb;
   --border-strong: #cbd5e1;
 
-  --focus: rgba(34, 195, 166, 0.55);
+  --focus: rgba(34, 195, 166, 0.6);
 
   --radius-lg: 1.25rem;
   --radius-md: 1rem;
   --radius-sm: 0.75rem;
 }
 
-/* Base */
+/* =========================
+   BASE
+========================= */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   color: var(--text);
   background-color: var(--bg);
   line-height: 1.65;
-  font-size: 16px; /* calmer, more readable */
+  font-size: 16px;
 }
 
-/* Better default focus */
+a { color: inherit; }
+
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
   border-radius: 10px;
 }
 
-a {
-  color: inherit;
-}
-
-/* Container */
+/* =========================
+   LAYOUT
+========================= */
 .container {
   width: 100%;
   max-width: 1100px;
@@ -60,7 +62,7 @@ a {
   padding: 0 1.25rem;
 }
 
-/* Accessibility: Skip link */
+/* Skip link */
 .skip-link {
   position: absolute;
   left: -999px;
@@ -78,11 +80,13 @@ a {
   top: 0.75rem;
 }
 
-/* Header */
+/* =========================
+   HEADER
+========================= */
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   background: var(--ink);
   color: #e5e7eb;
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.5);
@@ -140,55 +144,9 @@ a {
   text-decoration: underline;
 }
 
-.calm-steps{
-  margin: 0;
-  padding-left: 1.15rem;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 0.98rem;
-  line-height: 1.6;
-}
-
-.calm-steps li{
-  margin: 0.35rem 0;
-}
-
-.calm-steps li::marker{
-  color: rgba(250, 204, 107, 0.95); /* your accent */
-  font-weight: 800;
-}
-
-
-.calm-steps {
-  margin: 0;
-  padding-left: 1.1rem;
-  color: #e2e8f0;
-  font-size: 0.95rem;
-}
-.calm-steps li { margin: 0.25rem 0; }
-
-/* Search bar */
-.search-label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  color: #e2e8f0;
-}
-
-.search-input-row {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.search-input-row input {
-  flex: 1 1 190px;
-  padding: 0.6rem 0.75rem;
-  border-radius: 0.65rem;
-  border: none;
-}
-
-
-/* Hero */
+/* =========================
+   HERO
+========================= */
 .hero {
   background: radial-gradient(circle at top left, var(--brand) 0, var(--ink) 45%, #020617 100%);
   color: #e5e7eb;
@@ -213,8 +171,63 @@ a {
   color: #e5e7eb;
 }
 
+/* Calm Path */
+.hero .calm-path {
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  background: linear-gradient(
+    to bottom right,
+    rgba(34, 195, 166, 0.18),
+    rgba(15, 23, 42, 0.75)
+  );
+  border: 1px solid rgba(34, 195, 166, 0.45);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45);
+  color: #e5e7eb;
+  max-width: 42rem;
+}
 
-/* Dental DJ hero card */
+.calm-steps {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+.calm-steps li { margin: 0.25rem 0; }
+
+.calm-steps li::marker {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* =========================
+   SEARCH
+========================= */
+.search-label {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #e2e8f0;
+}
+
+.search-input-row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.search-input-row input {
+  flex: 1 1 190px;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.65rem;
+  border: none;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   DENTAL DJ HERO
+========================= */
 .dental-dj-hero {
   margin: 1rem 0 1.25rem;
   padding: 0.9rem 1rem;
@@ -240,18 +253,6 @@ a {
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.9);
-}
-
-.dental-dj-hero h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.02rem;
-}
-
-.dental-dj-hero p {
-  margin: 0;
-  font-size: 0.92rem;
-  color: #e5e7eb;
 }
 
 .dental-dj-hero-footer {
@@ -259,10 +260,9 @@ a {
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem;
-  margin-top: 0.5rem;
 }
 
-/* Audio wave animation */
+/* Audio wave */
 .audio-wave {
   display: inline-flex;
   gap: 0.2rem;
@@ -286,84 +286,48 @@ a {
   50% { height: 18px; opacity: 1; }
 }
 
-/* Hero side card */
-.hero-card {
-  background: rgba(15, 23, 42, 0.85);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-}
-
-.hero-card h2 {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-
-.hero-card-text {
-  color: #e2e8f0;
-}
-
-.hero-list {
-  padding-left: 1.1rem;
-  font-size: 0.95rem;
-  color: #e2e8f0;
-}
-
-/* Buttons */
+/* =========================
+   BUTTONS
+========================= */
 .btn {
   border-radius: 999px;
   border: none;
-  padding: 0.6rem 1.25rem;
+  padding: 0.65rem 1.3rem;
   font-size: 0.92rem;
   cursor: pointer;
   font-weight: 650;
 }
 
-.btn-primary {
-  background: var(--brand);
-  color: var(--ink);
-}
+.btn-primary { background: var(--brand); color: var(--ink); }
+.btn-secondary { background: var(--accent); color: var(--ink); }
+.btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--border-strong); }
+.btn:hover { filter: brightness(1.05); }
 
-.btn-primary:hover { filter: brightness(1.05); }
-
-.btn-secondary {
-  background: var(--accent);
-  color: var(--ink);
-}
-
-.btn-secondary:hover { filter: brightness(1.05); }
-
-.btn-ghost {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--border-strong);
-}
-
-.btn-ghost:hover { background: #e5e7eb; }
-
-/* Dental DJ hero CTA button */
-.btn-dental-dj-hero {
-  background: var(--accent);
-  color: var(--ink);
-  padding: 0.5rem 1.1rem;
-  font-size: 0.88rem;
-  text-decoration: none;
+/* Button-like links */
+.btnlike {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  white-space: nowrap;
+  justify-content: center;
+  padding: 0.58rem 0.95rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.92rem;
+  text-decoration: none;
   font-weight: 750;
 }
-.btn-dental-dj-hero:hover { filter: brightness(1.07); }
 
-/* Filters */
-.filters-section {
-  padding: 1.75rem 0 1.25rem;
+.btnlike.primary {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
 }
 
-.filters-section h2 {
-  margin-bottom: 0.75rem;
-}
+/* =========================
+   FILTERS
+========================= */
+.filters-section { padding: 1.75rem 0 1.25rem; }
 
 .filters-grid {
   display: grid;
@@ -383,42 +347,34 @@ a {
   gap: 0.45rem;
 }
 
-/* Chips */
 .chip-input {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.3rem 0.65rem;
+  padding: 0.35rem 0.7rem;
   border-radius: 999px;
   border: 1px solid var(--border-strong);
   background: var(--surface);
   font-size: 0.8rem;
-  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
 }
-.chip-input:hover {
-  transform: translateY(-1px);
-  border-color: rgba(34, 195, 166, 0.55);
-}
+
 .chip-input input { accent-color: var(--brand); }
 
-/* Make SoonerCare visually “primary” */
 .chip-input.soonercare {
   border-color: rgba(34, 195, 166, 0.75);
   background: rgba(224, 253, 247, 0.7);
 }
-.chip-input.soonercare span { font-weight: 800; }
 
-/* Filter actions */
 .filter-actions {
   grid-column: 1 / -1;
   display: flex;
   gap: 0.5rem;
 }
 
-/* Results */
-.results-section {
-  padding: 0.5rem 0 2.5rem;
-}
+/* =========================
+   RESULTS
+========================= */
+.results-section { padding: 0.5rem 0 2.5rem; }
 
 .results-header {
   display: flex;
@@ -428,127 +384,30 @@ a {
   flex-wrap: wrap;
 }
 
-.results-count {
-  color: var(--muted);
-}
+.results-count { color: var(--muted); }
 
-/* Results grid */
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
-/* Clinic card */
 .clinic-card {
   background: var(--surface);
   border-radius: var(--radius-md);
-  padding: 1rem 0.95rem 0.95rem;
+  padding: 1rem;
   border: 1px solid var(--border);
-  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
 }
 
-.clinic-header { margin-bottom: 0.45rem; }
+.clinic-name { font-weight: 800; }
+.clinic-location { font-size: 0.85rem; color: var(--muted-2); }
 
-.clinic-name {
-  font-weight: 800;
-  letter-spacing: -0.01em;
-}
-
-.clinic-location {
-  font-size: 0.85rem;
-  color: var(--muted-2);
-}
-
-/* NEW: verification row */
-.verify-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  align-items: center;
-  margin: 0.5rem 0 0.4rem;
-}
-.verify-meta {
-  font-size: 0.85rem;
-  color: var(--muted);
-}
-
-/* Badges */
-.clinic-badges,
-.clinic-insurance {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-bottom: 0.35rem;
-}
-
-.badge {
-  font-size: 0.72rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid transparent;
-}
-
-.badge-primary {
-  background: #e0fdf7;
-  color: var(--brand-ink);
-  border-color: rgba(34, 195, 166, 0.35);
-}
-
-.badge-secondary {
-  background: #eef2ff;
-  color: #4338ca;
-  border-color: rgba(67, 56, 202, 0.20);
-}
-
-.badge-neutral {
-  background: #f3f4f6;
-  color: #374151;
-  border-color: rgba(15, 23, 42, 0.06);
-}
-
-.clinic-description {
-  font-size: 0.92rem;
-  margin: 0.35rem 0 0.25rem;
-  color: #0f172a;
-}
-
-/* IMPORTANT FIX: actions should wrap nicely (no space-between) */
 .clinic-actions {
   margin-top: 0.6rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  align-items: center;
 }
-
-/* Make links look like buttons inside clinic actions */
-.clinic-actions a {
-  text-decoration: none;
-  font-weight: 750;
-}
-
-/* “Button-like” links used by the new index.html */
-.btnlike {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.58rem 0.95rem;
-  border-radius: 0.9rem;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  background: #fff;
-  color: var(--ink);
-  font-size: 0.92rem;
-}
-
-.btnlike.primary {
-  background: var(--ink);
-  color: #fff;
-  border-color: var(--ink);
-}
-
-.btnlike:hover { filter: brightness(0.98); }
-.btnlike.primary:hover { filter: brightness(1.06); }
 
 .clinic-details {
   margin-top: 0.7rem;
@@ -558,7 +417,9 @@ a {
   color: #334155;
 }
 
-/* Resources */
+/* =========================
+   RESOURCES & ABOUT
+========================= */
 .resources-section {
   padding: 2.5rem 0;
   background: var(--surface);
@@ -578,123 +439,18 @@ a {
   font-size: 0.95rem;
 }
 
-/* Dental DJ resource card tweaks */
-.dental-dj-resource {
-  border-top: 3px solid var(--brand);
-}
-
-.dental-dj-resource-link a {
-  color: #0f766e;
-  font-weight: 800;
-  text-decoration: none;
-}
-.dental-dj-resource-link a:hover { text-decoration: underline; }
-
-/* About */
-.about-section {
-  padding: 2rem 0 2.5rem;
-}
-
+.about-section { padding: 2rem 0 2.5rem; }
 .about-list { padding-left: 1.2rem; }
 
-/* Dental DJ about blurb */
-.dental-dj-about {
-  margin-top: 1.5rem;
-  padding: 1rem;
-  border-radius: 0.75rem;
-  background: #f0fdfa;
-  border-left: 4px solid var(--brand);
-  display: flex;
-  gap: 0.75rem;
-  align-items: flex-start;
-}
-
-.dental-dj-about-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #ccfbf1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1rem;
-}
-
-.dental-dj-about-content details { font-size: 0.95rem; }
-
-.dental-dj-about-content summary {
-  cursor: pointer;
-  font-weight: 800;
-  margin-bottom: 0.4rem;
-}
-
-.dental-dj-about-content summary::-webkit-details-marker { color: #0f766e; }
-
-.dental-dj-about-content p { margin: 0.25rem 0; }
-
-.dental-dj-about-content ul {
-  margin: 0.25rem 0 0.5rem;
-  padding-left: 1.1rem;
-}
-
-/* Suggest */
+/* =========================
+   SUGGEST / FOOTER
+========================= */
 .suggest-section {
   padding: 1.75rem 0 2.5rem;
   background: var(--ink);
   color: #e5e7eb;
 }
 
-.suggest-inner h2 { margin-top: 0; }
-
-.suggest-section a { color: #e2e8f0; }
-.suggest-section a:hover { color: #ffffff; }
-
-/* Provider form (you have styles, keeping them) */
-.provider-form {
-  background: #020617;
-  border-radius: 1rem;
-  padding: 1.5rem 1.25rem;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  margin-top: 1.25rem;
-}
-
-.provider-form h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-  color: #e5e7eb;
-}
-
-.provider-form label {
-  display: block;
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
-  color: #e5e7eb;
-}
-
-.provider-form input,
-.provider-form select,
-.provider-form textarea {
-  width: 100%;
-  margin-top: 0.25rem;
-  padding: 0.45rem 0.55rem;
-  border-radius: 0.4rem;
-  border: 1px solid #1f2937;
-  background: #020617;
-  color: #e5e7eb;
-  font-family: inherit;
-  font-size: 0.95rem;
-}
-
-.provider-form textarea { resize: vertical; }
-
-.small-note {
-  font-size: 0.85rem;
-  color: #cbd5e1;
-  margin-top: 0;
-}
-
-/* Footer */
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
@@ -707,14 +463,17 @@ a {
   color: var(--muted-2);
 }
 
-/* Reduced motion */
+/* =========================
+   REDUCED MOTION
+========================= */
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior: auto !important; }
   .audio-wave span { animation: none; }
-  .chip-input { transition: none; }
 }
 
-/* Responsive */
+/* =========================
+   MOBILE
+========================= */
 @media (max-width: 768px) {
   .hero-inner { grid-template-columns: 1fr; }
   .filters-grid { grid-template-columns: 1fr; }
@@ -723,36 +482,4 @@ a {
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  .dental-dj-hero-footer {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-/* FORCE Calm Path styling (prevents white-box overrides) */
-.hero .calm-path{
-  background: linear-gradient(
-    to bottom right,
-    rgba(34, 195, 166, 0.18),
-    rgba(15, 23, 42, 0.75)
-  ) !important;
-
-  border: 1px solid rgba(34, 195, 166, 0.45) !important;
-  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.45) !important;
-
-  color: #e5e7eb !important;
-  border-radius: 0.9rem;
-}
-
-.hero .calm-path h3{
-  color: #e6fffb !important;
-}
-
-.hero .calm-path .calm-steps{
-  color: #e5e7eb !important;
-}
-
-.hero .calm-path .calm-steps li::marker{
-  color: #facc6b !important;
-  font-weight: 700;
 }
