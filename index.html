@@ -497,7 +497,7 @@
     // Master clinic list for Calm Smiles Oklahoma
     // ===============================
 
-        const clinics = [
+    const clinics = [
       {
         id: 1,
         name: "Dental Depot – Tulsa (Multiple Locations)",
@@ -2310,7 +2310,7 @@
         city: "Tulsa",
         region: "Tulsa Metro",
         phone: "(918) 749-8817",
-        website: "https://thebraceplacetulsa.com/?campaignid=22526163029&adgroupid=182188633194&creative=759381554110&matchtype=e&network=g&device=c&keyword=the%20brace%20place&utm_source=google&utm_campaign=33003_SD_Tulsa-S-Harvard_Brace-Place_R20_BR_Core_Search&utm_medium=cpc&utm_content=Core-Brand&utm_term=the%20brace%20place&gad_source=1&gad_campaignid=22526163029&gbraid=0AAAAAC8cpHyv2L2Y4x999wib0Eoq5TGsq&gclid=CjwKCAiAxc_JBhA2EiwAFVs7XKinBbkLcGc82p8pged7YwH_I2v21uUCvGUzHrf6yl2EMKjfe8JYYhoC-NUQAvD_BwE",
+        website: "https://thebraceplacetulsa.com/",
         anxietyFeatures: {
           anxietyFocused: false,
           pediatric: true,
@@ -2411,14 +2411,14 @@
     }
 
     function getActiveFilters() {
-      const searchText = searchInput.value.trim().toLowerCase();
-      const region = regionSelect.value;
+      const searchText = (searchInput?.value || "").trim().toLowerCase();
+      const region = regionSelect?.value || "";
 
-      const selectedInsurances = Array.from(insuranceCheckboxes)
+      const selectedInsurances = Array.from(insuranceCheckboxes || [])
         .filter(cb => cb.checked)
         .map(cb => cb.value);
 
-      const selectedFeatures = Array.from(featureCheckboxes)
+      const selectedFeatures = Array.from(featureCheckboxes || [])
         .filter(cb => cb.checked)
         .map(cb => cb.value);
 
@@ -2426,13 +2426,11 @@
     }
 
     function filterClinics({ scrollToResults = true } = {}) {
-      const { searchText, region, selectedInsurances, selectedFeatures } =
-        getActiveFilters();
+      const { searchText, region, selectedInsurances, selectedFeatures } = getActiveFilters();
 
       const filtered = clinics.filter(clinic => {
         if (searchText) {
-          const combined =
-            (clinic.name + " " + clinic.city + " " + clinic.region).toLowerCase();
+          const combined = `${clinic.name} ${clinic.city} ${clinic.region}`.toLowerCase();
           if (!combined.includes(searchText)) return false;
         }
 
@@ -2440,15 +2438,15 @@
 
         if (selectedInsurances.length > 0) {
           const acceptsAll = selectedInsurances.every(ins =>
-            clinic.insuranceAccepted.some(acc =>
-              String(acc).toLowerCase().includes(ins.toLowerCase())
+            (clinic.insuranceAccepted || []).some(acc =>
+              String(acc).toLowerCase().includes(String(ins).toLowerCase())
             )
           );
           if (!acceptsAll) return false;
         }
 
         if (selectedFeatures.length > 0) {
-          const matches = selectedFeatures.every(key => clinic.anxietyFeatures[key]);
+          const matches = selectedFeatures.every(key => !!(clinic.anxietyFeatures && clinic.anxietyFeatures[key]));
           if (!matches) return false;
         }
 
@@ -2471,8 +2469,8 @@
     }
 
     function buildGoogleMapsLink(clinic) {
-      const q = encodeURIComponent(${clinic.name} ${clinic.city} Oklahoma);
-      return https://www.google.com/maps/search/?api=1&query=${q};
+      const q = encodeURIComponent(`${clinic.name} ${clinic.city} Oklahoma`);
+      return `https://www.google.com/maps/search/?api=1&query=${q}`;
     }
 
     function normalizeTel(phone) {
@@ -2493,7 +2491,7 @@
         return;
       }
 
-      resultsCount.textContent = ${list.length} clinic${list.length === 1 ? "" : "s"} found;
+      resultsCount.textContent = `${list.length} clinic${list.length === 1 ? "" : "s"} found`;
 
       list.forEach(clinic => {
         const card = document.createElement("article");
@@ -2509,7 +2507,7 @@
 
         const locEl = document.createElement("div");
         locEl.className = "clinic-location";
-        locEl.textContent = ${clinic.city} • ${clinic.region};
+        locEl.textContent = `${clinic.city} • ${clinic.region}`;
 
         header.appendChild(nameEl);
         header.appendChild(locEl);
@@ -2519,12 +2517,17 @@
         verifyRow.className = "verify-row";
         const { verification, verifiedDate } = safeVerification(clinic);
 
-        verifyRow.appendChild(makeBadge(Verification: ${verification}, verification === "Patient-verified" ? "primary" : "secondary"));
+        verifyRow.appendChild(
+          makeBadge(
+            `Verification: ${verification}`,
+            verification === "Patient-verified" ? "primary" : "secondary"
+          )
+        );
 
         if (verifiedDate) {
           const meta = document.createElement("span");
           meta.className = "verify-meta";
-          meta.textContent = Verified: ${verifiedDate};
+          meta.textContent = `Verified: ${verifiedDate}`;
           verifyRow.appendChild(meta);
         }
 
@@ -2541,6 +2544,7 @@
           if (key === "lowCost") label = "Low-cost / sliding scale";
           if (key === "traumaInformed") label = "Trauma-informed";
           if (key === "sensoryFriendly") label = "Sensory-friendly";
+          if (!label) continue;
 
           const variant =
             key === "pediatric" || key === "sensoryFriendly"
@@ -2569,6 +2573,7 @@
 
         const detailsBtn = document.createElement("button");
         detailsBtn.className = "btn btn-ghost clinic-toggle-btn";
+        detailsBtn.type = "button";
         detailsBtn.textContent = "View details";
         detailsBtn.setAttribute("aria-expanded", "false");
 
@@ -2589,7 +2594,7 @@
         if (clinic.phone && !String(clinic.phone).toLowerCase().includes("not provided") && tel) {
           const callLink = document.createElement("a");
           callLink.className = "btnlike";
-          callLink.href = tel:${tel};
+          callLink.href = `tel:${tel}`;
           callLink.textContent = "Call";
           actions.appendChild(callLink);
         }
@@ -2609,10 +2614,10 @@
         details.style.display = "none";
 
         const phone = document.createElement("p");
-        phone.textContent = Phone: ${clinic.phone || "Not listed"};
+        phone.textContent = `Phone: ${clinic.phone || "Not listed"}`;
 
         const pops = document.createElement("p");
-        pops.textContent = Good for: ${(clinic.populations || []).join(", ")};
+        pops.textContent = `Good for: ${(clinic.populations || []).join(", ")}`;
 
         const notesHeading = document.createElement("p");
         notesHeading.style.fontWeight = "600";
@@ -2628,7 +2633,7 @@
 
         if (clinic.costOptions && clinic.costOptions.length > 0) {
           const cost = document.createElement("p");
-          cost.textContent = Cost options: ${clinic.costOptions.join(", ")};
+          cost.textContent = `Cost options: ${clinic.costOptions.join(", ")}`;
           details.appendChild(cost);
         }
 
@@ -2650,7 +2655,6 @@
         resultsGrid.appendChild(card);
       });
     }
-
     // ===============================
     // Events
     // ===============================
@@ -2692,3 +2696,4 @@
   </script>
 </body>
 </html>
+
