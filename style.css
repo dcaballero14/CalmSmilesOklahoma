@@ -671,3 +671,133 @@ a { color: inherit; }
     gap: 0.5rem;
   }
 }
+/* =========================================
+   SAFETY PATCH — ensures key sections never "disappear"
+   Paste at the bottom of style.css
+   ========================================= */
+
+/* Make sure sections always have spacing and are visible */
+.hero,
+.filters-section,
+.results-section,
+.resources-section,
+.about-section,
+.suggest-section {
+  display: block;
+}
+
+.resources-section,
+.about-section,
+.suggest-section {
+  scroll-margin-top: 90px; /* so header doesn't cover anchor jumps */
+}
+
+/* Resources section visibility + layout */
+.resources-section {
+  background: var(--surface);
+  color: var(--text);
+  padding: 2.5rem 0;
+}
+
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1rem;
+}
+
+.resource-card {
+  display: block;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+/* About section visibility + spacing */
+.about-section {
+  background: transparent;
+  color: var(--text);
+  padding: 2rem 0 2.5rem;
+}
+
+.about-inner {
+  display: block;
+}
+
+.about-list {
+  padding-left: 1.2rem;
+}
+
+/* Suggest / Join section (dark background) */
+.suggest-section {
+  background: var(--ink);
+  color: #e5e7eb;
+  padding: 1.75rem 0 2.5rem;
+}
+
+.suggest-section a {
+  color: #e2e8f0;
+}
+.suggest-section a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Fix "btn" visibility in dark sections */
+.suggest-section .btn,
+.hero .btn {
+  color: var(--ink);
+}
+.suggest-section .btn.btn-primary,
+.hero .btn.btn-primary {
+  color: var(--ink);
+}
+
+/* Dental DJ hero block (force display & spacing) */
+.dental-dj-hero {
+  display: block;
+  margin: 1rem 0 1.25rem;
+}
+
+.dental-dj-hero-header,
+.dental-dj-hero-footer {
+  display: flex;
+}
+
+.dental-dj-hero-footer {
+  flex-wrap: wrap;
+}
+
+/* Dental DJ buttons and links always visible */
+.btn.btn-dental-dj-hero,
+a.btn.btn-dental-dj-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Chips rows can’t collapse */
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* Results grid safety */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Mobile safety */
+@media (max-width: 768px) {
+  .hero-inner {
+    grid-template-columns: 1fr !important;
+  }
+  .resources-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
