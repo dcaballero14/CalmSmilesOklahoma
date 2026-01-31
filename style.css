@@ -246,7 +246,7 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity 8000ms ease;
+  transition: opacity 4000ms ease;
   will-change: opacity;
 }
 /* HERO ROTATOR — BACKGROUND IMAGES */
@@ -830,6 +830,7 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
 
 
 
