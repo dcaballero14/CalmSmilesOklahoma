@@ -2696,7 +2696,7 @@
     if (!layers.length) return;
 
     let i = 0;
-    const intervalMs = 24000; // change to taste (3000–7000 is typical)
+    const intervalMs = 12000; // change to taste (3000–7000 is typical)
 
     // Make sure exactly one starts active
     layers.forEach((el, idx) => el.classList.toggle("is-active", idx === 0));
@@ -2710,5 +2710,6 @@
   </script>
 </body>
 </html>
+
 
 
