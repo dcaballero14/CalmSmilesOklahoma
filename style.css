@@ -298,7 +298,7 @@ a {
 .hero-bg__layer--p {
    background-image: url("./turner.jpg");
 }
-.hero-bg__layer-- q {
+.hero-bg__layer--q {
    background-image: url("./clock.jpg");
 }
 .hero-bg__layer--r {
@@ -860,6 +860,7 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
 
 
 
