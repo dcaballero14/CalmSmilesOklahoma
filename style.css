@@ -274,7 +274,37 @@ a {
 .hero-bg__layer--h {
    background-image: url("./ou.jpg");
 }
- 
+.hero-bg__layer--i {
+   background-image: url("./cains.jpg");
+}
+.hero-bg__layer--j {
+   background-image: url("./plane.jpg");
+}
+.hero-bg__layer--k {
+   background-image: url("./capitol.jpg");
+}
+.hero-bg__layer--l {
+   background-image: url("./bison.jpg");
+}
+.hero-bg__layer--m {
+   background-image: url("./church.jpg");
+}
+.hero-bg__layer--n {
+   background-image: url("./yukon.jpg");
+}
+.hero-bg__layer--o {
+   background-image: url("./train.jpg");
+}
+.hero-bg__layer--p {
+   background-image: url("./turner.jpg");
+}
+.hero-bg__layer-- q {
+   background-image: url("./clock.jpg");
+}
+.hero-bg__layer--r {
+   background-image: url("./green-spike.jpg");
+}
+
 .hero-bg__layer.is-active {
   opacity: 1;
 }
@@ -830,6 +860,7 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
 
 
 
