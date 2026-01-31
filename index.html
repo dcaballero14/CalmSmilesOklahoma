@@ -2693,6 +2693,26 @@
   </script>
 </body>
 </html>
+<script>
+  // ===== HERO ROTATOR (background crossfade) =====
+  (function () {
+    const layers = Array.from(document.querySelectorAll(".hero-bg__layer"));
+    if (!layers.length) return;
+
+    let i = 0;
+    const intervalMs = 4500; // change to taste (3000–7000 is typical)
+
+    // Make sure exactly one starts active
+    layers.forEach((el, idx) => el.classList.toggle("is-active", idx === 0));
+
+    setInterval(() => {
+      layers[i].classList.remove("is-active");
+      i = (i + 1) % layers.length;
+      layers[i].classList.add("is-active");
+    }, intervalMs);
+  })();
+</script>
 
      
+
 
