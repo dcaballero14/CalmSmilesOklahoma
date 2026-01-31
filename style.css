@@ -255,25 +255,25 @@ a {
 }
 
 .hero-bg__layer--b {
-  background-image: url("images/tulsa.jpg");
+  background-image: url("/tulsa.jpg");
 }
 .hero-bg__layer--c { 
-  background-image: url("images/route-66.jpg");
+  background-image: url("/route-66.jpg");
 }
 .hero-bg__layer--d { 
-   background-image: url("images/golden-driller.jpg");
+   background-image: url("/golden-driller.jpg");
 }
 .hero-bg__layer--e { 
-   background-image: url("images/memorial.jpg"); 
+   background-image: url("/memorial.jpg"); 
 }
 .hero-bg__layer--f {
-   background-image: url("images/spike.jpg");
+   background-image: url("/spike.jpg");
 }
 .hero-bg__layer--g {
-   background-image: url("images/scissortail.jpg");
+   background-image: url("/scissortail.jpg");
 }
 .hero-bg__layer--h {
-   background-image: url("images/ou.jpg");
+   background-image: url("/ou.jpg");
 }
  
 .hero-bg__layer.is-active {
@@ -831,4 +831,5 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
 
