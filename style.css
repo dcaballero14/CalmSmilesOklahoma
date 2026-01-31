@@ -249,7 +249,33 @@ a {
   transition: opacity 900ms ease;
   will-change: opacity;
 }
+/* HERO ROTATOR — BACKGROUND IMAGES */
+.hero-bg__layer--a {
+  background-image: url("images/philharmonic-garden.jpg");
+}
 
+.hero-bg__layer--b {
+  background-image: url("images/tulsa.jpg");
+}
+.hero-bg__layer--c { 
+  background-image: url("images/route-66.jpg");
+}
+.hero-bg__layer--d { 
+   background-image: url("images/golden-driller.jpg");
+}
+.hero-bg__layer--e { 
+   background-image: url("images/memorial.jpg"); 
+}
+.hero-bg__layer--f {
+   background-image: url("images/spike.jpg");
+}
+.hero-bg__layer--g {
+   background-image: url("images/scissortail.jpg");
+}
+.hero-bg__layer--h {
+   background-image: url("images/ou.jpg");
+}
+ 
 .hero-bg__layer.is-active {
   opacity: 1;
 }
@@ -805,3 +831,4 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
