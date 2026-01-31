@@ -299,9 +299,6 @@ a {
    background-image: url("./turner.jpg");
 }
 .hero-bg__layer--q {
-   background-image: url("./clock.jpg");
-}
-.hero-bg__layer--r {
    background-image: url("./green-spike.jpg");
 }
 
@@ -860,6 +857,7 @@ a {
   color: #facc6b !important;
   font-weight: 700;
 }
+
 
 
 
