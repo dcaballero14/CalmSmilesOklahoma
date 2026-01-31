@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,6 +138,13 @@
   <main>
     <!-- Hero -->
     <section class="hero" id="search">
+      <!-- HERO ROTATOR -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg__layer hero-bg__layer--a is-active"></div>
+        <div class="hero-bg__layer hero-bg__layer--b"></div>
+      </div>
+      <!-- /HERO ROTATOR -->
+
       <div class="container hero-inner">
         <div class="hero-text">
           <h1>Find a dentist who understands your anxiety.</h1>
@@ -2352,348 +2358,334 @@
         notes:
           "Pediatric and family ortho option; call to verify insurance and ask how they handle anxious or sensory-sensitive patients."
       },
-
+      
       {
         id: 81,
-        name: "Vroome Orthodontics",
-        city: "Tulsa",
-        region: "Tulsa Metro",
-        phone: "(918) 742-7361",
-        website: "https://vroomeorthodontics.com/vroome-orthodontics-tulsa-office",
+        name: "OU College of Dentistry – Comprehensive Care Clinic (Oklahoma City)",
+        city: "Oklahoma City",
+        region: "OKC Metro",
+        phone: "Phone not provided",
+        website: "https://dentistry.ouhsc.edu",
         anxietyFeatures: {
           anxietyFocused: false,
-          pediatric: true,
+          pediatric: false,
           sedation: false,
-          lowCost: false,
+          lowCost: true,
           traumaInformed: false,
           sensoryFriendly: false
         },
-        insuranceAccepted: ["Unknown – call to verify coverage"],
-        costOptions: [],
-        populations: ["Children", "Teens", "Adults"],
+        insuranceAccepted: ["Most common dental insurances (call to confirm)"],
+        costOptions: ["Reduced clinic fees"],
+        populations: ["Adults", "Teens"],
         summary:
-          "Orthodontic office on S Atlanta Pl in Tulsa.",
+          "OU dental student clinic offering comprehensive care at reduced fees in OKC.",
         notes:
-          "Call to confirm coverage and ask about pacing, explanations, and other supports if starting braces feels overwhelming."
+          "Longer appointment times may help if anxiety requires a slower pace. Call to confirm what they can do for anxious patients."
       }
     ];
 
     // ===============================
-    // DOM references
-    // ===============================
-    const resultsGrid = document.getElementById("resultsGrid");
-    const resultsCount = document.getElementById("resultsCount");
-    const searchInput = document.getElementById("searchInput");
-    const browseAllBtn = document.getElementById("browseAllBtn");
-    const regionSelect = document.getElementById("regionSelect");
-    const insuranceCheckboxes = document.querySelectorAll(".insurance-checkbox");
-    const featureCheckboxes = document.querySelectorAll(".feature-checkbox");
-    const filtersForm = document.getElementById("filtersForm");
-    const resetFiltersBtn = document.getElementById("resetFiltersBtn");
-    const yearSpan = document.getElementById("yearSpan");
-
-    // ===============================
     // Helpers
     // ===============================
-    function safeVerification(clinic) {
-      const verification = clinic.verification || "Self-reported";
-      const verifiedDate = clinic.verifiedDate || "";
-      return { verification, verifiedDate };
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    const normalize = (str) =>
+      (str || "")
+        .toString()
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, " ");
+
+    function escapeHtml(str) {
+      return (str || "")
+        .toString()
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
     }
 
-    function afterFilterFocus() {
-      const results = document.querySelector(".results-section");
-      if (results) results.scrollIntoView({ behavior: "smooth", block: "start" });
-
-      if (resultsCount) {
-        resultsCount.setAttribute("tabindex", "-1");
-        resultsCount.focus();
-      }
+    function hasInsurance(clinic, wanted) {
+      const ins = (clinic.insuranceAccepted || []).map(normalize);
+      return ins.some((x) => x.includes(normalize(wanted)));
     }
 
-    function getActiveFilters() {
-      const searchText = (searchInput?.value || "").trim().toLowerCase();
-      const region = regionSelect?.value || "";
+    function matchesAllSelectedInsurances(clinic, selectedIns) {
+      if (!selectedIns.length) return true;
 
-      const selectedInsurances = Array.from(insuranceCheckboxes || [])
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
-
-      const selectedFeatures = Array.from(featureCheckboxes || [])
-        .filter(cb => cb.checked)
-        .map(cb => cb.value);
-
-      return { searchText, region, selectedInsurances, selectedFeatures };
-    }
-
-    function filterClinics({ scrollToResults = true } = {}) {
-      const { searchText, region, selectedInsurances, selectedFeatures } = getActiveFilters();
-
-      const filtered = clinics.filter(clinic => {
-        if (searchText) {
-          const combined = `${clinic.name} ${clinic.city} ${clinic.region}`.toLowerCase();
-          if (!combined.includes(searchText)) return false;
-        }
-
-        if (region && clinic.region !== region) return false;
-
-        if (selectedInsurances.length > 0) {
-          const acceptsAll = selectedInsurances.every(ins =>
-            (clinic.insuranceAccepted || []).some(acc =>
-              String(acc).toLowerCase().includes(String(ins).toLowerCase())
-            )
+      // Special: if user checks "SoonerCare", match "SoonerCare" or "Medicaid" or "SoonerSelect" or SoonerCare variants
+      return selectedIns.every((ins) => {
+        const n = normalize(ins);
+        if (n === "soonercare") {
+          return (
+            hasInsurance(clinic, "SoonerCare") ||
+            hasInsurance(clinic, "Medicaid") ||
+            hasInsurance(clinic, "SoonerSelect")
           );
-          if (!acceptsAll) return false;
         }
+        return hasInsurance(clinic, ins);
+      });
+    }
 
-        if (selectedFeatures.length > 0) {
-          const matches = selectedFeatures.every(key => !!(clinic.anxietyFeatures && clinic.anxietyFeatures[key]));
-          if (!matches) return false;
+    function matchesAllSelectedFeatures(clinic, selectedFeatures) {
+      if (!selectedFeatures.length) return true;
+      const f = clinic.anxietyFeatures || {};
+      return selectedFeatures.every((key) => !!f[key]);
+    }
+
+    function clinicSearchBlob(clinic) {
+      const parts = [
+        clinic.name,
+        clinic.city,
+        clinic.region,
+        (clinic.populations || []).join(" "),
+        (clinic.insuranceAccepted || []).join(" "),
+        (clinic.costOptions || []).join(" "),
+        clinic.summary,
+        clinic.notes
+      ];
+      return normalize(parts.join(" "));
+    }
+
+    // ===============================
+    // Rendering
+    // ===============================
+
+    function renderClinics(list) {
+      const grid = $("#resultsGrid");
+      const countEl = $("#resultsCount");
+
+      if (!grid || !countEl) return;
+
+      countEl.textContent =
+        list.length === 1 ? "1 clinic found" : `${list.length} clinics found`;
+
+      if (!list.length) {
+        grid.innerHTML = `
+          <div class="empty-state" style="background:#fff;border:1px solid rgba(15,23,42,.10);border-radius:1rem;padding:1rem;">
+            <h3 style="margin:0 0 .35rem;">No matches with those filters.</h3>
+            <p style="margin:0;color:#334155;">
+              Try removing one filter (start with insurance), or hit “Browse all” and then narrow down.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      grid.innerHTML = list
+        .map((c) => {
+          const website = c.website && c.website !== "#" ? c.website : null;
+          const phone = c.phone && c.phone !== "Phone not provided" ? c.phone : null;
+
+          const ins = (c.insuranceAccepted || [])
+            .slice(0, 8)
+            .map((x) => `<span class="pill" style="display:inline-block;margin:0.2rem 0.2rem 0 0;padding:0.25rem 0.5rem;border-radius:999px;border:1px solid rgba(15,23,42,.10);font-size:0.82rem;color:#334155;background:#f8fafc;">${escapeHtml(x)}</span>`)
+            .join("");
+
+          const cost = (c.costOptions || [])
+            .map((x) => `<span class="pill" style="display:inline-block;margin:0.2rem 0.2rem 0 0;padding:0.25rem 0.5rem;border-radius:999px;border:1px solid rgba(15,23,42,.10);font-size:0.82rem;color:#334155;background:#f8fafc;">${escapeHtml(x)}</span>`)
+            .join("");
+
+          const features = [];
+          if (c.anxietyFeatures?.anxietyFocused) features.push("Anxiety-focused");
+          if (c.anxietyFeatures?.traumaInformed) features.push("Trauma-informed");
+          if (c.anxietyFeatures?.sensoryFriendly) features.push("Sensory-friendly");
+          if (c.anxietyFeatures?.sedation) features.push("Sedation / Nitrous");
+          if (c.anxietyFeatures?.pediatric) features.push("Pediatric");
+          if (c.anxietyFeatures?.lowCost) features.push("Low-cost / Sliding scale");
+
+          const featuresHtml = features.length
+            ? features
+                .map(
+                  (x) =>
+                    `<span class="pill" style="display:inline-block;margin:0.2rem 0.2rem 0 0;padding:0.25rem 0.5rem;border-radius:999px;border:1px solid rgba(15,23,42,.10);font-size:0.82rem;color:#0f172a;background:rgba(250,204,107,.25);">${escapeHtml(
+                      x
+                    )}</span>`
+                )
+                .join("")
+            : `<span class="pill" style="display:inline-block;margin:0.2rem 0.2rem 0 0;padding:0.25rem 0.5rem;border-radius:999px;border:1px solid rgba(15,23,42,.10);font-size:0.82rem;color:#475569;background:#f8fafc;">Call to ask about comfort options</span>`;
+
+          // “Verification / last updated” placeholder (you can wire this to real data later)
+          const verifyMeta = `
+            <div class="verify-row">
+              <span class="pill" style="display:inline-block;padding:0.25rem 0.6rem;border-radius:999px;border:1px solid rgba(15,23,42,.10);font-size:0.82rem;background:#fff;">
+                Public listing
+              </span>
+              <span class="verify-meta">Please confirm insurance + services by phone.</span>
+            </div>
+          `;
+
+          return `
+            <article class="clinic-card" style="background:#fff;border:1px solid rgba(15,23,42,.10);border-radius:1.1rem;padding:1rem;">
+              <div style="display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;">
+                <div>
+                  <h3 style="margin:0 0 .25rem;font-size:1.05rem;">${escapeHtml(c.name)}</h3>
+                  <div style="color:#475569;font-size:.92rem;">
+                    ${escapeHtml(c.city)} • ${escapeHtml(c.region)}
+                  </div>
+                </div>
+              </div>
+
+              <p style="margin:.65rem 0 0;color:#334155;">
+                ${escapeHtml(c.summary || "")}
+              </p>
+
+              ${verifyMeta}
+
+              <div style="margin-top:.8rem;">
+                <div style="font-weight:650;color:#0f172a;margin-bottom:.25rem;">Comfort highlights</div>
+                <div>${featuresHtml}</div>
+              </div>
+
+              <div style="margin-top:.8rem;">
+                <div style="font-weight:650;color:#0f172a;margin-bottom:.25rem;">Insurance (call to confirm)</div>
+                <div>${ins || `<span style="color:#475569;font-size:.9rem;">Unknown — call to verify</span>`}</div>
+              </div>
+
+              ${
+                cost
+                  ? `
+                <div style="margin-top:.8rem;">
+                  <div style="font-weight:650;color:#0f172a;margin-bottom:.25rem;">Cost options</div>
+                  <div>${cost}</div>
+                </div>`
+                  : ""
+              }
+
+              <details style="margin-top:.9rem;">
+                <summary style="cursor:pointer;font-weight:650;">View details</summary>
+                <div style="margin-top:.55rem;color:#334155;">
+                  ${
+                    c.notes
+                      ? `<p style="margin:.25rem 0 0;"><strong>Notes:</strong> ${escapeHtml(c.notes)}</p>`
+                      : ""
+                  }
+                  ${
+                    c.populations?.length
+                      ? `<p style="margin:.25rem 0 0;"><strong>Patients:</strong> ${escapeHtml(
+                          c.populations.join(", ")
+                        )}</p>`
+                      : ""
+                  }
+                </div>
+              </details>
+
+              <div class="clinic-actions" style="margin-top:1rem;">
+                ${
+                  website
+                    ? `<a class="btnlike primary" href="${website}" target="_blank" rel="noopener noreferrer">Website</a>`
+                    : `<a class="btnlike primary" href="#" onclick="return false;" aria-disabled="true" style="opacity:.55;cursor:not-allowed;">Website</a>`
+                }
+                ${
+                  phone
+                    ? `<a class="btnlike" href="tel:${phone.replace(/[^\d+]/g, "")}">Call</a>`
+                    : `<a class="btnlike" href="#" onclick="return false;" aria-disabled="true" style="opacity:.55;cursor:not-allowed;">Call</a>`
+                }
+                ${
+                  website
+                    ? `<a class="btnlike" href="${website}" target="_blank" rel="noopener noreferrer">Check availability</a>`
+                    : `<a class="btnlike" href="#" onclick="return false;" aria-disabled="true" style="opacity:.55;cursor:not-allowed;">Check availability</a>`
+                }
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+    }
+
+    // ===============================
+    // Filtering logic
+    // ===============================
+
+    function getSelectedValues(selector) {
+      return $$(selector)
+        .filter((el) => el.checked)
+        .map((el) => el.value);
+    }
+
+    function applyFilters() {
+      const q = normalize($("#searchInput")?.value || "");
+      const region = $("#regionSelect")?.value || "";
+
+      const selectedIns = getSelectedValues(".insurance-checkbox");
+      const selectedFeatures = getSelectedValues(".feature-checkbox");
+
+      const filtered = clinics.filter((c) => {
+        // Region filter
+        if (region && c.region !== region) return false;
+
+        // Insurance filter
+        if (!matchesAllSelectedInsurances(c, selectedIns)) return false;
+
+        // Features filter
+        if (!matchesAllSelectedFeatures(c, selectedFeatures)) return false;
+
+        // Search
+        if (q) {
+          const blob = clinicSearchBlob(c);
+          if (!blob.includes(q)) return false;
         }
 
         return true;
       });
 
       renderClinics(filtered);
-
-      if (scrollToResults) afterFilterFocus();
     }
 
-    function makeBadge(text, variant) {
-      const span = document.createElement("span");
-      span.textContent = text;
-      span.classList.add("badge");
-      if (variant === "primary") span.classList.add("badge-primary");
-      if (variant === "secondary") span.classList.add("badge-secondary");
-      if (variant === "neutral") span.classList.add("badge-neutral");
-      return span;
-    }
-
-    function buildGoogleMapsLink(clinic) {
-      const q = encodeURIComponent(`${clinic.name} ${clinic.city} Oklahoma`);
-      return `https://www.google.com/maps/search/?api=1&query=${q}`;
-    }
-
-    function normalizeTel(phone) {
-      return String(phone || "").replace(/[^\d+]/g, "");
+    function resetFilters() {
+      $("#regionSelect").value = "";
+      $$(".insurance-checkbox").forEach((x) => (x.checked = false));
+      $$(".feature-checkbox").forEach((x) => (x.checked = false));
+      $("#searchInput").value = "";
+      renderClinics(clinics);
     }
 
     // ===============================
-    // Rendering
+    // Wire up UI
     // ===============================
-    function renderClinics(list) {
-      if (!resultsGrid || !resultsCount) return;
 
-      resultsGrid.innerHTML = "";
-
-      if (!list || list.length === 0) {
-        resultsCount.textContent =
-          "No clinics matched these filters. Try removing a filter or searching again.";
-        return;
-      }
-
-      resultsCount.textContent = `${list.length} clinic${list.length === 1 ? "" : "s"} found`;
-
-      list.forEach(clinic => {
-        const card = document.createElement("article");
-        card.className = "clinic-card";
-
-        // Header
-        const header = document.createElement("div");
-        header.className = "clinic-header";
-
-        const nameEl = document.createElement("div");
-        nameEl.className = "clinic-name";
-        nameEl.textContent = clinic.name;
-
-        const locEl = document.createElement("div");
-        locEl.className = "clinic-location";
-        locEl.textContent = `${clinic.city} • ${clinic.region}`;
-
-        header.appendChild(nameEl);
-        header.appendChild(locEl);
-
-        // Verification row
-        const verifyRow = document.createElement("div");
-        verifyRow.className = "verify-row";
-        const { verification, verifiedDate } = safeVerification(clinic);
-
-        verifyRow.appendChild(
-          makeBadge(
-            `Verification: ${verification}`,
-            verification === "Patient-verified" ? "primary" : "secondary"
-          )
-        );
-
-        if (verifiedDate) {
-          const meta = document.createElement("span");
-          meta.className = "verify-meta";
-          meta.textContent = `Verified: ${verifiedDate}`;
-          verifyRow.appendChild(meta);
-        }
-
-        // Badges (comfort features)
-        const badgesRow = document.createElement("div");
-        badgesRow.className = "clinic-badges";
-
-        for (const [key, value] of Object.entries(clinic.anxietyFeatures || {})) {
-          if (!value) continue;
-          let label = "";
-          if (key === "anxietyFocused") label = "Anxiety-focused";
-          if (key === "pediatric") label = "Pediatric";
-          if (key === "sedation") label = "Sedation / Nitrous";
-          if (key === "lowCost") label = "Low-cost / sliding scale";
-          if (key === "traumaInformed") label = "Trauma-informed";
-          if (key === "sensoryFriendly") label = "Sensory-friendly";
-          if (!label) continue;
-
-          const variant =
-            key === "pediatric" || key === "sensoryFriendly"
-              ? "secondary"
-              : "neutral";
-
-          badgesRow.appendChild(makeBadge(label, variant));
-        }
-
-        // Insurance chips
-        const insRow = document.createElement("div");
-        insRow.className = "clinic-insurance";
-        (clinic.insuranceAccepted || []).forEach(ins => {
-          const isSooner = String(ins).toLowerCase().includes("soonercare");
-          insRow.appendChild(makeBadge(ins, isSooner ? "secondary" : "neutral"));
-        });
-
-        // Summary
-        const summary = document.createElement("p");
-        summary.className = "clinic-description";
-        summary.textContent = clinic.summary || "";
-
-        // Actions
-        const actions = document.createElement("div");
-        actions.className = "clinic-actions";
-
-        const detailsBtn = document.createElement("button");
-        detailsBtn.className = "btn btn-ghost clinic-toggle-btn";
-        detailsBtn.type = "button";
-        detailsBtn.textContent = "View details";
-        detailsBtn.setAttribute("aria-expanded", "false");
-
-        actions.appendChild(detailsBtn);
-
-        // Check availability (website)
-        const websiteLink = document.createElement("a");
-        websiteLink.className = "btnlike primary";
-        websiteLink.href = clinic.website || "#";
-        websiteLink.target = "_blank";
-        websiteLink.rel = "noopener noreferrer";
-        websiteLink.textContent =
-          clinic.website === "#" ? "Check availability (call for link)" : "Check availability";
-        actions.appendChild(websiteLink);
-
-        // Call (if phone provided)
-        const tel = normalizeTel(clinic.phone);
-        if (clinic.phone && !String(clinic.phone).toLowerCase().includes("not provided") && tel) {
-          const callLink = document.createElement("a");
-          callLink.className = "btnlike";
-          callLink.href = `tel:${tel}`;
-          callLink.textContent = "Call";
-          actions.appendChild(callLink);
-        }
-
-        // Directions
-        const dirLink = document.createElement("a");
-        dirLink.className = "btnlike";
-        dirLink.href = buildGoogleMapsLink(clinic);
-        dirLink.target = "_blank";
-        dirLink.rel = "noopener noreferrer";
-        dirLink.textContent = "Directions";
-        actions.appendChild(dirLink);
-
-        // Details
-        const details = document.createElement("div");
-        details.className = "clinic-details";
-        details.style.display = "none";
-
-        const phone = document.createElement("p");
-        phone.textContent = `Phone: ${clinic.phone || "Not listed"}`;
-
-        const pops = document.createElement("p");
-        pops.textContent = `Good for: ${(clinic.populations || []).join(", ")}`;
-
-        const notesHeading = document.createElement("p");
-        notesHeading.style.fontWeight = "600";
-        notesHeading.textContent = "Notes:";
-
-        const notes = document.createElement("p");
-        notes.textContent = clinic.notes || "";
-
-        details.appendChild(phone);
-        details.appendChild(pops);
-        details.appendChild(notesHeading);
-        details.appendChild(notes);
-
-        if (clinic.costOptions && clinic.costOptions.length > 0) {
-          const cost = document.createElement("p");
-          cost.textContent = `Cost options: ${clinic.costOptions.join(", ")}`;
-          details.appendChild(cost);
-        }
-
-        detailsBtn.addEventListener("click", () => {
-          const visible = details.style.display === "block";
-          details.style.display = visible ? "none" : "block";
-          detailsBtn.textContent = visible ? "View details" : "Hide details";
-          detailsBtn.setAttribute("aria-expanded", visible ? "false" : "true");
-        });
-
-        card.appendChild(header);
-        card.appendChild(verifyRow);
-        card.appendChild(badgesRow);
-        card.appendChild(insRow);
-        card.appendChild(summary);
-        card.appendChild(actions);
-        card.appendChild(details);
-
-        resultsGrid.appendChild(card);
-      });
-    }
-    // ===============================
-    // Events
-    // ===============================
-    if (filtersForm) {
-      filtersForm.addEventListener("submit", e => {
-        e.preventDefault();
-        filterClinics({ scrollToResults: true });
-      });
-    }
-
-    if (searchInput) {
-      searchInput.addEventListener("input", () => filterClinics({ scrollToResults: false }));
-    }
-
-    if (browseAllBtn) {
-      browseAllBtn.addEventListener("click", () => {
-        searchInput.value = "";
-        filterClinics({ scrollToResults: true });
-      });
-    }
-
-    if (resetFiltersBtn) {
-      resetFiltersBtn.addEventListener("click", () => {
-        searchInput.value = "";
-        regionSelect.value = "";
-        insuranceCheckboxes.forEach(cb => (cb.checked = false));
-        featureCheckboxes.forEach(cb => (cb.checked = false));
-        filterClinics({ scrollToResults: true });
-      });
-    }
-
-    // ===============================
-    // Init
-    // ===============================
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    // Footer year
+    $("#yearSpan").textContent = new Date().getFullYear();
 
     // Initial render
     renderClinics(clinics);
+
+    // Apply on form submit
+    $("#filtersForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      applyFilters();
+      // Move focus to results for accessibility
+      $("#resultsGrid").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Reset
+    $("#resetFiltersBtn").addEventListener("click", () => {
+      resetFilters();
+      $("#resultsGrid").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Browse all
+    $("#browseAllBtn").addEventListener("click", () => {
+      // Leave filters as-is, just clear the search box and render all (or filtered if user wants? you said browse all)
+      $("#searchInput").value = "";
+      renderClinics(clinics);
+      $("#resultsGrid").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    // Optional: “live search” typing (gentle)
+    let searchTimer = null;
+    $("#searchInput").addEventListener("input", () => {
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => {
+        // If user hasn't touched filters, this still behaves well
+        applyFilters();
+      }, 180);
+    });
   </script>
 </body>
 </html>
+
+     
