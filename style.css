@@ -489,6 +489,8 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
+  content-visibility: auto;
+  contain-intrinsic-size: 1200px;
 }
 
 .clinic-card {
@@ -497,6 +499,9 @@ a {
   border-radius: var(--radius-md);
   padding: 1rem 0.95rem 0.95rem;
   box-shadow: 0 1px 4px rgba(15, 23, 42, 0.03);
+  content-visibility: auto;
+  contain: layout paint style;
+  contain-intrinsic-size: 360px;
 }
 
 .clinic-description,
@@ -674,12 +679,11 @@ summary:focus-visible {
 .resource-card,
 .faq details,
 .dental-dj-about {
-  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+  transition: border-color 140ms ease, box-shadow 140ms ease;
 }
 
 .clinic-card:hover,
 .resource-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
 }
 
@@ -712,6 +716,22 @@ summary:focus-visible {
 .clinic-card .pill {
   color: #1e293b !important;
   border-color: rgba(15, 23, 42, 0.16) !important;
+}
+
+/* Rendering optimization: avoid painting off-screen clinic details until needed. */
+.clinic-card details:not([open]) {
+  content-visibility: auto;
+  contain-intrinsic-size: 48px;
+}
+
+@supports (content-visibility: auto) {
+  .resource-card,
+  .faq details,
+  .about-section,
+  .suggest-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 320px;
+  }
 }
 
 ::selection {
@@ -788,10 +808,12 @@ summary:focus-visible {
     break-inside: avoid;
     box-shadow: none;
     border: 1px solid #999;
+    content-visibility: visible;
   }
 
   .results-grid {
     display: block;
+    content-visibility: visible;
   }
 
   .site-footer {
@@ -858,5 +880,6 @@ summary:focus-visible {
 
   .clinic-card {
     padding: 1rem;
+    contain-intrinsic-size: 420px;
   }
 }
