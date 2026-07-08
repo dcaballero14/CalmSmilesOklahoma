@@ -1,29 +1,38 @@
 # Calm Smiles Oklahoma
 
-Calm Smiles Oklahoma is a free Oklahoma dental directory focused on helping anxious patients find dental clinics that may fit their needs.
+> A free Oklahoma dental directory and patient resource for people with dental anxiety. The site helps patients find anxiety-friendly clinics, compare insurance and comfort features, and prepare for a calmer first call or appointment.
 
-Primary site:
-https://oklahomadentalclinics.com/
+Calm Smiles Oklahoma is designed for anxious patients, caregivers, parents, and Oklahoma dental offices. The directory can be searched by city, Oklahoma region, insurance, SoonerCare / Oklahoma Medicaid, pediatric care, sedation or nitrous options, low-cost options, trauma-informed care, and sensory-friendly features.
 
-Key pages:
-- Search Oklahoma dental clinics: https://oklahomadentalclinics.com/
-- Patient resources: https://oklahomadentalclinics.com/patient-resources.html
-- Dental anxiety guide: https://oklahomadentalclinics.com/dental-anxiety-oklahoma.html
-- SoonerCare dentist guide: https://oklahomadentalclinics.com/soonercare-dentist-oklahoma.html
-- Tulsa dental anxiety guide: https://oklahomadentalclinics.com/tulsa-dental-anxiety.html
-- What to say to a dentist about anxiety: https://oklahomadentalclinics.com/what-to-say-dental-anxiety.html
-- Sedation dentist questions: https://oklahomadentalclinics.com/sedation-dentist-oklahoma.html
-- Pediatric dental anxiety guide: https://oklahomadentalclinics.com/pediatric-dental-anxiety-oklahoma.html
+Patients should verify insurance participation, services, comfort options, and appointment availability directly with each clinic before scheduling. This website is a directory and educational resource, not medical, dental, legal, or insurance advice.
 
-Purpose:
-- Help patients search by city, Oklahoma region, insurance, SoonerCare / Oklahoma Medicaid, pediatric care, sedation, low-cost options, trauma-informed care, and sensory-friendly features.
-- Encourage patients to verify insurance, services, availability, and comfort options directly with each clinic before scheduling.
+## Core pages
 
-Important caveat:
-This website is a directory and educational resource. It is not medical, dental, legal, or insurance advice. Clinic listings and insurance participation may change.
+- [Search Oklahoma dental clinics](https://oklahomadentalclinics.com/): Main clinic directory with filters for city, region, SoonerCare, insurance, pediatric care, sedation, low-cost options, trauma-informed care, and sensory-friendly features.
+- [Patient resources](https://oklahomadentalclinics.com/patient-resources.html): Hub page linking to guides for dental anxiety, SoonerCare, sedation, pediatric anxiety, Tulsa dental anxiety, and calling scripts.
+- [Dental anxiety guide](https://oklahomadentalclinics.com/dental-anxiety-oklahoma.html): Practical Oklahoma guide for choosing an anxiety-friendly dentist and knowing what comfort features to ask about.
+- [SoonerCare dentist guide](https://oklahomadentalclinics.com/soonercare-dentist-oklahoma.html): Questions patients can ask when looking for Oklahoma dental offices that may accept SoonerCare or Oklahoma Medicaid.
 
-Contact:
-calmsmilesoklahoma@gmail.com
+## Patient guides
 
-Sitemap:
-https://oklahomadentalclinics.com/sitemap.xml
+- [What to say to a dentist about anxiety](https://oklahomadentalclinics.com/what-to-say-dental-anxiety.html): Copy-and-edit scripts for anxious patients calling or messaging a dental office.
+- [Tulsa dental anxiety help](https://oklahomadentalclinics.com/tulsa-dental-anxiety.html): Tulsa-area landing page for patients looking for anxiety-friendly dental care.
+- [Sedation dentist questions](https://oklahomadentalclinics.com/sedation-dentist-oklahoma.html): Questions about nitrous oxide, oral sedation, IV sedation, cost, safety, and transportation.
+- [Pediatric dental anxiety guide](https://oklahomadentalclinics.com/pediatric-dental-anxiety-oklahoma.html): Parent and caregiver guide for helping children with dental anxiety.
+
+## Site information
+
+- [Full AI-readable site context](https://oklahomadentalclinics.com/llms-full.txt): Extended description of the site, audience, pages, and important caveats.
+- [XML sitemap](https://oklahomadentalclinics.com/sitemap.xml): Machine-readable list of indexable pages.
+- [Robots file](https://oklahomadentalclinics.com/robots.txt): Crawler permissions and sitemap location.
+- [Humans file](https://oklahomadentalclinics.com/humans.txt): Human-readable site purpose and contact information.
+- [Security contact](https://oklahomadentalclinics.com/.well-known/security.txt): Standard contact file for security reporting.
+
+## Optional
+
+- [Dental DJ](https://dental-dj.onrender.com/login): External music-related project intended to help some dental offices make the operatory environment feel calmer for patients.
+- [Suggest a clinic](https://oklahomadentalclinics.com/#connect): Form link area for patients, caregivers, or clinics that want to suggest or update a listing.
+
+## Contact
+
+- [Email Calm Smiles Oklahoma](mailto:calmsmilesoklahoma@gmail.com): Contact for directory suggestions, updates, and questions about the project.
