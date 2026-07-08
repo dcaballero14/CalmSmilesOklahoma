@@ -1,0 +1,16 @@
+/* TEAM */
+
+Site: Calm Smiles Oklahoma
+Purpose: Helping anxious Oklahoma dental patients find clinics and patient-friendly resources.
+Contact: calmsmilesoklahoma@gmail.com
+Location: Oklahoma, USA
+
+/* SITE */
+
+URL: https://oklahomadentalclinics.com/
+Sitemap: https://oklahomadentalclinics.com/sitemap.xml
+Robots: https://oklahomadentalclinics.com/robots.txt
+
+/* NOTES */
+
+Calm Smiles Oklahoma is a directory and educational resource. Patients should verify insurance, SoonerCare / Oklahoma Medicaid participation, services, and availability directly with each clinic before scheduling.
