@@ -1,4 +1,4 @@
-/* Calm Smiles Oklahoma — performance-focused stylesheet */
+/* Calm Smiles Oklahoma — patient-first performance stylesheet */
 *,
 *::before,
 *::after {
@@ -139,7 +139,21 @@ a {
   overflow: hidden;
   color: #f8fafc;
   padding: 3rem 0 3.5rem;
-  background: #0f172a;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(34, 195, 166, 0.26), transparent 32%),
+    radial-gradient(circle at 88% 20%, rgba(250, 204, 107, 0.18), transparent 28%),
+    linear-gradient(135deg, #0f172a 0%, #123247 46%, #064e3b 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(15, 23, 42, 0.76), rgba(15, 23, 42, 0.48)),
+    radial-gradient(circle at 80% 80%, rgba(34, 195, 166, 0.18), transparent 34%);
 }
 
 .hero > *:not(.hero-bg) {
@@ -147,53 +161,9 @@ a {
   z-index: 1;
 }
 
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background: #0f172a;
-}
-
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.66));
-}
-
+/* Patient-first performance fix: no heavy hero image payload on first load. */
+.hero-bg,
 .hero-bg__layer {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0;
-}
-
-/* Performance fix: keep one immediate hero image instead of loading the entire rotator set. */
-.hero-bg__layer--a {
-  display: block;
-  opacity: 1 !important;
-  background-image: url("./philharmonic-garden.jpg");
-}
-
-.hero-bg__layer--b,
-.hero-bg__layer--c,
-.hero-bg__layer--d,
-.hero-bg__layer--e,
-.hero-bg__layer--f,
-.hero-bg__layer--g,
-.hero-bg__layer--h,
-.hero-bg__layer--i,
-.hero-bg__layer--j,
-.hero-bg__layer--k,
-.hero-bg__layer--l,
-.hero-bg__layer--m,
-.hero-bg__layer--n,
-.hero-bg__layer--o,
-.hero-bg__layer--p,
-.hero-bg__layer--q {
   display: none !important;
   background-image: none !important;
 }
@@ -336,7 +306,6 @@ a {
   margin-top: 0.5rem;
 }
 
-/* Performance/accessibility fix: remove non-composited bar-height animation. */
 .audio-wave {
   display: inline-flex;
   align-items: flex-end;
@@ -690,8 +659,8 @@ a {
     padding: 2.2rem 0 2.6rem;
   }
 
-  .hero-bg::after {
-    background: rgba(15, 23, 42, 0.82);
+  .hero::after {
+    background: rgba(15, 23, 42, 0.55);
   }
 
   .hero-inner,
