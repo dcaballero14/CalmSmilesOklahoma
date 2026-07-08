@@ -1,4 +1,4 @@
-/* Calm Smiles Oklahoma — patient-first performance stylesheet */
+/* Calm Smiles Oklahoma — patient-first performance + UX stylesheet */
 *,
 *::before,
 *::after {
@@ -8,8 +8,8 @@
 :root {
   --ink: #0f172a;
   --text: #111827;
-  --muted: #475569;
-  --muted-2: #4b5563;
+  --muted: #334155;
+  --muted-2: #475569;
   --bg: #f3f4f6;
   --surface: #ffffff;
   --surface-soft: #f9fafb;
@@ -17,6 +17,7 @@
   --brand-dark: #0f766e;
   --brand-ink: #064e3b;
   --accent: #facc6b;
+  --accent-strong: #eab308;
   --border: #e5e7eb;
   --border-strong: #cbd5e1;
   --focus: rgba(34, 195, 166, 0.55);
@@ -161,7 +162,6 @@ a {
   z-index: 1;
 }
 
-/* Patient-first performance fix: no heavy hero image payload on first load. */
 .hero-bg,
 .hero-bg__layer {
   display: none !important;
@@ -184,13 +184,13 @@ a {
 .hero-text p {
   max-width: 42rem;
   margin: 0 0 1.2rem;
-  color: #f1f5f9;
+  color: #f8fafc;
 }
 
 .search-label {
   display: block;
   margin-bottom: 0.25rem;
-  color: #f1f5f9;
+  color: #f8fafc;
   font-size: 0.9rem;
   font-weight: 650;
 }
@@ -211,9 +211,9 @@ a {
 
 .search-input-row input {
   flex: 1 1 190px;
-  min-height: 44px;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid rgba(226, 232, 240, 0.55);
+  min-height: 46px;
+  padding: 0.72rem 0.85rem;
+  border: 1px solid rgba(226, 232, 240, 0.78);
   border-radius: 0.75rem;
 }
 
@@ -294,7 +294,7 @@ a {
 
 .dental-dj-hero p {
   margin: 0;
-  color: #f1f5f9;
+  color: #f8fafc;
   font-size: 0.92rem;
 }
 
@@ -333,7 +333,7 @@ a {
 
 .hero-card-text,
 .hero-list {
-  color: #f1f5f9;
+  color: #f8fafc;
 }
 
 .hero-list {
@@ -346,7 +346,7 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
+  min-height: 44px;
   border-radius: 999px;
   font-weight: 750;
   text-decoration: none;
@@ -355,8 +355,8 @@ a {
 
 .btn {
   border: 0;
-  padding: 0.6rem 1.25rem;
-  font-size: 0.92rem;
+  padding: 0.64rem 1.25rem;
+  font-size: 0.94rem;
 }
 
 .btn-primary {
@@ -416,6 +416,11 @@ a {
   gap: 0.4rem;
 }
 
+.filter-group > label {
+  font-weight: 750;
+  color: var(--ink);
+}
+
 .chip-row,
 .clinic-actions,
 .verify-row,
@@ -431,12 +436,13 @@ a {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  padding: 0.35rem 0.7rem;
+  min-height: 42px;
+  padding: 0.38rem 0.78rem;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
   background: var(--surface);
   color: var(--text);
-  font-size: 0.86rem;
+  font-size: 0.88rem;
 }
 
 .chip-input input {
@@ -638,6 +644,161 @@ a {
   font-size: 0.85rem;
 }
 
+/* Patient experience polish */
+.results-section .container {
+  scroll-margin-top: 6rem;
+}
+
+.search-input-row input:focus,
+.provider-form input:focus,
+.provider-form select:focus,
+.provider-form textarea:focus,
+.chip-input:focus-within,
+.btn:focus-visible,
+.btnlike:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.chip-input:focus-within,
+.chip-input:hover,
+.clinic-card:focus-within,
+.resource-card:focus-within,
+.faq details:focus-within {
+  border-color: rgba(15, 118, 110, 0.55) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.clinic-card,
+.resource-card,
+.faq details,
+.dental-dj-about {
+  transition: border-color 140ms ease, box-shadow 140ms ease, transform 140ms ease;
+}
+
+.clinic-card:hover,
+.resource-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.faq details {
+  border-left: 4px solid rgba(15, 118, 110, 0.45) !important;
+}
+
+.faq details[open] {
+  background: #f8fafc !important;
+  border-left-color: var(--brand-dark) !important;
+}
+
+.faq summary,
+.dental-dj-about-content summary {
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.results-note,
+.filters-intro {
+  line-height: 1.7;
+}
+
+.clinic-actions .btnlike {
+  border-width: 1.5px;
+}
+
+.verify-row .pill,
+.clinic-card .pill {
+  color: #1e293b !important;
+  border-color: rgba(15, 23, 42, 0.16) !important;
+}
+
+::selection {
+  background: rgba(34, 195, 166, 0.35);
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --muted: #1e293b;
+    --muted-2: #334155;
+    --border: #94a3b8;
+    --border-strong: #64748b;
+  }
+
+  .hero,
+  .suggest-section,
+  .site-header {
+    background: #020617;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-dental-dj-hero {
+    border: 2px solid #020617;
+  }
+}
+
+@media (forced-colors: active) {
+  .hero,
+  .suggest-section,
+  .site-header,
+  .dental-dj-hero,
+  .hero-card,
+  .provider-form {
+    background: Canvas;
+    color: CanvasText;
+  }
+
+  .btn,
+  .btnlike,
+  .chip-input,
+  .clinic-card,
+  .resource-card,
+  .faq details {
+    border: 1px solid ButtonText;
+  }
+}
+
+@media print {
+  .site-header,
+  .hero,
+  .filters-section,
+  .suggest-section,
+  .clinic-actions,
+  .dental-dj-hero,
+  .dental-dj-about,
+  .faq,
+  .resources-section {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 12pt;
+  }
+
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+
+  .clinic-card {
+    break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #999;
+  }
+
+  .results-grid {
+    display: block;
+  }
+
+  .site-footer {
+    border: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -655,6 +816,18 @@ a {
     gap: 0.5rem;
   }
 
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+    scrollbar-width: thin;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
   .hero {
     padding: 2.2rem 0 2.6rem;
   }
@@ -670,5 +843,20 @@ a {
 
   .dental-dj-hero-footer {
     justify-content: space-between;
+  }
+
+  .search-input-row input,
+  .search-input-row button,
+  .filter-actions .btn,
+  .clinic-actions .btnlike {
+    width: 100%;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+  }
+
+  .clinic-card {
+    padding: 1rem;
   }
 }
