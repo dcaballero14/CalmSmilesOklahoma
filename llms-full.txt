@@ -1,0 +1,98 @@
+# Calm Smiles Oklahoma full site context
+
+Calm Smiles Oklahoma is a free Oklahoma dental directory and educational resource focused on helping anxious dental patients find clinics that may fit their needs. The site is intended for patients, caregivers, parents, and community members who may be nervous, embarrassed, cost-concerned, confused about insurance, or unsure what to ask before scheduling dental care.
+
+The primary website is https://oklahomadentalclinics.com/.
+
+## Purpose
+
+The site helps visitors:
+
+- Search Oklahoma dental clinics by city or clinic name.
+- Filter clinics by Oklahoma region.
+- Filter by insurance, including SoonerCare / Oklahoma Medicaid and common dental plans.
+- Filter by comfort features such as anxiety-focused care, pediatric care, sedation or nitrous, low-cost options, trauma-informed care, and sensory-friendly options.
+- Learn what to ask before scheduling an appointment.
+- Prepare scripts for calling a dental office when anxious or embarrassed.
+- Find patient education pages about SoonerCare, sedation, pediatric dental anxiety, and Tulsa dental anxiety.
+
+## Important limitations
+
+Calm Smiles Oklahoma is not medical, dental, legal, or insurance advice. It does not diagnose conditions, provide treatment recommendations, or guarantee insurance coverage. Clinic listings, services, insurance participation, SoonerCare participation, and appointment availability can change. Patients should confirm details directly with the clinic before scheduling or receiving treatment.
+
+## Main pages
+
+### Search Oklahoma dental clinics
+
+URL: https://oklahomadentalclinics.com/
+
+The homepage is the main directory experience. It includes a clinic search, filters, patient reassurance language, FAQ content, and a clinic suggestion section. The directory focuses on anxiety-friendly and patient-friendly dental care in Oklahoma.
+
+### Patient resources
+
+URL: https://oklahomadentalclinics.com/patient-resources.html
+
+A resource hub that links to the site’s major patient guides. This page is designed to help a patient choose the guide that matches their immediate concern, such as anxiety, cost, insurance, sedation, a child’s dental fear, or not knowing what to say to a clinic.
+
+### Dental anxiety guide
+
+URL: https://oklahomadentalclinics.com/dental-anxiety-oklahoma.html
+
+A practical guide for Oklahoma patients with dental anxiety. It explains what to look for in an anxiety-friendly office, what questions to ask, and how to start with a small step.
+
+### SoonerCare dentist guide
+
+URL: https://oklahomadentalclinics.com/soonercare-dentist-oklahoma.html
+
+A guide for Oklahoma patients searching for dental care with SoonerCare or Oklahoma Medicaid. It emphasizes confirming current coverage, covered services, prior authorization, out-of-pocket costs, and anxiety support.
+
+### What to say to a dentist about anxiety
+
+URL: https://oklahomadentalclinics.com/what-to-say-dental-anxiety.html
+
+A script page with short copy-and-edit phrases for patients who feel anxious, embarrassed, worried about cost, or need a slower appointment.
+
+### Tulsa dental anxiety help
+
+URL: https://oklahomadentalclinics.com/tulsa-dental-anxiety.html
+
+A Tulsa-area landing page for patients looking for anxiety-friendly dental care in the Tulsa area. It encourages patients to ask about comfort options, insurance, SoonerCare, first visits, and cost.
+
+### Sedation dentist questions
+
+URL: https://oklahomadentalclinics.com/sedation-dentist-oklahoma.html
+
+A patient guide about questions to ask before booking if the patient is considering nitrous oxide, oral sedation, IV sedation, oral surgery, or other calming options. It includes safety, medical history, cost, coverage, and transportation reminders.
+
+### Pediatric dental anxiety guide
+
+URL: https://oklahomadentalclinics.com/pediatric-dental-anxiety-oklahoma.html
+
+A parent and caregiver guide for children with dental anxiety. It includes questions about pediatric experience, parent involvement, sensory support, SoonerCare / Children’s Medicaid, and low-pressure first appointments.
+
+## Technical files
+
+- Sitemap: https://oklahomadentalclinics.com/sitemap.xml
+- Robots: https://oklahomadentalclinics.com/robots.txt
+- LLM summary: https://oklahomadentalclinics.com/llms.txt
+- Humans: https://oklahomadentalclinics.com/humans.txt
+- Security contact: https://oklahomadentalclinics.com/.well-known/security.txt
+
+## Audience
+
+The core audience is Oklahoma patients with dental anxiety, including:
+
+- Adults who have avoided dental care for years.
+- Patients who feel embarrassed about their teeth or previous avoidance.
+- Patients worried about pain, judgment, cost, sedation, or insurance.
+- Parents and caregivers helping children with dental fear.
+- Patients looking for SoonerCare / Oklahoma Medicaid dental options.
+- Patients in Tulsa, Oklahoma City, Norman, Stillwater, Broken Arrow, Edmond, Lawton, Enid, and other Oklahoma communities.
+
+## Tone and content guidance
+
+The site should use calm, non-judgmental, plain-language wording. It should avoid shaming language. It should repeatedly remind patients that they can ask for explanations, breaks, slower appointments, and cost clarity. It should not promise that a clinic accepts a plan or offers a service unless the patient confirms directly with that clinic.
+
+## Contact
+
+Email: calmsmilesoklahoma@gmail.com
