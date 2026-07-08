@@ -1,0 +1,29 @@
+# Calm Smiles Oklahoma
+
+Calm Smiles Oklahoma is a free Oklahoma dental directory focused on helping anxious patients find dental clinics that may fit their needs.
+
+Primary site:
+https://oklahomadentalclinics.com/
+
+Key pages:
+- Search Oklahoma dental clinics: https://oklahomadentalclinics.com/
+- Patient resources: https://oklahomadentalclinics.com/patient-resources.html
+- Dental anxiety guide: https://oklahomadentalclinics.com/dental-anxiety-oklahoma.html
+- SoonerCare dentist guide: https://oklahomadentalclinics.com/soonercare-dentist-oklahoma.html
+- Tulsa dental anxiety guide: https://oklahomadentalclinics.com/tulsa-dental-anxiety.html
+- What to say to a dentist about anxiety: https://oklahomadentalclinics.com/what-to-say-dental-anxiety.html
+- Sedation dentist questions: https://oklahomadentalclinics.com/sedation-dentist-oklahoma.html
+- Pediatric dental anxiety guide: https://oklahomadentalclinics.com/pediatric-dental-anxiety-oklahoma.html
+
+Purpose:
+- Help patients search by city, Oklahoma region, insurance, SoonerCare / Oklahoma Medicaid, pediatric care, sedation, low-cost options, trauma-informed care, and sensory-friendly features.
+- Encourage patients to verify insurance, services, availability, and comfort options directly with each clinic before scheduling.
+
+Important caveat:
+This website is a directory and educational resource. It is not medical, dental, legal, or insurance advice. Clinic listings and insurance participation may change.
+
+Contact:
+calmsmilesoklahoma@gmail.com
+
+Sitemap:
+https://oklahomadentalclinics.com/sitemap.xml
