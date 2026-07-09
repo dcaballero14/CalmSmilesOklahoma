@@ -9,16 +9,25 @@ Patients should verify insurance participation, services, comfort options, and a
 ## Core pages
 
 - [Search Oklahoma dental clinics](https://oklahomadentalclinics.com/): Main clinic directory with filters for city, region, SoonerCare, insurance, pediatric care, sedation, low-cost options, trauma-informed care, and sensory-friendly features.
-- [Patient resources](https://oklahomadentalclinics.com/patient-resources.html): Hub page linking to guides for dental anxiety, SoonerCare, sedation, pediatric anxiety, Tulsa dental anxiety, and calling scripts.
+- [Patient resources](https://oklahomadentalclinics.com/patient-resources.html): Hub page linking to guides for dental anxiety, SoonerCare, sedation, pediatric anxiety, city guides, and calling scripts.
 - [Dental anxiety guide](https://oklahomadentalclinics.com/dental-anxiety-oklahoma.html): Practical Oklahoma guide for choosing an anxiety-friendly dentist and knowing what comfort features to ask about.
 - [SoonerCare dentist guide](https://oklahomadentalclinics.com/soonercare-dentist-oklahoma.html): Questions patients can ask when looking for Oklahoma dental offices that may accept SoonerCare or Oklahoma Medicaid.
+- [Low-cost dentist guide](https://oklahomadentalclinics.com/low-cost-dentist-oklahoma.html): Oklahoma resource for finding lower-cost dental care, sliding-fee clinics, payment options, and community resources.
+- [Verified clinic details](https://oklahomadentalclinics.com/verified-clinic-details.html): Directory trust page explaining clinic details, verification limitations, and fields patients should confirm.
 
 ## Patient guides
 
 - [What to say to a dentist about anxiety](https://oklahomadentalclinics.com/what-to-say-dental-anxiety.html): Copy-and-edit scripts for anxious patients calling or messaging a dental office.
-- [Tulsa dental anxiety help](https://oklahomadentalclinics.com/tulsa-dental-anxiety.html): Tulsa-area landing page for patients looking for anxiety-friendly dental care.
+- [Dentist for anxiety near me](https://oklahomadentalclinics.com/dentist-for-anxiety-near-me.html): Guide for patients searching locally for a gentle dentist or anxiety-friendly dental office.
 - [Sedation dentist questions](https://oklahomadentalclinics.com/sedation-dentist-oklahoma.html): Questions about nitrous oxide, oral sedation, IV sedation, cost, safety, and transportation.
 - [Pediatric dental anxiety guide](https://oklahomadentalclinics.com/pediatric-dental-anxiety-oklahoma.html): Parent and caregiver guide for helping children with dental anxiety.
+
+## City pages
+
+- [Oklahoma City dental anxiety help](https://oklahomadentalclinics.com/oklahoma-city-dental-anxiety.html): Oklahoma City-area page for anxious patients comparing dental options.
+- [Tulsa dental anxiety help](https://oklahomadentalclinics.com/tulsa-dental-anxiety.html): Tulsa-area landing page for patients looking for anxiety-friendly dental care.
+- [Norman dental anxiety help](https://oklahomadentalclinics.com/norman-dental-anxiety.html): Norman-area guide for anxious patients preparing to call or schedule.
+- [Edmond dental anxiety help](https://oklahomadentalclinics.com/edmond-dental-anxiety.html): Edmond-area guide for anxious patients comparing comfort, insurance, and sedation questions.
 
 ## Site information
 
